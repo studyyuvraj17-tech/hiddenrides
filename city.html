@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Explore HiddenRides</title><meta name="description" content="Explore scenic rides and hidden gems with HiddenRides.">
+<style>
+:root{--bg:#080a0c;--panel:#12171a;--text:#f3f5f6;--muted:#98a1a9;--line:#252c32;--lime:#dfff32}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}.wrap{width:min(1100px,92%);margin:auto}header{height:78px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:23px;font-weight:950;letter-spacing:-1.5px}.logo b{color:var(--lime)}a{color:inherit;text-decoration:none}.back{color:#9da6ad;font-size:13px}.hero{padding:75px 0 45px}.eyebrow{color:var(--lime);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,72px);line-height:1;letter-spacing:-4px;margin:17px 0}.hero p{color:var(--muted);max-width:650px;font-size:16px;line-height:1.6}.search{display:flex;max-width:650px;background:#111519;border:1px solid #30383f;border-radius:15px;padding:6px;margin-top:25px}.search input{flex:1;background:transparent;border:0;outline:0;color:white;padding:13px;font-size:15px}.search button{border:0;background:var(--lime);border-radius:10px;padding:0 18px;font-weight:900;cursor:pointer}.notice{margin:28px 0;border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:22px;color:var(--muted);line-height:1.6;font-size:14px}.notice strong{color:#fff}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:25px 0 70px}.card{border:1px solid var(--line);border-radius:18px;padding:22px;background:linear-gradient(145deg,#151a1e,#0e1114);min-height:170px}.icon{font-size:27px}.card h3{margin:22px 0 7px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.tag{display:inline-block;margin-top:17px;border:1px solid var(--line);border-radius:999px;padding:5px 8px;color:#7f8991;font-size:10px}@media(max-width:700px){.grid{grid-template-columns:1fr}.search{flex-direction:column}.search button{height:48px}.hero h1{letter-spacing:-2.5px}}
+</style></head>
+<body><div class="wrap"><header><a class="logo" href="/">HIDDEN<b>RIDES</b></a><a class="back" href="/">← Back to home</a></header>
+<main><section class="hero"><div class="eyebrow">EXPLORE HIDDENRIDES</div><h1 id="title">Find your next ride.</h1><p id="subtitle">Tell us where you are starting from. HiddenRides will be your guide to scenic places, hidden roads and memorable stops.</p><form class="search" id="form"><input id="city" placeholder="Enter your city" required><button>Search →</button></form></section>
+<div class="notice"><strong>We're building the destination database.</strong><br>This page is the foundation for city-based discovery. Real ride listings, maps, distances, road details and photos will be added city by city.</div>
+<div class="grid">
+<div class="card"><div class="icon">🏔️</div><h3>Hidden mountain roads</h3><p>Scenic climbs and lesser-known roads.</p><span class="tag">COMING SOON</span></div>
+<div class="card"><div class="icon">🏞️</div><h3>Secret viewpoints</h3><p>Quiet places with a view worth riding for.</p><span class="tag">COMING SOON</span></div>
+<div class="card"><div class="icon">🌲</div><h3>Forest escapes</h3><p>Green roads and peaceful stretches.</p><span class="tag">COMING SOON</span></div>
+<div class="card"><div class="icon">💧</div><h3>Waterfalls</h3><p>Ride destinations beside hidden water.</p><span class="tag">COMING SOON</span></div>
+<div class="card"><div class="icon">🌅</div><h3>Sunrise & sunset</h3><p>Routes made for golden-hour views.</p><span class="tag">COMING SOON</span></div>
+<div class="card"><div class="icon">📸</div><h3>Photo-worthy places</h3><p>Beautiful stops you'll want to remember.</p><span class="tag">COMING SOON</span></div>
+</div></main></div>
+<script>
+const p=new URLSearchParams(location.search), city=p.get('city')||'', category=p.get('category')||'';
+const title=document.getElementById('title'), sub=document.getElementById('subtitle'), input=document.getElementById('city');
+if(city){title.textContent='Hidden rides near '+city+'.';input.value=city}
+if(category){title.textContent=category.replace(/-/g,' ')+' rides.'}
+document.getElementById('form').onsubmit=e=>{e.preventDefault();const c=input.value.trim();if(c) location.href='city.html?city='+encodeURIComponent(c)};
+</script></body></html>
