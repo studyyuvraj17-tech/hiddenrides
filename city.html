@@ -50,7 +50,7 @@ main,section,.wrap{background:#fff}
 footer,.footer,.sources{background:#fff!important}
 .manifesto,.card,.ride,.step,.point,.note,.box,.fact,.stat,.filter,.quick button,.search{background-color:#f7f7f5}
 </style>
-</head>
+<style id="legal-footer-style">.legal-footer{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:28px 0}.legal-footer>div{display:flex;flex-direction:column;gap:4px}.legal-footer nav{display:flex;flex-wrap:wrap;gap:14px}.legal-footer a{color:inherit;text-decoration:none;opacity:.72}.legal-footer a:hover{opacity:1;text-decoration:underline}.legal-footer small{width:100%;opacity:.55}</style></head>
 <body>
 <div class="wrap">
 <header><a class="logo" href="/">HIDDEN<b>RIDES</b></a><nav><a href="#rides">Rides</a><a href="#ideas">Ride ideas</a><a href="/">Change city</a></nav></header>
@@ -89,7 +89,7 @@ footer,.footer,.sources{background:#fff!important}
 
 <section class="section" id="ideas"><div class="sectionhead"><h2>Choose your kind of Jodhpur ride</h2><p>Different mood, different road.</p></div><div class="note"><strong>🏜️ Desert day:</strong> Osian &nbsp;•&nbsp; <strong>🌿 Nature:</strong> Guda/Bishnoi &nbsp;•&nbsp; <strong>🏘️ Rural:</strong> Khejarli &nbsp;•&nbsp; <strong>🌅 Evening:</strong> Kaylana / Mandore &nbsp;•&nbsp; <strong>🌾 Culture:</strong> Arna Jharna<br><br>*Distances are approximate and can vary by exact starting point and route. HiddenRides will eventually provide verified GPS routes, road conditions, timings, parking/fuel stops and seasonal notes for every listing.</div></section>
 </main>
-<footer><strong>HIDDENRIDES · JODHPUR</strong><span>Discover roads worth getting lost on.</span></footer>
+<footer class="footer legal-footer"><div><strong>HIDDENRIDES · JODHPUR</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer>
 </div>
 <script>
 const params=new URLSearchParams(location.search), incoming=params.get('city');if(incoming && ['bengaluru','bangalore'].includes(incoming.toLowerCase())){location.replace('bengaluru.html')}if(incoming && ['delhi','delhi ncr','new delhi'].includes(incoming.toLowerCase())){location.replace('delhi-ncr.html')}if(incoming && incoming.toLowerCase()==='jaipur'){location.replace('jaipur.html')}if(incoming && incoming.toLowerCase()==='mumbai'){location.replace('mumbai.html')}if(incoming && incoming.toLowerCase()==='pune'){location.replace('pune.html')}
