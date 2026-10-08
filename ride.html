@@ -36,7 +36,36 @@ main,section,.wrap{background:#fff}
 footer,.footer,.sources{background:#fff!important}
 .manifesto,.card,.ride,.step,.point,.note,.box,.fact,.stat,.filter,.quick button,.search{background-color:#f7f7f5}
 </style>
-<style id="legal-footer-style">.legal-footer{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:28px 0}.legal-footer>div{display:flex;flex-direction:column;gap:4px}.legal-footer nav{display:flex;flex-wrap:wrap;gap:14px}.legal-footer a{color:inherit;text-decoration:none;opacity:.72}.legal-footer a:hover{opacity:1;text-decoration:underline}.legal-footer small{width:100%;opacity:.55}</style><style id="legal-footer-style">.legal-footer{border-top:1px solid #e2e5e7;padding:28px 0 36px;color:#111315;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between}.legal-footer>div{display:flex;flex-direction:column;gap:4px}.legal-footer nav{display:flex;flex-wrap:wrap;gap:14px}.legal-footer nav a{color:#626b72;font-size:12px;text-decoration:none}.legal-footer nav a:hover{text-decoration:underline;color:#111315}.legal-footer small{width:100%;color:#7a8288}</style></head>
+<style id="legal-footer-style">.legal-footer{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:28px 0}.legal-footer>div{display:flex;flex-direction:column;gap:4px}.legal-footer nav{display:flex;flex-wrap:wrap;gap:14px}.legal-footer a{color:inherit;text-decoration:none;opacity:.72}.legal-footer a:hover{opacity:1;text-decoration:underline}.legal-footer small{width:100%;opacity:.55}</style><style id="legal-footer-style">.legal-footer{border-top:1px solid #e2e5e7;padding:28px 0 36px;color:#111315;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between}.legal-footer>div{display:flex;flex-direction:column;gap:4px}.legal-footer nav{display:flex;flex-wrap:wrap;gap:14px}.legal-footer nav a{color:#626b72;font-size:12px;text-decoration:none}.legal-footer nav a:hover{text-decoration:underline;color:#111315}.legal-footer small{width:100%;color:#7a8288}</style><style id="mobile-polish">
+html{overflow-x:hidden}
+img{max-width:100%}
+@media(max-width:620px){
+  html,body{width:100%;overflow-x:hidden}
+  .wrap{width:min(100% - 32px,1180px)}
+  header{height:64px}
+  .logo{font-size:21px}
+  .hero h1{max-width:100%;overflow-wrap:anywhere}
+  .section{padding-left:0;padding-right:0}
+  .filters{scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .filters::-webkit-scrollbar{display:none}
+  .filter{flex:0 0 auto;min-height:38px}
+  .grid{gap:12px}
+  .ride{min-width:0}
+  .ride:hover{transform:none}
+  .body{padding:17px}
+  .body h3{font-size:17px}
+  .body p{font-size:12px}
+  .meta span{font-size:9px}
+  .route{font-size:11px}
+  .footer{gap:18px}
+}
+@media(max-width:380px){
+  .wrap{width:calc(100% - 24px)}
+  .hero h1{font-size:40px}
+  .hero p{font-size:14px}
+  .body{padding:15px}
+}
+</style></head>
 <body><div class="wrap"><header><a class="logo" href="/">HIDDEN<b>RIDES</b></a><a class="back" id="backCity" href="city.html?city=Jodhpur">← Jodhpur rides</a></header>
 <main id="app"></main><div class="sources">HiddenRides is building each listing from publicly available tourism and destination information. Distances and route times are indicative until GPS routes are verified.</div></div>
 <script>
