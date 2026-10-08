@@ -1,0 +1,29 @@
+name: Add hero image
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  add-hero-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download and convert hero image
+        run: |
+          mkdir -p assets
+          curl -L --fail --retry 3 "https://cdn.shopify.com/s/files/1/0631/6297/4453/files/Image-1-Hero-Himalayan-450.webp?v=1773927339" -o /tmp/hero.webp
+          magick /tmp/hero.webp -strip -quality 90 assets/hero.jpg
+
+      - name: Commit hero image
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/hero.jpg
+          git rm .github/workflows/add-hero-image.yml
+          git diff --cached --quiet || git commit -m "Add Himalayan hero image"
+          git push
