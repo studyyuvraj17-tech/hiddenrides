@@ -92,7 +92,7 @@ footer,.footer,.sources{background:#fff!important}
 <footer><strong>HIDDENRIDES · JODHPUR</strong><span>Discover roads worth getting lost on.</span></footer>
 </div>
 <script>
-const params=new URLSearchParams(location.search), incoming=params.get('city');if(incoming && ['bengaluru','bangalore'].includes(incoming.toLowerCase())){location.replace('bengaluru.html')}if(incoming && ['delhi','delhi ncr','new delhi'].includes(incoming.toLowerCase())){location.replace('delhi-ncr.html')}if(incoming && incoming.toLowerCase()==='jaipur'){location.replace('jaipur.html')}
+const params=new URLSearchParams(location.search), incoming=params.get('city');if(incoming && ['bengaluru','bangalore'].includes(incoming.toLowerCase())){location.replace('bengaluru.html')}if(incoming && ['delhi','delhi ncr','new delhi'].includes(incoming.toLowerCase())){location.replace('delhi-ncr.html')}if(incoming && incoming.toLowerCase()==='jaipur'){location.replace('jaipur.html')}if(incoming && incoming.toLowerCase()==='mumbai'){location.replace('mumbai.html')}
 if(incoming && incoming.toLowerCase()!=='jodhpur'){document.getElementById('city').value=incoming}
 document.getElementById('search').onsubmit=e=>{e.preventDefault();const c=document.getElementById('city').value.trim();if(c.toLowerCase()==='jodhpur')return;location.href='city.html?city='+encodeURIComponent(c)};
 document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.ride').forEach(card=>card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none')});
