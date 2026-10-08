@@ -55,9 +55,21 @@ footer,.footer,.sources{background:#fff!important}
 <section class="section" id="ideas"><div class="sectionhead"><h2>Choose your Bengaluru ride</h2><p>Different mood, different road.</p></div><div class="note"><strong>🌄 Sunrise:</strong> Nandi Hills / Skandagiri &nbsp;•&nbsp; <strong>⛰️ Hills:</strong> Savandurga / Ramanagara &nbsp;•&nbsp; <strong>🌊 Water:</strong> Manchanabele / Hesaraghatta &nbsp;•&nbsp; <strong>🏰 Heritage:</strong> Devanahalli &nbsp;•&nbsp; <strong>🏞️ Full day:</strong> Sangama & Mekedatu<br><br>*Distances are approximate and vary by starting point and route. HiddenRides will add verified GPS routes, road conditions, parking/fuel stops and seasonal notes as each listing is checked.</div></section>
 </main><footer class="footer legal-footer"><div><strong>HIDDENRIDES · BENGALURU</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer></div>
 <script>
-document.getElementById('search').onsubmit=e=>{e.preventDefault();const c=document.getElementById('city').value.trim();if(c.toLowerCase()==='bengaluru'||c.toLowerCase()==='bangalore')return;location.href='city.html?city='+encodeURIComponent(c)};
-document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.ride').forEach(card=>card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none')});
-document.querySelectorAll('.ride[data-slug]').forEach(card=>{card.addEventListener('click',()=>location.href='ride.html?place='+encodeURIComponent(card.dataset.slug));card.style.cursor='pointer'});
+document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{
+  document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.filter;
+  document.querySelectorAll('.ride').forEach(card=>{
+    card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none';
+  });
+});
+document.querySelectorAll('.ride[data-slug]').forEach(card=>{
+  card.addEventListener('click',()=>location.href='ride.html?place='+encodeURIComponent(card.dataset.slug));
+  card.style.cursor='pointer';
+});
 const rideImages={"nandi-hills":"https://syedtoursandtravels.in/wp-content/uploads/2024/04/Nandi-Hills-Bangalore.webp","skandagiri":"https://media.assettype.com/deccanherald/2024-06/db7b4092-7d79-40f4-b691-5e422a17353e/Skandagiri.jpg?w=1200","savandurga":"https://outofoffice.in/images/articles/savandurga/full/savandurga-view-from-peak.jpg","manchanabele":"https://res.cloudinary.com/dyiffrkzh/image/upload/v1702903063/bbj/dzadkkoh3ptgui4mytp1.jpg","ramanagara":"https://media.assettype.com/deccanherald/import/sites/dh/files/article_images/2019/06/01/file75h16oq9l42uvpmnahc-1559331001.jpg?auto=format%2Ccompress%26enlarge=true%26fit=max%26h=675%26w=1200","hesaraghatta":"https://im.whatshot.in/img/2020/Nov/hesaraghatta-lake-1604489565.jpg","devanahalli":"https://upload.wikimedia.org/wikipedia/commons/4/4d/Outer_wall_view_of_Devanhalli_fort_%2C_Bangalore_03.jpg","mekedatu-sangama":"https://media.assettype.com/deccanherald/import/sites/dh/files/articleimages/2022/05/01/file7kosj1frcskwotcf20-1104688-1651346101.jpg?ar=40%3A21%26auto=format%2Ccompress%26mode=crop%26ogImage=true%26w=1200"};
-document.querySelectorAll(".ride[data-slug]").forEach(card=>{const u=rideImages[card.dataset.slug];if(u)card.querySelector(".visual").style.backgroundImage="linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.05)),url('"+u+"')"});
+document.querySelectorAll(".ride[data-slug]").forEach(card=>{
+  const u=rideImages[card.dataset.slug];
+  if(u)card.querySelector(".visual").style.backgroundImage="linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.05)),url('"+u+"')";
+});
 </script></body></html>
