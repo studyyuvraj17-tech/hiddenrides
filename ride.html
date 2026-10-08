@@ -3,7 +3,34 @@
 <title>HiddenRides — Ride</title><meta name="description" content="Explore a scenic ride with HiddenRides.">
 <style>
 :root{--bg:#080a0c;--panel:#111518;--text:#f4f6f7;--muted:#98a1aa;--line:#252c32;--lime:#dfff32;--max:1000px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}.wrap{width:min(var(--max),92%);margin:auto}header{height:78px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:23px;font-weight:950;letter-spacing:-1.5px}.logo b{color:var(--lime)}a{text-decoration:none;color:inherit}.back{color:#a1a9b0;font-size:13px}.hero{padding:65px 0 35px}.tag{color:var(--lime);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:clamp(43px,7vw,70px);line-height:.95;letter-spacing:-4px;margin:15px 0}.hero p{color:var(--muted);font-size:16px;line-height:1.7;max-width:720px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{border:1px solid var(--line);border-radius:11px;padding:12px 16px;font-size:12px;font-weight:800}.primary{background:var(--lime);color:#080a0b;border-color:var(--lime)}.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:35px 0}.fact{border:1px solid var(--line);background:var(--panel);border-radius:15px;padding:17px}.fact small{display:block;color:#69737b;font-size:9px;text-transform:uppercase;font-weight:800;margin-bottom:7px}.fact strong{font-size:13px}.content{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 0 60px}.box{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:23px}.box h2{font-size:18px;margin:0 0 12px}.box p,.box li{color:var(--muted);font-size:13px;line-height:1.65}.box ul{padding-left:18px}.note{border-left:2px solid var(--lime);padding-left:14px}.photo{height:320px;border-radius:20px;background-size:cover;background-position:center;margin:18px 0 5px;border:1px solid var(--line)}.photo-credit{font-size:9px;color:#68727a;margin-bottom:18px}.map{height:190px;border-radius:15px;background:linear-gradient(135deg,#17201a,#0e1311);display:flex;align-items:center;justify-content:center;font-size:48px;margin-top:15px}.sources{border-top:1px solid var(--line);padding:22px 0 40px;color:#68727a;font-size:10px;line-height:1.6}@media(max-width:700px){.facts{grid-template-columns:repeat(2,1fr)}.content{grid-template-columns:1fr}.hero h1{letter-spacing:-2.5px}}
-</style></head>
+</style><style id="white-theme">
+:root{--bg:#ffffff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
+body{background:#fff;color:#111315}
+header{color:#111315}
+nav{color:#5f676d}
+a{color:inherit}
+.hero h1,.section-head h2,.sectionhead h2,.manifesto h2,.body h3,.box h2{color:#111315}
+.hero h1 span{color:#737b82}
+.hero p,.body p,.box p,.box li,.section-head p,.sectionhead p{color:#626b72}
+.search{background:#f7f7f5;border-color:#d9dde0;box-shadow:0 18px 50px rgba(0,0,0,.08)}
+.search input{color:#111315}
+.search input::placeholder{color:#8a9298}
+.search button,.filter.active{background:var(--lime);color:#111315}
+.quick button,.stat,.filter,.card,.ride,.point,.step,.note,.box,.fact,.manifesto{background:#f7f7f5;border-color:#e2e5e7;color:#111315}
+.quick button,.stat,.filter{color:#626b72}
+.card:hover,.ride:hover{border-color:#bfc5c9}
+.manifesto{background:linear-gradient(135deg,#fafafa,#f3f4f1)}
+.point{background:#fff}
+.check,.route,.tag,.eyebrow{color:#719000}
+.dot{background:var(--lime);box-shadow:0 0 12px rgba(183,223,0,.4)}
+.footer,.sources{border-color:#e2e5e7;color:#7a8288}
+.visual{background-color:#dfe4e7}
+.map{background:linear-gradient(135deg,#edf3e8,#f7f7f5)}
+.photo{border-color:#e2e5e7}
+.badge{background:rgba(255,255,255,.88);border-color:#d6dadd;color:#202427}
+.meta span{border-color:#dfe3e5;color:#687178}
+</style>
+</head>
 <body><div class="wrap"><header><a class="logo" href="/">HIDDEN<b>RIDES</b></a><a class="back" id="backCity" href="city.html?city=Jodhpur">← Jodhpur rides</a></header>
 <main id="app"></main><div class="sources">HiddenRides is building each listing from publicly available tourism and destination information. Distances and route times are indicative until GPS routes are verified.</div></div>
 <script>
