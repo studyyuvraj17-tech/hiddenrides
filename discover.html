@@ -8,19 +8,37 @@
 :root{--bg:#080a0c;--panel:#111518;--panel2:#151a1e;--text:#f4f6f7;--muted:#98a1aa;--line:#252c32;--lime:#dfff32;--max:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(var(--max),92%);margin:auto}a{color:inherit;text-decoration:none}header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.logo{font-size:23px;font-weight:950;letter-spacing:-1.5px}.logo b{color:var(--lime)}nav{display:flex;gap:20px;font-size:13px;color:var(--muted)}nav a:hover{color:var(--lime)}.hero{padding:55px 0 30px}.eyebrow{color:var(--lime);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(36px,6vw,66px);line-height:.98;letter-spacing:-3px;margin:13px 0}.hero h1 em{font-style:normal;color:var(--lime)}.hero p{color:var(--muted);line-height:1.7;max-width:700px}.filter-panel{border:1px solid var(--line);background:linear-gradient(140deg,#13181c,#0e1114);padding:20px;border-radius:20px;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:12px;margin:24px 0}.field{display:grid;gap:7px}.field label{font-size:11px;color:#aeb6bd;font-weight:800}.field input,.field select{width:100%;min-width:0;background:#090c0e;color:var(--text);border:1px solid #303940;border-radius:10px;padding:12px;font:inherit;font-size:13px;outline-offset:3px}.field input:focus,.field select:focus{border-color:var(--lime)}.actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 24px}.btn{border:1px solid var(--line);background:#13181c;color:var(--text);border-radius:10px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer}.btn.primary{background:var(--lime);color:#080a0c;border-color:var(--lime)}.result-count{color:var(--muted);font-size:13px;margin-left:auto}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.ride-card{border:1px solid var(--line);background:var(--panel);border-radius:17px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .2s,transform .2s}.ride-card:hover{border-color:#55616a;transform:translateY(-2px)}.ride-card[hidden]{display:none!important}.card-main{display:flex;flex-direction:column;flex:1;padding:18px}.card-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.city{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--lime);font-weight:900}.badge{font-size:10px;text-transform:capitalize;color:#c2cad0;background:#20272c;border-radius:999px;padding:5px 8px}.ride-card h2{font-size:19px;line-height:1.2;letter-spacing:-.4px;margin:17px 0 8px}.ride-card p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 18px}.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;color:#d1d7db;font-size:11px}.route{color:#7f8a92;font-size:11px;line-height:1.5;margin-top:11px}.open-city{display:block;padding:12px 18px;border-top:1px solid var(--line);color:#c7d0d5;font-size:11px;font-weight:800}.open-city:hover{color:var(--lime)}.empty{border:1px dashed #46515a;border-radius:14px;padding:30px;text-align:center;color:var(--muted);grid-column:1/-1}.note{color:#7e8991;font-size:11px;line-height:1.6;margin:22px 0 50px}.legal-footer{border-top:1px solid var(--line);padding:25px 0 35px;color:var(--muted);font-size:12px}.legal-footer nav{margin:14px 0;flex-wrap:wrap}@media(max-width:900px){.filter-panel{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){header{height:auto;min-height:68px;gap:12px;flex-wrap:wrap;padding:14px 0}.logo{font-size:21px}nav{gap:13px;flex-wrap:wrap;font-size:12px}.hero{padding-top:38px}.hero h1{letter-spacing:-2px}.filter-panel{grid-template-columns:1fr;gap:14px;padding:15px}.grid{grid-template-columns:1fr}.result-count{width:100%;margin-left:0}.ride-card h2{font-size:20px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ride-card{transition:none}}
 </style><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Find Scenic Motorcycle Rides","url":"https://hiddenrides.com/discover.html","description":"Browse and filter scenic motorcycle rides and destination guides across Indian cities by distance, duration and experience.","isPartOf":{"@type":"WebSite","name":"HiddenRides","url":"https://hiddenrides.com/"}}</script>
 <style id="light-theme">
-:root{--bg:#ffffff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
+:root{--bg:#ffffff;--panel:#ffffff;--panel2:#f7f8f7;--text:#111315;--muted:#5f6870;--line:#e0e4e7;--lime:#b7df00}
 body{background:#fff;color:#111315}
-header{background:#fff}
-nav{color:#626b72}
-.eyebrow{color:#5e7600}
-.hero h1 em{color:#647d00}
-input,select{background:#fff!important;color:#111315!important;border-color:#d9dee1!important}
-input::placeholder{color:#7b8389}
-.filter-panel,.ride-card,.empty{background:#f7f7f5!important;border-color:#e2e5e7!important;color:#111315}
-.ride-card p,.ride-card .meta,.empty p{color:#626b72}
-.ride-card .tag,.ride-card .city{color:#5e7600}
-button,.btn{color:#111315}
-footer,.footer{color:#626b72}
+header{background:#fff;border-color:#e0e4e7}
+nav{color:#5f6870}
+nav a:hover{color:#526900}
+.logo b{color:#769100}
+.eyebrow{color:#627b00}
+.hero h1 em{color:#769100}
+.hero p{color:#5f6870}
+.filter-panel{background:#f7f8f7!important;border-color:#dfe4e7!important}
+.field label{color:#505a62!important}
+.field input,.field select{background:#fff!important;color:#111315!important;border-color:#d5dce0!important}
+.field input::placeholder{color:#737d85!important;opacity:1}
+.field input:focus,.field select:focus{border-color:#8cae00!important}
+.btn{background:#fff!important;color:#111315!important;border:1px solid #cfd6da!important}
+.btn.primary{background:#b7df00!important;color:#111315!important;border-color:#b7df00!important}
+.btn:hover{filter:brightness(.97)}
+.result-count{color:#5f6870!important}
+.ride-card{background:#fff!important;border-color:#dfe4e7!important;color:#111315!important;box-shadow:0 3px 12px rgba(15,25,30,.035)}
+.ride-card:hover{border-color:#a8b3b9!important;box-shadow:0 8px 22px rgba(15,25,30,.07)}
+.city{color:#607900!important}
+.badge{background:#edf0f1!important;color:#364047!important}
+.ride-card h2{color:#111315!important}
+.ride-card p{color:#59646c!important}
+.meta{color:#414c54!important}
+.route{color:#69757d!important}
+.open-city{color:#3e4b53!important;border-color:#e0e4e7!important}
+.open-city:hover{color:#607900!important}
+.empty{background:#fff!important;border-color:#cbd3d8!important;color:#59646c!important}
+.note,.legal-footer{color:#626d75!important}
+.legal-footer{border-color:#e0e4e7!important}
 @media(prefers-color-scheme:dark){body{background:#fff;color:#111315}}
 </style>
 </head><body><div class="wrap"><header><a class="logo" href="index.html" aria-label="HiddenRides home">HIDDEN<span>R</span><b>IDES</b></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="discover.html" aria-current="page">Find a ride</a><a href="jodhpur.html">Cities</a></nav></header>
