@@ -214,7 +214,7 @@ img{max-width:100%}
 <p>Hidden mountain roads, quiet viewpoints, waterfalls, forests, coastal roads and little places most people drive past.</p>
 <form class="search" id="search"><input id="city" placeholder="Enter your city — Jodhpur, Jaipur, Delhi NCR..." autocomplete="off" required><button type="submit">Explore rides →</button></form>
 <div class="hint">Start with a city. We'll show you the rides worth taking.</div>
-<div class="quick"><button type="button" data-city="Jodhpur">Jodhpur</button><button type="button" data-city="Bengaluru">Bengaluru</button><button type="button" data-city="Delhi NCR">Delhi NCR</button><button type="button" data-city="Jaipur">Jaipur</button><button type="button" data-city="Mumbai">Mumbai</button><button type="button" data-city="Pune">Pune</button><button type="button" data-city="Hyderabad">Hyderabad</button></div>
+<div class="quick"><button type="button" data-city="Jodhpur">Jodhpur</button><button type="button" data-city="Bengaluru">Bengaluru</button><button type="button" data-city="Delhi NCR">Delhi NCR</button><button type="button" data-city="Jaipur">Jaipur</button><button type="button" data-city="Mumbai">Mumbai</button><button type="button" data-city="Pune">Pune</button><button type="button" data-city="Hyderabad">Hyderabad</button><button type="button" data-city="Kolkata">Kolkata</button></div>
 </div>
 <div class="hero-kinds" aria-label="Explore by experience">
 <a href="#experience-mountain">Mountain roads</a>
@@ -250,7 +250,7 @@ img{max-width:100%}
 <script>
 const input=document.getElementById('city');
 document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>{input.value=b.dataset.city;input.focus()});
-document.getElementById('search').onsubmit=e=>{e.preventDefault();const city=input.value.trim();if(city){const known={'hyderabad':'hyderabad.html','hyderabad, telangana':'hyderabad.html','jodhpur':'jodhpur.html','mumbai':'mumbai.html','pune':'pune.html','jaipur':'jaipur.html','bengaluru':'bengaluru.html','bangalore':'bengaluru.html','delhi':'delhi-ncr.html','delhi ncr':'delhi-ncr.html'};location.href=known[city.toLowerCase()]||'city.html?city='+encodeURIComponent(city)}};
+document.getElementById('search').onsubmit=e=>{e.preventDefault();const city=input.value.trim();if(city){const known={'hyderabad':'hyderabad.html','hyderabad, telangana':'hyderabad.html','kolkata':'kolkata.html','kolkata, west bengal':'kolkata.html','jodhpur':'jodhpur.html','mumbai':'mumbai.html','pune':'pune.html','jaipur':'jaipur.html','bengaluru':'bengaluru.html','bangalore':'bengaluru.html','delhi':'delhi-ncr.html','delhi ncr':'delhi-ncr.html'};location.href=known[city.toLowerCase()]||'city.html?city='+encodeURIComponent(city)}};
 </script>
 </body>
 </html>
