@@ -73,7 +73,6 @@ img{max-width:100%}
 document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.ride').forEach(card=>card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none')});
 
 const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(name)+"?width=1200";
-const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(name)+"?width=1200";
 const rideImages={
   "adalaj-stepwell":commonsFile("Adalaj Stepwell.jpg"),
   "thol-lake":commonsFile("Thol Lake Bird Sanctuary.jpg"),
