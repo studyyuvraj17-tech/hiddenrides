@@ -65,5 +65,15 @@ img{max-width:100%}
 <script>
 document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.ride').forEach(card=>card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none')});
 
-const rideImages={"damdama-lake":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Damdama_Lake.jpg&width=1200","sultanpur":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Sultanpur_Bird_Sanctuary.jpg&width=1200","sohna":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Sohna_Lake.jpg&width=1200","neemrana":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Neemrana_Fort.jpg&width=1200","asola-bhatti":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Asola_Bhatti_Wildlife_Sanctuary.jpg&width=1200","damdama-sohna-loop":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Damdama_Lake.jpg&width=1200","deva":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Aravalli_Hills.jpg&width=1200","morni-hills":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Morni_Hills.jpg&width=1200"};
-document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.style.display="none"};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
+const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(name)+"?width=1200";
+const rideImages={
+  "damdama-lake":commonsFile("Sunrise at Damdama lake.jpg"),
+  "sultanpur":commonsFile("Sultanpur Bird Sanctuary, Haryana..JPG"),
+  "sohna":commonsFile("Sunrise at Damdama lake.jpg"),
+  "neemrana":commonsFile("Neemrana fort.jpg"),
+  "asola-bhatti":commonsFile("Asolla bhatti wildlife sanctuary!.jpg"),
+  "damdama-sohna-loop":commonsFile("Sunrise at Damdama lake.jpg"),
+  "deva":commonsFile("Asolla bhatti wildlife sanctuary!.jpg"),
+  "morni-hills":commonsFile("Morni Hills and Tikkar Taal, Haryana, India - 1.jpeg")
+};
+document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.style.display="none";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
