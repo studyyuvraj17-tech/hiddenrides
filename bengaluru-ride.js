@@ -159,6 +159,26 @@
     '<div class="blr-warning"><strong>Before you leave</strong><p>Opening hours, trekking permits, forest and reservoir access, road conditions and river safety can change. Confirm current local or official instructions before riding. HiddenRides does not represent these estimates as live-verified conditions.</p></div>' +
     '<div class="blr-bottom-nav"><a href="bengaluru.html">← All Bengaluru rides</a><a href="ride.html?place=' + esc(key) + '">Refresh this guide ↗</a></div></div>';
   app.querySelectorAll(".blr-photo img,.blr-hero img").forEach(img => {
-    img.addEventListener("error", function(){ if(this.closest(".blr-photo")) this.closest(".blr-photo").classList.add("is-failed"); else { this.style.display="none"; const hero=this.closest(".blr-hero"); if(hero) hero.style.background="linear-gradient(135deg,#25382b,#101810)"; } }, {once:true});
+    img.addEventListener("error", function(){
+      if(this.closest(".blr-photo")){
+        const figure=this.closest(".blr-photo");
+        this.style.display="none";
+        figure.classList.add("is-failed");
+        let fallback=figure.querySelector(".blr-photo-fallback");
+        if(!fallback){
+          fallback=document.createElement("div");
+          fallback.className="blr-photo-fallback";
+          fallback.setAttribute("role","img");
+          fallback.setAttribute("aria-label",this.alt||guide.title+" destination");
+          fallback.textContent=guide.title;
+          fallback.style.cssText="display:grid;place-items:center;min-height:220px;padding:24px;text-align:center;font-size:clamp(18px,3vw,28px);font-weight:850;letter-spacing:-.03em;color:#f8fbf5;background:linear-gradient(135deg,#263b2c,#6c8058 55%,#d2d8c4);";
+          this.insertAdjacentElement("afterend",fallback);
+        }
+      } else {
+        this.style.display="none";
+        const hero=this.closest(".blr-hero");
+        if(hero) hero.style.background="linear-gradient(135deg,#25382b,#101810)";
+      }
+    }, {once:true});
   });
 })();
