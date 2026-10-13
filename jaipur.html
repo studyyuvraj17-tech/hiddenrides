@@ -74,11 +74,11 @@ const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"
 const rideImages={
   "nahargarh":commonsFile("Nahargarh Fort - Jaipur - India.jpg"),
   "amer-jaigarh":commonsFile("The royal ride.jpg"),
-  "jamwa-ramgarh":commonsFile("Jal Mahal,Jaipur.jpg"),
-  "sambhar-lake":commonsFile("Jal Mahal at Jaipur Rajasthan.jpg"),
-  "achrol":commonsFile("View of Jaipur city from nahargarh fort.jpg"),
-  "bagru":commonsFile("Jaipur-Hawa-Mahal.jpg"),
-  "galta":commonsFile("Amber fort ,Jaipur.jpg"),
-  "samode":commonsFile("Jal mahal jaipur rajasthan.jpg")
+  "jamwa-ramgarh":"",
+  "sambhar-lake":commonsFile("Lake Sambhar.jpg"),
+  "achrol":"",
+  "bagru":commonsFile("Woman doing Block Printing at Bagru village, Jaipur, India.jpg"),
+  "galta":commonsFile("Galta ji temple.jpg"),
+  "samode":commonsFile("Samode Palace Jaipur.jpg")
 };
 document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.style.display="none";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
