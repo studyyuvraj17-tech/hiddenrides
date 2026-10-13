@@ -145,8 +145,8 @@ document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{
   document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));
   btn.classList.add('active');
   const f=btn.dataset.filter;
-  document.querySelectorAll('.ride').forEach(card=>{
-    card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none';
+  document.querySelectorAll('.grid > .ride[data-type]').forEach(card=>{
+    card.style.display=f==='all'||(card.dataset.type||'').includes(f)?'block':'none';
   });
 });
 const rideImages={"yg-gudda-dam":"https://static.langimg.com/vk/thumb/121267828/bengaluru-3-young-women-died-drown-in-yg-gudda-reservoir-near-magadi-four-rescued.jpg?imgsize=88702&width=1600&height=900&resizemode=75","nandi-hills":"https://commons.wikimedia.org/wiki/Special:FilePath/Nandi_Hills,_Bengaluru.jpg?width=1200","skandagiri":"https://commons.wikimedia.org/wiki/Special:FilePath/Skandagiri_Hills.jpg?width=1200","savandurga":"https://commons.wikimedia.org/wiki/Special:FilePath/Savandurga_IMG_6438_(2).jpg?width=1200","manchanabele":"https://commons.wikimedia.org/wiki/Special:FilePath/Manchanbele_Dam_01.jpg?width=1200","ramanagara":"https://commons.wikimedia.org/wiki/Special:FilePath/Ramanagara_Hills_(10306067976).jpg?width=1200","hesaraghatta":"https://commons.wikimedia.org/wiki/Special:FilePath/Hessarghatta_Lake_(50935033881).jpg?width=1200","devanahalli":"https://commons.wikimedia.org/wiki/Special:FilePath/Devanahalli_Fort.jpg?width=1200","mekedatu-sangama":"https://commons.wikimedia.org/wiki/Special:FilePath/Kaveri_in_mekedatu.jpg?width=1200"};
