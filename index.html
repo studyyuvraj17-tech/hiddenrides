@@ -211,6 +211,16 @@ img{max-width:100%}
   gtag('config', 'G-PKB64MHPTG');
 </script>
 <script src="/assets/mobile-ready.js" defer></script>
+<style id="city-autocomplete">
+.search{position:relative;z-index:20}
+.city-suggestions{position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:50;max-height:320px;overflow:auto;background:#fff;border:1px solid #d9dde0;border-radius:14px;box-shadow:0 18px 44px rgba(0,0,0,.18);padding:6px}
+.city-suggestions[hidden]{display:none}
+.city-suggestion{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:12px;width:100%;padding:13px 14px;border:0;border-radius:9px;background:#fff;color:#111315;text-align:left;cursor:pointer;font:inherit}
+.city-suggestion:hover,.city-suggestion:focus-visible{background:#f1f4e8;outline:2px solid #b7df00;outline-offset:-2px}
+.city-suggestion span:first-child{font-weight:800}
+.city-suggestion small{color:#687178;font-size:11px}
+@media(max-width:620px){.city-suggestions{max-height:260px}.city-suggestion{padding:12px}}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -221,7 +231,7 @@ img{max-width:100%}
 
 <h1>Discover places <em>worth riding to.</em></h1>
 <p>Hidden mountain roads, quiet viewpoints, waterfalls, forests, coastal roads and little places most people drive past.</p>
-<form class="search" id="search"><input id="city" placeholder="Enter your city — Jodhpur, Jaipur, Delhi NCR..." autocomplete="off" required><button type="submit">Explore rides →</button></form>
+<form class="search" id="search" autocomplete="off"><input id="city" placeholder="Enter your city — Jodhpur, Jaipur, Delhi NCR..." autocomplete="off" aria-autocomplete="list" aria-controls="citySuggestions" aria-expanded="false" required><button type="submit">Explore rides →</button><div id="citySuggestions" class="city-suggestions" role="listbox" aria-label="Available cities" hidden></div></form>
 <div class="hint">Start with a city. We'll show you the rides worth taking.</div>
 <div class="quick"><button type="button" data-city="Jodhpur">Jodhpur</button><button type="button" data-city="Bengaluru">Bengaluru</button><button type="button" data-city="Delhi NCR">Delhi NCR</button><button type="button" data-city="Jaipur">Jaipur</button><button type="button" data-city="Mumbai">Mumbai</button><button type="button" data-city="Pune">Pune</button><button type="button" data-city="Hyderabad">Hyderabad</button><button type="button" data-city="Kolkata">Kolkata</button><button type="button" data-city="Ahmedabad">Ahmedabad</button></div>
 </div>
@@ -258,8 +268,53 @@ img{max-width:100%}
 </div>
 <script>
 const input=document.getElementById('city');
-document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>{input.value=b.dataset.city;input.focus()});
-document.getElementById('search').onsubmit=e=>{e.preventDefault();const city=input.value.trim();if(city){const known={'hyderabad':'hyderabad.html','hyderabad, telangana':'hyderabad.html','kolkata':'kolkata.html','kolkata, west bengal':'kolkata.html','ahmedabad':'ahmedabad.html','ahmedabad, gujarat':'ahmedabad.html','amdavad':'ahmedabad.html','jodhpur':'jodhpur.html','mumbai':'mumbai.html','pune':'pune.html','jaipur':'jaipur.html','bengaluru':'bengaluru.html','bangalore':'bengaluru.html','delhi':'delhi-ncr.html','delhi ncr':'delhi-ncr.html'};location.href=known[city.toLowerCase()]||'city.html?city='+encodeURIComponent(city)}};
+const searchForm=document.getElementById('search');
+const suggestions=document.getElementById('citySuggestions');
+const availableCities=[
+ {name:'Ahmedabad',aliases:['ahmedabad','ahmedabad gujarat','amdavad'],url:'ahmedabad.html'},
+ {name:'Bengaluru',aliases:['bengaluru','bangalore'],url:'bengaluru.html'},
+ {name:'Delhi NCR',aliases:['delhi','delhi ncr','new delhi','gurugram','gurgaon','noida'],url:'delhi-ncr.html'},
+ {name:'Hyderabad',aliases:['hyderabad','hyderabad telangana'],url:'hyderabad.html'},
+ {name:'Jaipur',aliases:['jaipur'],url:'jaipur.html'},
+ {name:'Jodhpur',aliases:['jodhpur'],url:'jodhpur.html'},
+ {name:'Kolkata',aliases:['kolkata','calcutta'],url:'kolkata.html'},
+ {name:'Mumbai',aliases:['mumbai','bombay'],url:'mumbai.html'},
+ {name:'Pune',aliases:['pune'],url:'pune.html'}
+];
+const normalizeCity=value=>value.toLowerCase().trim().replace(/[,]+/g,' ').replace(/\\s+/g,' ');
+function matchesFor(value){
+ const q=normalizeCity(value);
+ if(!q)return [];
+ return availableCities.filter(city=>city.name.toLowerCase().includes(q)||city.aliases.some(alias=>alias.includes(q)||q.includes(alias)));
+}
+function hideSuggestions(){suggestions.hidden=true;suggestions.replaceChildren();input.setAttribute('aria-expanded','false')}
+function showSuggestions(matches){
+ suggestions.replaceChildren();
+ if(!matches.length){hideSuggestions();return}
+ matches.forEach(city=>{
+  const option=document.createElement('button');
+  option.type='button';option.className='city-suggestion';option.setAttribute('role','option');
+  option.innerHTML='<span>'+city.name+'</span><small>Available city</small><span aria-hidden="true">↗</span>';
+  option.addEventListener('click',()=>{input.value=city.name;hideSuggestions();location.href=city.url});
+  suggestions.appendChild(option);
+ });
+ suggestions.hidden=false;input.setAttribute('aria-expanded','true');
+}
+input.addEventListener('input',()=>showSuggestions(matchesFor(input.value).slice(0,7)));
+input.addEventListener('focus',()=>{if(input.value.trim())showSuggestions(matchesFor(input.value).slice(0,7))});
+document.addEventListener('click',event=>{if(!searchForm.contains(event.target))hideSuggestions()});
+document.querySelectorAll('[data-city]').forEach(button=>button.addEventListener('click',()=>{input.value=button.dataset.city;input.focus();showSuggestions(matchesFor(input.value))}));
+searchForm.addEventListener('submit',event=>{
+ event.preventDefault();
+ const value=input.value.trim();
+ if(!value)return;
+ const q=normalizeCity(value);
+ const exact=availableCities.find(city=>city.name.toLowerCase()===q||city.aliases.some(alias=>alias===q));
+ if(exact){location.href=exact.url;return}
+ const matches=matchesFor(value);
+ if(matches.length){showSuggestions(matches.slice(0,7));suggestions.querySelector('button')?.focus();return}
+ location.href='city.html?city='+encodeURIComponent(value);
+});
 </script>
 </body>
 </html>
