@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://hiddenrides.com/discover.html</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://hiddenrides.com/</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://hiddenrides.com/discover.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/</loc><lastmod>2026-10-14</lastmod></url>
   <url><loc>https://hiddenrides.com/bengaluru.html</loc><lastmod>2026-10-13</lastmod></url>
   <url><loc>https://hiddenrides.com/delhi-ncr.html</loc><lastmod>2026-10-13</lastmod></url>
   <url><loc>https://hiddenrides.com/jaipur.html</loc><lastmod>2026-10-13</lastmod></url>
@@ -155,4 +155,11 @@
   <url><loc>https://hiddenrides.com/rides/kaylana.html</loc></url>
   <url><loc>https://hiddenrides.com/rides/khejarli.html</loc></url>
   <url><loc>https://hiddenrides.com/rides/osian.html</loc></url>
+  <url><loc>https://hiddenrides.com/chennai.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/experience.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/about.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/contact.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/disclaimer.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/privacy.html</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://hiddenrides.com/terms.html</loc><lastmod>2026-10-14</lastmod></url>
 </urlset>
