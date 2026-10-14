@@ -76,12 +76,12 @@ const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"
 const rideImages={
   "damdama-lake":commonsFile("Sunrise at Damdama lake.jpg"),
   "sultanpur":commonsFile("Sultanpur Bird Sanctuary, Haryana..JPG"),
-  "sohna":commonsFile("Aravalli Hills near Gurgaon.jpg"),
+  "sohna":commonsFile("Sunrise at Damdama lake.jpg"),
   "neemrana":commonsFile("Neemrana fort.jpg"),
-  "asola-bhatti":commonsFile("Asolla bhatti wildlife sanctuary!.jpg"),
+  "asola-bhatti":commonsFile("A side trail climbing down towards the lake (19898618251).jpg"),
   "damdama-sohna-loop":commonsFile("Sunrise at Damdama lake.jpg"),
-  "deva":commonsFile("Asolla bhatti wildlife sanctuary!.jpg"),
-  "morni-hills":commonsFile("Morni Hills and Tikkar Taal, Haryana, India - 1.jpeg"),
+  "deva":commonsFile("A side trail climbing down towards the lake (19898618251).jpg"),
+  "morni-hills":commonsFile("Morni Hills.jpg"),
   "surajkund":commonsFile("Surajkund Mela Faridabad.jpg"),
   "murthal":commonsFile("Murthal dhaba Haryana.jpg"),
   "garhmukteshwar":commonsFile("Garhmukteshwar Ganga Ghat.jpg"),
@@ -89,4 +89,4 @@ const rideImages={
   "okhla-bird-sanctuary":commonsFile("Okhla Bird Sanctuary Delhi.jpg"),
   "manesar":commonsFile("Manesar Haryana countryside.jpg")
 };
-document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.style.display="none";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
+document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.src="https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_at_Damdama_lake.jpg?width=1200";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
