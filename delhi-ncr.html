@@ -74,19 +74,19 @@ document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.quer
 
 const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(name)+"?width=1200";
 const rideImages={
-  "damdama-lake":commonsFile("Sunrise at Damdama lake.jpg"),
-  "sultanpur":commonsFile("Sultanpur Bird Sanctuary, Haryana..JPG"),
-  "sohna":commonsFile("Sunrise at Damdama lake.jpg"),
-  "neemrana":commonsFile("Neemrana fort.jpg"),
-  "asola-bhatti":commonsFile("A side trail climbing down towards the lake (19898618251).jpg"),
-  "damdama-sohna-loop":commonsFile("Sunrise at Damdama lake.jpg"),
-  "deva":commonsFile("A side trail climbing down towards the lake (19898618251).jpg"),
-  "morni-hills":commonsFile("Morni Hills.jpg"),
-  "surajkund":commonsFile("Surajkund Mela Faridabad.jpg"),
-  "murthal":commonsFile("Murthal dhaba Haryana.jpg"),
-  "garhmukteshwar":commonsFile("Garhmukteshwar Ganga Ghat.jpg"),
-  "kuchesar":commonsFile("Kuchesar Mud Fort Uttar Pradesh.jpg"),
-  "okhla-bird-sanctuary":commonsFile("Okhla Bird Sanctuary Delhi.jpg"),
-  "manesar":commonsFile("Manesar Haryana countryside.jpg")
+  "damdama-lake":"https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80",
+  "sultanpur":"https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&q=80",
+  "sohna":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+  "neemrana":"https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+  "asola-bhatti":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+  "damdama-sohna-loop":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+  "deva":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+  "morni-hills":"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
+  "surajkund":"https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+  "murthal":"https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
+  "garhmukteshwar":"https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1200&q=80",
+  "kuchesar":"https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=80",
+  "okhla-bird-sanctuary":"https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=1200&q=80",
+  "manesar":"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
 };
-document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.src="https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_at_Damdama_lake.jpg?width=1200";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
+document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.remove();};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script></body></html>
