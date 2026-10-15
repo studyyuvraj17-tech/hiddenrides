@@ -300,5 +300,15 @@ if(d.image){
   pc.textContent='Destination photo coming soon — use the Google Maps link for current imagery.';
 }
 </script>
-<script src="bengaluru-ride.js?v=20261016" defer></script>
+<script>
+(function(){
+  const enhancedGuideSlugs=new Set(["sukhna-lake","morni-hills-chandigarh","pinjore-gardens","nada-sahib","siswan-dam","timber-trail","kasauli","barog","chikballapur","shivagange","channapatna","chunchi-falls","anthargange","makalidurga","avani","kotilingeshwara","thottikallu","kokkare-bellur","shivanasamudra","talakadu","mysuru","lepakshi","wayanad","coorg","ooty"]);
+  const key=new URLSearchParams(window.location.search).get("place")||"";
+  if(!enhancedGuideSlugs.has(key))return;
+  const script=document.createElement("script");
+  script.src="/bengaluru-ride.js?v=20261016";
+  script.async=false;
+  document.head.appendChild(script);
+})();
+</script>
 <footer class="legal-footer"><div><strong>HIDDENRIDES</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer></body></html>
