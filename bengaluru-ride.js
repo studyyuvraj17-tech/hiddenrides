@@ -585,7 +585,7 @@
   const meta = document.querySelector('meta[name="description"]');
   if (meta) meta.content = guide.sub + " Route, ride plan, photos and safety notes from HiddenRides.";
   const canonical = document.querySelector('link[rel="canonical"]');
-  if (canonical) canonical.href = "https://hiddenrides.com/ride.html?place=" + key;
+  if (canonical) canonical.href = "https://hiddenrides.com/ride?place=" + encodeURIComponent(key);
   const css = document.createElement("style");
   css.id = "bengaluru-adventure-guide-styles";
   css.textContent = `
