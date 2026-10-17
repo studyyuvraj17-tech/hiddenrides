@@ -109,6 +109,10 @@
       toggle.setAttribute("aria-expanded", String(opening));
       toggle.setAttribute("aria-label", opening ? "Close site menu" : "Open site menu");
       toggle.querySelector(".menu-label").textContent = opening ? "Close" : "Menu";
+      if (opening) {
+        const firstLink = nav.querySelector("a[href]");
+        if (firstLink) firstLink.focus();
+      }
     });
     nav.addEventListener("click", event => {
       if (event.target.closest("a")) close();
