@@ -53,7 +53,7 @@
     "map": "Sukhna Lake, Chandigarh, India",
     "nearby": "Rock Garden, Garden of Silence and other Chandigarh visitor attractions. Check opening hours before adding stops.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -114,7 +114,7 @@
     "map": "Morni Hills, Panchkula district, Haryana, India",
     "nearby": "Tikkar Taal and Morni village. Confirm local facilities and access before adding stops.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -171,7 +171,7 @@
     "map": "Yadavindra Gardens, Pinjore, Haryana, India",
     "nearby": "Kalka and the Parwanoo foothills. Check separate visitor hours and parking for each stop.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -228,7 +228,7 @@
     "map": "Gurdwara Nada Sahib, Panchkula, Haryana, India",
     "nearby": "Panchkula’s public attractions and food stops. Be mindful of services and congregation times.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -285,7 +285,7 @@
     "map": "Siswan Dam, Punjab, India",
     "nearby": "New Chandigarh and local public-road stops. Confirm which viewpoints are open before planning a detour.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -342,7 +342,7 @@
     "map": "Timber Trail, Parwanoo, Himachal Pradesh, India",
     "nearby": "Kalka and Parwanoo town. Verify that the attraction is open before treating it as a stop.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -399,7 +399,7 @@
     "map": "Kasauli, Solan district, Himachal Pradesh, India",
     "nearby": "Dharampur and the Kalka–Shimla corridor. Check access and parking for each stop.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -456,7 +456,7 @@
     "map": "Barog, Solan district, Himachal Pradesh, India",
     "nearby": "Dharampur, Kasauli turnoffs and the Kalka–Shimla corridor. Check daylight and access before adding stops.",
     "origin": "Chandigarh, India",
-    "cityUrl": "chandigarh.html",
+    "cityUrl": "chandigarh",
     "cityLabel": "Chandigarh rides",
     "cityName": "Chandigarh",
     "moreLabel": "Explore all Chandigarh rides"
@@ -609,15 +609,15 @@
     @media(max-width:380px){.blr-hero{min-height:400px}.blr-stats{grid-template-columns:1fr 1fr}.blr-stat strong{font-size:12px}.blr-gallery{grid-template-columns:1fr}.blr-photo:first-child{grid-column:auto}.blr-photo img,.blr-photo:first-child img{height:210px;min-height:0}.blr-map-wrap iframe{height:260px}}
   `;
   document.head.appendChild(css);
-  app.innerHTML = '<div class="blr-page"><div class="blr-crumb"><a href="/">Home</a><span>›</span><a href="' + esc(guide.cityUrl || "bengaluru.html") + '">' + esc(guide.cityLabel || "Bengaluru rides") + '</a><span>›</span><span>' + esc(guide.title) + '</span></div>' +
+  app.innerHTML = '<div class="blr-page"><div class="blr-crumb"><a href="/">Home</a><span>›</span><a href="' + esc(guide.cityUrl || "bengaluru") + '">' + esc(guide.cityLabel || "Bengaluru rides") + '</a><span>›</span><span>' + esc(guide.title) + '</span></div>' +
     '<section class="blr-hero"><img src="' + esc(guide.photos[0][0]) + '" alt="' + esc(guide.title + " landscape") + '" fetchpriority="high"><div class="blr-hero-copy"><div class="blr-kicker">HiddenRides field guide · ' + esc(guide.cityName || "Bengaluru") + '</div><h1>' + esc(guide.title) + '</h1><p>' + esc(guide.sub) + '</p><div class="blr-actions"><a class="blr-btn" href="' + esc(directions) + '" target="_blank" rel="noopener">Get directions ↗</a><a class="blr-btn alt" href="#blr-route">Explore route & map ↓</a></div></div></section>' +
     '<section class="blr-stats" aria-label="Ride details"><div class="blr-stat"><small>Distance</small><strong>' + esc(guide.distance) + '</strong></div><div class="blr-stat"><small>Time needed</small><strong>' + esc(guide.duration) + '</strong></div><div class="blr-stat"><small>Best conditions</small><strong>' + esc(guide.best) + '</strong></div><div class="blr-stat"><small>Ride type</small><strong>' + esc(guide.effort) + '</strong></div></section>' +
     '<section class="blr-section"><div class="blr-section-head"><div><h2>The landscape</h2><p>Photos and views from the destination. Select “Photo & licence” to view each original Commons file and its reuse terms.</p></div></div><div class="blr-gallery">' + images + '</div></section>' +
     '<section class="blr-section blr-two-col"><article class="blr-panel"><h2>Why make this ride?</h2><p>' + esc(guide.intro) + '</p><h3>What to look forward to</h3><ul class="blr-bullets">' + highlights + '</ul></article><article class="blr-panel"><h2>Route at a glance</h2><p>' + esc(guide.route) + '</p><ul class="blr-bullets"><li>Distances are approximate one-way estimates from the selected city and vary by starting point and exact route.</li><li>Use navigation for current traffic and road closures; this guide is not live routing.</li><li>Fuel, food and mobile signal may be less predictable outside the city.</li></ul></article></section>' +
     '<section class="blr-section" id="blr-route"><div class="blr-section-head"><div><h2>Plan the ride</h2><p>A practical sequence to help you plan the day without treating estimates as guaranteed timings.</p></div></div><div class="blr-two-col"><article class="blr-panel"><ol class="blr-timeline">' + itinerary + '</ol></article><div class="blr-panel"><h2>Map & navigation</h2><p>Use the embedded map for location context, then open Google Maps for current directions from the selected city.</p><div class="blr-map-wrap"><iframe title="Map of ' + esc(guide.title) + '" src="https://www.google.com/maps?q=' + mapsQuery + '&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><div class="blr-map-foot"><p>Map preview · check live navigation before departure.</p><a class="blr-btn" href="' + esc(directions) + '" target="_blank" rel="noopener">Open directions ↗</a></div></div></div></div></section>' +
-    '<section class="blr-section blr-two-col"><article class="blr-panel"><h2>Nearby ideas</h2><p>' + esc(guide.nearby) + '</p><p>Keep extra stops optional: traffic, weather, access restrictions and daylight should decide the final plan.</p><a class="blr-btn" href="' + esc(guide.cityUrl || "bengaluru.html") + '">' + esc(guide.moreLabel || "Explore all Bengaluru rides") + '</a></article><article class="blr-panel"><h2>Safety & access notes</h2><ul class="blr-bullets">' + cautions + '<li>Wear a certified helmet and protective gear; check tyres, brakes, fuel and weather before departure.</li><li>Do not ride tired, speed through villages, litter or enter closed/private areas.</li></ul></article></section>' +
+    '<section class="blr-section blr-two-col"><article class="blr-panel"><h2>Nearby ideas</h2><p>' + esc(guide.nearby) + '</p><p>Keep extra stops optional: traffic, weather, access restrictions and daylight should decide the final plan.</p><a class="blr-btn" href="' + esc(guide.cityUrl || "bengaluru") + '">' + esc(guide.moreLabel || "Explore all Bengaluru rides") + '</a></article><article class="blr-panel"><h2>Safety & access notes</h2><ul class="blr-bullets">' + cautions + '<li>Wear a certified helmet and protective gear; check tyres, brakes, fuel and weather before departure.</li><li>Do not ride tired, speed through villages, litter or enter closed/private areas.</li></ul></article></section>' +
     '<div class="blr-warning"><strong>Before you leave</strong><p>Opening hours, trekking permits, forest and reservoir access, road conditions and river safety can change. Confirm current local or official instructions before riding. HiddenRides does not represent these estimates as live-verified conditions.</p></div>' +
-    '<div class="blr-bottom-nav"><a href="' + esc(guide.cityUrl || "bengaluru.html") + '">← ' + esc(guide.cityLabel || "All Bengaluru rides") + '</a><a href="ride.html?place=' + esc(key) + '">Refresh this guide ↗</a></div></div>';
+    '<div class="blr-bottom-nav"><a href="' + esc(guide.cityUrl || "bengaluru") + '">← ' + esc(guide.cityLabel || "All Bengaluru rides") + '</a><a href="ride?place=' + esc(key) + '">Refresh this guide ↗</a></div></div>';
   app.querySelectorAll(".blr-photo img,.blr-hero img").forEach(img => {
     img.addEventListener("error", function(){
       if(this.closest(".blr-photo")){
