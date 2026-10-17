@@ -233,11 +233,11 @@ header nav a{white-space:nowrap;flex-shrink:0}
 @media(max-width:620px){
   header{height:64px;gap:10px;padding-left:0;padding-right:0}
   header nav{display:flex;align-items:center;justify-content:flex-end;gap:0;margin-left:auto}
-  header nav a:not([href="discover.html"]){display:none}
-  header nav a[href="discover.html"]{padding:12px 16px;font-size:13px;white-space:nowrap}
+  header nav a:not([href="discover"]){display:none}
+  header nav a[href="discover"]{padding:12px 16px;font-size:13px;white-space:nowrap}
   header .logo{font-size:19px;letter-spacing:-1px}
 }
-header nav a[href="discover.html"]{
+header nav a[href="discover"]{
   display:inline-flex;align-items:center;justify-content:center;
   padding:15px 24px;border:1px solid rgba(255,255,255,.42);border-radius:999px;
   background:rgba(255,255,255,.08);color:#fff!important;
@@ -246,17 +246,17 @@ header nav a[href="discover.html"]{
   transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;
 }
 /* Lime pill appears only while hovered or keyboard-focused. */
-header nav a[href="discover.html"]:hover,
-header nav a[href="discover.html"]:focus-visible{
+header nav a[href="discover"]:hover,
+header nav a[href="discover"]:focus-visible{
   background:#b7df00;border-color:#b7df00;color:#111315!important;
   transform:translateY(-1px);outline:none;
 }
-@media(max-width:850px){header nav a[href="discover.html"]{padding:13px 20px}}
+@media(max-width:850px){header nav a[href="discover"]{padding:13px 20px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover.html">Find a ride</a></nav></header>
+<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover">Find a ride</a></nav></header>
 <main>
 <section class="hero">
 <div>
@@ -279,16 +279,16 @@ header nav a[href="discover.html"]:focus-visible{
 <section id="explore">
 <div class="section-head"><h2>Explore by experience</h2><p>Pick the kind of place you want to find.</p></div>
 <div class="grid">
-<a id="experience-mountain" class="card" href="experience-mountain-roads.html"><div class="icon">🏔️</div><h3>Hidden mountain roads</h3><p>Twists, climbs and views away from the usual tourist roads.</p></a>
-<a id="experience-coastal" class="card" href="experience-coastal-rides.html"><div class="icon">🌊</div><h3>Scenic coastal rides</h3><p>Sea views, quiet roads and places to stop by the water.</p></a>
-<a id="experience-forest" class="card" href="experience-forest-roads.html"><div class="icon">🌲</div><h3>Forest roads</h3><p>Green routes, shade, mist and peaceful stretches.</p></a>
-<a id="experience-viewpoints" class="card" href="experience-viewpoints.html"><div class="icon">🏞️</div><h3>Secret viewpoints</h3><p>Ride somewhere with a view worth the climb.</p></a>
-<a id="experience-waterfalls" class="card" href="experience-waterfalls.html"><div class="icon">💧</div><h3>Waterfalls</h3><p>Scenic rides that end beside hidden water.</p></a>
-<a class="card" href="experience-camping.html"><div class="icon">🏕️</div><h3>Hidden camping spots</h3><p>Ride out, switch off and stay close to nature.</p></a>
-<a class="card" href="experience-sunrise-sunset.html"><div class="icon">🌅</div><h3>Sunrise & sunset</h3><p>Routes built around golden-hour moments.</p></a>
-<a class="card" href="experience-lesser-known-routes.html"><div class="icon">🛣️</div><h3>Lesser-known routes</h3><p>Beautiful roads that make the journey the destination.</p></a>
-<a class="card" href="experience-hidden-villages.html"><div class="icon">🏘️</div><h3>Hidden villages</h3><p>Small roads, local landscapes and slower journeys.</p></a>
-<a class="card" href="experience-instagram-worthy-spots.html"><div class="icon">📸</div><h3>Instagram-worthy spots</h3><p>Ride somewhere you will want to photograph.</p></a>
+<a id="experience-mountain" class="card" href="experience-mountain-roads"><div class="icon">🏔️</div><h3>Hidden mountain roads</h3><p>Twists, climbs and views away from the usual tourist roads.</p></a>
+<a id="experience-coastal" class="card" href="experience-coastal-rides"><div class="icon">🌊</div><h3>Scenic coastal rides</h3><p>Sea views, quiet roads and places to stop by the water.</p></a>
+<a id="experience-forest" class="card" href="experience-forest-roads"><div class="icon">🌲</div><h3>Forest roads</h3><p>Green routes, shade, mist and peaceful stretches.</p></a>
+<a id="experience-viewpoints" class="card" href="experience-viewpoints"><div class="icon">🏞️</div><h3>Secret viewpoints</h3><p>Ride somewhere with a view worth the climb.</p></a>
+<a id="experience-waterfalls" class="card" href="experience-waterfalls"><div class="icon">💧</div><h3>Waterfalls</h3><p>Scenic rides that end beside hidden water.</p></a>
+<a class="card" href="experience-camping"><div class="icon">🏕️</div><h3>Hidden camping spots</h3><p>Ride out, switch off and stay close to nature.</p></a>
+<a class="card" href="experience-sunrise-sunset"><div class="icon">🌅</div><h3>Sunrise & sunset</h3><p>Routes built around golden-hour moments.</p></a>
+<a class="card" href="experience-lesser-known-routes"><div class="icon">🛣️</div><h3>Lesser-known routes</h3><p>Beautiful roads that make the journey the destination.</p></a>
+<a class="card" href="experience-hidden-villages"><div class="icon">🏘️</div><h3>Hidden villages</h3><p>Small roads, local landscapes and slower journeys.</p></a>
+<a class="card" href="experience-instagram-worthy-spots"><div class="icon">📸</div><h3>Instagram-worthy spots</h3><p>Ride somewhere you will want to photograph.</p></a>
 </div>
 </section>
 
@@ -296,25 +296,25 @@ header nav a[href="discover.html"]:focus-visible{
 
 <section id="how"><div class="section-head"><h2>How it works</h2><p>Three clicks between you and your next ride.</p></div><div class="steps"><div class="step"><div class="num">01 — SEARCH</div><h3>Enter your city</h3><p>Tell HiddenRides where you're starting from.</p></div><div class="step"><div class="num">02 — DISCOVER</div><h3>Find a hidden place</h3><p>Browse scenic destinations and routes around you.</p></div><div class="step"><div class="num">03 — PLAN</div><h3>Check the ride</h3><p>See the useful details before you leave.</p></div><div class="step"><div class="num">04 — RIDE</div><h3>Take the long way 🏍️</h3><p>Save the route, start the bike and go.</p></div></div></section>
 </main>
-<footer class="footer legal-footer"><div><strong>HIDDENRIDES</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer>
+<footer class="footer legal-footer"><div><strong>HIDDENRIDES</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about">About</a><a href="contact">Contact</a><a href="privacy">Privacy Policy</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer>
 </div>
 <script>
 const input=document.getElementById('city');
 const searchForm=document.getElementById('search');
 const suggestions=document.getElementById('citySuggestions');
 const availableCities=[
- {name:'Ahmedabad',aliases:['ahmedabad','ahmedabad gujarat','amdavad'],url:'ahmedabad.html'},
- {name:'Bengaluru',aliases:['bengaluru','bangalore'],url:'bengaluru.html'},
- {name:'Delhi NCR',aliases:['delhi','delhi ncr','new delhi','gurugram','gurgaon','noida'],url:'delhi-ncr.html'},
- {name:'Hyderabad',aliases:['hyderabad','hyderabad telangana'],url:'hyderabad.html'},
- {name:'Jaipur',aliases:['jaipur'],url:'jaipur.html'},
- {name:'Jodhpur',aliases:['jodhpur'],url:'jodhpur.html'},
- {name:'Kolkata',aliases:['kolkata','calcutta'],url:'kolkata.html'},
- {name:'Ladakh',aliases:['ladakh','leh','leh ladakh','ladakh india'],url:'ladakh.html'},
- {name:'Chandigarh',aliases:['chandigarh','chandigarh city','chandigarh tricity','chandigarh punjab'],url:'chandigarh.html'},
- {name:'Chennai',aliases:['chennai','madras','chennai tamil nadu'],url:'chennai.html'},
- {name:'Mumbai',aliases:['mumbai','bombay'],url:'mumbai.html'},
- {name:'Pune',aliases:['pune'],url:'pune.html'}
+ {name:'Ahmedabad',aliases:['ahmedabad','ahmedabad gujarat','amdavad'],url:'ahmedabad'},
+ {name:'Bengaluru',aliases:['bengaluru','bangalore'],url:'bengaluru'},
+ {name:'Delhi NCR',aliases:['delhi','delhi ncr','new delhi','gurugram','gurgaon','noida'],url:'delhi-ncr'},
+ {name:'Hyderabad',aliases:['hyderabad','hyderabad telangana'],url:'hyderabad'},
+ {name:'Jaipur',aliases:['jaipur'],url:'jaipur'},
+ {name:'Jodhpur',aliases:['jodhpur'],url:'jodhpur'},
+ {name:'Kolkata',aliases:['kolkata','calcutta'],url:'kolkata'},
+ {name:'Ladakh',aliases:['ladakh','leh','leh ladakh','ladakh india'],url:'ladakh'},
+ {name:'Chandigarh',aliases:['chandigarh','chandigarh city','chandigarh tricity','chandigarh punjab'],url:'chandigarh'},
+ {name:'Chennai',aliases:['chennai','madras','chennai tamil nadu'],url:'chennai'},
+ {name:'Mumbai',aliases:['mumbai','bombay'],url:'mumbai'},
+ {name:'Pune',aliases:['pune'],url:'pune'}
 ];
 const normalizeCity=value=>value.toLowerCase().trim().replace(/[,]+/g,' ').replace(/\\s+/g,' ');
 function matchesFor(value){
@@ -348,7 +348,7 @@ searchForm.addEventListener('submit',event=>{
  if(exact){location.href=exact.url;return}
  const matches=matchesFor(value);
  if(matches.length){showSuggestions(matches.slice(0,7));suggestions.querySelector('button')?.focus();return}
- location.href='city.html?city='+encodeURIComponent(value);
+ location.href='city?city='+encodeURIComponent(value);
 });
 </script>
 </body>
