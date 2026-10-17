@@ -260,7 +260,7 @@ Object.assign(imageMap,{
 'barog':"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/BarogRailwayStation%20Barog%20HP%20PICT0342.jpg&width=1200"
 });
 const key=new URLSearchParams(location.search).get('place')||'osian';
-const staticSeoSlugs=new Set(["nandi-hills","skandagiri","savandurga","yg-gudda-dam","manchanabele","ramanagara","hesaraghatta","devanahalli","mekedatu-sangama"]);
+const staticSeoSlugs=new Set([]);
 if(staticSeoSlugs.has(key)){location.replace('/rides/'+encodeURIComponent(key));}
 
 const chennaiData={
