@@ -25,6 +25,7 @@ assert.equal(new Set(locs).size, locs.length, "sitemap must not contain duplicat
 
 const rideTemplate = await read("ride.html");
 const bengaluruTemplate = await read("bengaluru-ride.js");
+const routeFunction = await read("functions/ride.js");
 const cleanRideSlugs = new Set();
 for (const loc of locs) {
   const url = new URL(loc);
@@ -61,6 +62,10 @@ for (const loc of locs) {
       assert.fail("legacy query URL appears in sitemap despite a clean static ride page: " + loc);
     }
   }
+}
+
+for (const slug of cleanRideSlugs) {
+  assert.ok(routeFunction.includes('"' + slug + '"'), "server redirect function missing static ride slug: " + slug);
 }
 
 const discover = await read("discover.html");
