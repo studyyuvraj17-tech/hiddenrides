@@ -5,7 +5,23 @@
   const style = document.createElement("style");
   style.id = "hiddenrides-mobile-ready";
   style.textContent = `
-    html { max-width: 100%; overflow-x: clip; }
+    :root { color-scheme: light dark; }
+    html { max-width: 100%; overflow-x: clip; scroll-padding-top: 88px; }
+    body { line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a, button, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid #b7df00 !important; outline-offset: 3px; }
+    button, input[type="button"], input[type="submit"], input[type="reset"], select { min-height: 44px; }
+    header nav a { min-height: 44px; }
+    ::selection { background: rgba(183,223,0,.28); color: inherit; }
+    .card, .ride, .destination-card, .experience-card, .route-card {
+      border-radius: 16px;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    @media (hover:hover) {
+      .card:hover, .ride:hover, .destination-card:hover, .experience-card:hover, .route-card:hover {
+        transform: translateY(-2px);
+      }
+    }
     body { min-width: 0; max-width: 100%; }
     img, video, iframe, canvas, svg { max-width: 100%; }
     pre, code { overflow-wrap: anywhere; }
@@ -74,7 +90,10 @@
       header .logo img { flex-shrink: 0; }
     }
     @media (min-width: 701px) { .mobile-menu-toggle { display: none !important; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
   `;
   document.head.appendChild(style);
 
