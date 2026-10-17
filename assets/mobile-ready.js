@@ -5,7 +5,6 @@
   const style = document.createElement("style");
   style.id = "hiddenrides-mobile-ready";
   style.textContent = `
-    :root { color-scheme: light dark; }
     html { max-width: 100%; overflow-x: clip; scroll-padding-top: 88px; }
     body { line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
     a, button, input, select, textarea, summary { -webkit-tap-highlight-color: transparent; }
