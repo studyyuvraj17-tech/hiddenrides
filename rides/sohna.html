@@ -23,6 +23,33 @@
 <style>
 *{box-sizing:border-box}body{margin:0;color:#17191b;background:#fff;font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(900px,92%);margin:auto}header,footer{padding:22px 0;border-bottom:1px solid #e5e7e8;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}header a,footer a{color:inherit;text-decoration:none}main{padding:48px 0 65px}nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}small,.muted{color:#616a71}h1{font-size:clamp(38px,6vw,64px);line-height:1.02;letter-spacing:-.04em;margin:10px 0 20px}h2{font-size:24px;line-height:1.2;margin-top:35px}p,li{line-height:1.75}.tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#526800}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.fact{background:#f6f7f3;border:1px solid #e3e5df;border-radius:12px;padding:16px}.fact b{display:block;font-size:12px;color:#626b70;margin-bottom:6px}.cta{display:inline-block;padding:12px 16px;background:#b7df00;border-radius:10px;color:#111;text-decoration:none;font-weight:750}.note{border-left:3px solid #b7df00;padding:12px 16px;background:#f7f8f4}@media(max-width:600px){.facts{grid-template-columns:1fr}main{padding-top:32px}}
 </style>
+<style id="hiddenrides-consistent-detail-ui">
+:root{--bg:#fff;--panel:#f7f7f5;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
+html,body{background:#fff!important;color:var(--text)!important}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+header{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding:0}
+header>a:first-child{font-size:23px;font-weight:950;letter-spacing:-1.2px}
+header nav{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+header nav a:hover,footer nav a:hover{color:var(--text);text-decoration:underline}
+main{max-width:1000px;padding:52px 0 64px}
+.tag{color:#719000;font-size:11px;font-weight:900;letter-spacing:.12em}
+h1{font-size:clamp(38px,6vw,72px);line-height:.98;letter-spacing:-.045em;margin:14px 0 20px;color:var(--text)}
+h2{font-size:22px;letter-spacing:-.4px;margin-top:34px;color:var(--text)}
+p,li{color:var(--muted);font-size:14px;line-height:1.8}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0}
+.fact{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:17px}
+.fact b{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#737b82;margin-bottom:7px}
+.cta{display:inline-flex;align-items:center;min-height:44px;padding:12px 16px;background:var(--lime);border:1px solid var(--lime);border-radius:11px;color:#111315;text-decoration:none;font-size:12px;font-weight:850}
+.note{border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:14px 16px;background:#f0f4e5;color:var(--muted)}
+.note strong{color:var(--text)}
+footer{border-top:1px solid var(--line);border-bottom:0;padding:26px 0 34px;display:flex;justify-content:space-between;align-items:center;gap:18px 28px;flex-wrap:wrap}
+footer nav{display:flex;gap:14px;flex-wrap:wrap;font-size:12px}
+footer nav a{color:var(--muted)}
+footer small{color:#7a8288}
+@media(max-width:700px){header{min-height:66px}header nav{gap:12px;font-size:12px}main{padding:36px 0 48px}.facts{grid-template-columns:1fr}.facts .fact{padding:14px}h1{font-size:clamp(36px,10vw,48px)}}
+@media(max-width:420px){.wrap{width:calc(100% - 28px)}header nav{gap:9px}header>a:first-child{font-size:19px}}
+</style>
 </head>
 <body><div class="wrap">
 <header><a href="/"><img src="/assets/favicon.svg" alt="" style="width:22px;height:22px;object-fit:contain;vertical-align:middle;margin-right:7px"><strong>HIDDENRIDES</strong></a><nav><a href="/delhi-ncr">More Delhi NCR rides</a><a href="/discover">Discover rides</a></nav></header>
