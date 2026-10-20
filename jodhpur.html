@@ -207,9 +207,9 @@ document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{
  img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";
  img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";
  let fallbackIndex=0;
- img.onerror=function(){
-   if(fallbackIndex<fallbackPhotos.length){this.onerror=null;this.src=fallbackPhotos[fallbackIndex++];this.onerror=arguments.callee;}
-   else {this.onerror=null;this.remove();}
+ img.onerror=function onImageError(){
+   if(fallbackIndex<fallbackPhotos.length){img.src=fallbackPhotos[fallbackIndex++];}
+   else {img.onerror=null;img.remove();}
  };
  v.insertBefore(img,v.firstChild);
 });</script>
