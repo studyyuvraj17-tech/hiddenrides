@@ -6,7 +6,8 @@
 
 ### Fixed in this branch
 
-- **Duplicate canonical on `experience.html` (SEO correctness).** The page had two identical `rel="canonical"` tags. Duplicate canonical declarations are unnecessary and can make canonical signals less clear. One has been removed, and `scripts/validate-site.mjs` now guards against this exact regression.
+- **Duplicate canonical on `experience.html` (SEO correctness).** The page had two identical `rel="canonical"` tags. One has been removed, and `scripts/validate-site.mjs` now guards against this regression.
+- **Legacy ride URL in sitemap.** The sitemap listed `/ride?place=badli-bheruji` even though `/rides/badli-bheruji` is the dedicated canonical page and the legacy URL redirects there. The redundant query URL has been removed from the sitemap so it does not compete with the clean destination URL.
 
 ### High priority recommendations
 
