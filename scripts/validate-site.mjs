@@ -27,7 +27,7 @@ const rideTemplate = await read("ride.html");
 const bengaluruTemplate = await read("bengaluru-ride.js");
 const routeFunction = await read("functions/ride.js");
 const experiencePage = await read("experience.html");
-const experienceCanonicals = [...experiencePage.matchAll(/<link\\b[^>]*rel=["']canonical["'][^>]*>/gi)];
+const experienceCanonicals = [...experiencePage.matchAll(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi)];
 assert.equal(experienceCanonicals.length, 1, "experience page must have exactly one canonical link");
 const cleanRideSlugs = new Set();
 for (const loc of locs) {
