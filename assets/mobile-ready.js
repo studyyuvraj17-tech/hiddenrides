@@ -25,6 +25,85 @@
     img, video, iframe, canvas, svg { max-width: 100%; }
     pre, code { overflow-wrap: anywhere; }
     table { max-width: 100%; }
+    /* Shared city destination cards: keep every tile aligned to the Jodhpur layout. */
+    .grid {
+      align-items: stretch;
+      grid-auto-rows: 1fr;
+    }
+    .grid > .ride,
+    .grid > .destination-card,
+    .grid > .route-card {
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+      min-width: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    .grid > .ride > .visual,
+    .grid > .destination-card > .visual,
+    .grid > .route-card > .visual {
+      position: relative;
+      flex: 0 0 155px;
+      height: 155px;
+      min-height: 155px;
+      overflow: hidden;
+    }
+    .grid > .ride > .visual img,
+    .grid > .destination-card > .visual img,
+    .grid > .route-card > .visual img {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+    }
+    .grid > .ride > .body,
+    .grid > .destination-card > .body,
+    .grid > .route-card > .body {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .grid > .ride .body h3,
+    .grid > .destination-card .body h3,
+    .grid > .route-card .body h3 {
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+    .grid > .ride .route,
+    .grid > .destination-card .route,
+    .grid > .route-card .route {
+      margin-top: auto;
+      padding-top: 15px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+    .grid > .ride .meta,
+    .grid > .destination-card .meta,
+    .grid > .route-card .meta {
+      align-items: flex-start;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 620px) {
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      .grid > .ride,
+      .grid > .destination-card,
+      .grid > .route-card { height: auto; }
+      .grid > .ride > .visual,
+      .grid > .destination-card > .visual,
+      .grid > .route-card > .visual {
+        flex-basis: 155px;
+        height: 155px;
+        min-height: 155px;
+      }
+    }
     @media (max-width: 700px) {
       input, select, textarea { font-size: 16px; }
       button, input[type="button"], input[type="submit"], input[type="reset"] { min-height: 44px; }
