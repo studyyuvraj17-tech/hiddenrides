@@ -175,6 +175,166 @@
   `;
   document.head.appendChild(style);
 
+  /* Destination detail pages share the same visual system as the Jodhpur ride guide. */
+  const detailStyle = document.createElement("style");
+  detailStyle.id = "hiddenrides-destination-detail-layout";
+  detailStyle.textContent = `
+    body.destination-detail-page main { min-width: 0; }
+    body.destination-detail-page main .facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 12px;
+      margin: 30px 0;
+    }
+    body.destination-detail-page main .fact {
+      min-width: 0;
+      height: 100%;
+      border: 1px solid #e2e5e7;
+      border-radius: 16px;
+      padding: 17px;
+      background: #f7f7f5;
+      overflow-wrap: anywhere;
+    }
+    body.destination-detail-page main .fact small,
+    body.destination-detail-page main .fact b {
+      display: block;
+      margin-bottom: 7px;
+      color: #626b72;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: .045em;
+    }
+    body.destination-detail-page main .fact strong {
+      display: block;
+      color: #111315;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    body.destination-detail-page main .photo {
+      width: 100%;
+      height: clamp(220px, 38vw, 380px);
+      margin: 22px 0 8px;
+      overflow: hidden;
+      border: 1px solid #e2e5e7;
+      border-radius: 20px;
+      background: #f1f2ef;
+    }
+    body.destination-detail-page main .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    body.destination-detail-page main .content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      padding: 16px 0 56px;
+    }
+    body.destination-detail-page main .content > .box {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 26px;
+      border: 1px solid #e2e5e7;
+      border-radius: 22px;
+      background: #f7f7f5;
+    }
+    body.destination-detail-page main .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    body.destination-detail-page main .btn,
+    body.destination-detail-page main .cta {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 16px;
+      border: 1px solid #dfe3e5;
+      border-radius: 11px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.4;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+    body.destination-detail-page main .btn.primary,
+    body.destination-detail-page main .cta {
+      background: #b7df00;
+      border-color: #b7df00;
+      color: #111315;
+    }
+    body.destination-detail-page main .note {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-left: 3px solid #b7df00;
+      border-radius: 0 12px 12px 0;
+      background: #fff;
+    }
+    body.destination-detail-page main p,
+    body.destination-detail-page main li {
+      overflow-wrap: anywhere;
+    }
+    body.destination-detail-page .sources,
+    body.destination-detail-page footer {
+      border-color: #e2e5e7;
+      color: #626b72;
+    }
+    @media (max-width: 800px) {
+      body.destination-detail-page main .facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+    }
+    @media (max-width: 620px) {
+      body.destination-detail-page .wrap { width: calc(100% - 32px); }
+      body.destination-detail-page header { min-height: 64px; height: auto; }
+      body.destination-detail-page .logo { font-size: 21px; }
+      body.destination-detail-page .back { max-width: 48%; text-align: right; line-height: 1.4; }
+      body.destination-detail-page main .hero { padding: 46px 0 26px; }
+      body.destination-detail-page main .hero h1,
+      body.destination-detail-page main h1 {
+        max-width: 100%;
+        font-size: clamp(36px, 10vw, 52px);
+        line-height: 1.02;
+        letter-spacing: -.045em;
+        overflow-wrap: anywhere;
+      }
+      body.destination-detail-page main .hero p { font-size: 14px; line-height: 1.7; }
+      body.destination-detail-page main .facts { margin: 24px 0; gap: 8px; }
+      body.destination-detail-page main .fact { padding: 14px; border-radius: 14px; }
+      body.destination-detail-page main .fact strong { font-size: 13px; line-height: 1.45; }
+      body.destination-detail-page main .content { padding: 12px 0 42px; gap: 12px; }
+      body.destination-detail-page main .content > .box { padding: 20px 18px; border-radius: 18px; }
+      body.destination-detail-page main .actions { align-items: stretch; }
+      body.destination-detail-page main .actions .btn { flex: 1 1 170px; }
+      body.destination-detail-page main .photo { height: clamp(210px, 62vw, 320px); border-radius: 16px; }
+    }
+  `;
+  document.head.appendChild(detailStyle);
+
+  const markDestinationDetailPage = () => {
+    const main = document.querySelector("main");
+    if (main && main.querySelector(".facts") && main.querySelector("h1")) {
+      document.body.classList.add("destination-detail-page");
+    }
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", markDestinationDetailPage, { once: true });
+  } else {
+    markDestinationDetailPage();
+  }
+
   const setup = () => {
     const header = document.querySelector("header");
     if (!header) return;
