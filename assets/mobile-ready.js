@@ -325,7 +325,9 @@
 
   const markDestinationDetailPage = () => {
     const main = document.querySelector("main");
-    if (main && main.querySelector(".facts") && main.querySelector("h1")) {
+    const app = document.querySelector("#app");
+    const isDynamicRide = app && new URLSearchParams(window.location.search).has("place");
+    if ((main && main.querySelector(".facts") && main.querySelector("h1")) || isDynamicRide) {
       document.body.classList.add("destination-detail-page");
     }
   };
@@ -334,6 +336,77 @@
   } else {
     markDestinationDetailPage();
   }
+
+  /* Normalize detail-page spacing and type across static and query-driven destination pages. */
+  const detailPolish = document.createElement("style");
+  detailPolish.id = "hiddenrides-detail-page-polish";
+  detailPolish.textContent = `
+    body.destination-detail-page { min-width: 0; }
+    body.destination-detail-page #app,
+    body.destination-detail-page #app .blr-page,
+    body.destination-detail-page main { min-width: 0; width: 100%; }
+    body.destination-detail-page .wrap { width: min(1000px, calc(100% - 40px)); margin-inline: auto; }
+    body.destination-detail-page .hero,
+    body.destination-detail-page #app > .hero { padding-top: clamp(36px, 5vw, 62px); }
+    body.destination-detail-page .hero h1,
+    body.destination-detail-page #app .hero h1,
+    body.destination-detail-page main h1 { font-size: clamp(36px, 5.2vw, 64px) !important; line-height: 1.06 !important; letter-spacing: -.045em !important; margin: 16px 0 20px !important; overflow-wrap: anywhere; }
+    body.destination-detail-page .hero p,
+    body.destination-detail-page #app .hero p { max-width: 780px; font-size: clamp(16px, 1.7vw, 20px) !important; line-height: 1.7 !important; }
+    body.destination-detail-page .actions { gap: 10px !important; margin: 24px 0 32px !important; }
+    body.destination-detail-page .btn,
+    body.destination-detail-page .cta { min-height: 46px !important; padding: 12px 18px !important; border-radius: 12px !important; font-size: 13px !important; }
+    body.destination-detail-page .photo { aspect-ratio: 1.9 / 1; height: auto !important; min-height: 0; max-height: 400px; margin: 20px 0 6px; border-radius: 20px; overflow: hidden; }
+    body.destination-detail-page .photo img { width: 100%; height: 100%; object-fit: cover; }
+    body.destination-detail-page .facts { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 10px !important; margin: 28px 0 32px !important; }
+    body.destination-detail-page .fact { min-width: 0; padding: 16px !important; border-radius: 15px !important; overflow-wrap: anywhere; }
+    body.destination-detail-page .fact strong { font-size: 14px !important; line-height: 1.5; }
+    body.destination-detail-page .content { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 10px 0 44px !important; }
+    body.destination-detail-page .content > .box { min-width: 0; padding: 24px !important; border-radius: 20px !important; }
+    body.destination-detail-page .content > .box h2 { font-size: 21px !important; line-height: 1.3; }
+    body.destination-detail-page .content > .box p,
+    body.destination-detail-page .content > .box li { font-size: 15px !important; line-height: 1.75 !important; }
+    body.destination-detail-page .blr-page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    body.destination-detail-page .blr-hero { min-height: 400px; border-radius: 24px; overflow: hidden; }
+    body.destination-detail-page .blr-hero h1 { font-size: clamp(38px, 5.5vw, 68px) !important; line-height: 1.04 !important; letter-spacing: -.045em !important; }
+    body.destination-detail-page .blr-hero-copy { padding: clamp(24px, 5vw, 56px) !important; }
+    body.destination-detail-page .blr-stats { grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin: 24px 0 34px; }
+    body.destination-detail-page .blr-stat { min-width: 0; overflow-wrap: anywhere; }
+    body.destination-detail-page .blr-two-col { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    body.destination-detail-page .blr-panel { min-width: 0; padding: 22px; }
+    body.destination-detail-page .blr-gallery { gap: 12px; }
+    body.destination-detail-page .blr-photo img { width: 100%; object-fit: cover; }
+    @media (max-width: 800px) {
+      body.destination-detail-page .facts,
+      body.destination-detail-page .blr-stats { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+      body.destination-detail-page .blr-two-col { grid-template-columns: minmax(0,1fr); }
+    }
+    @media (max-width: 620px) {
+      body.destination-detail-page .wrap,
+      body.destination-detail-page .blr-page { width: calc(100% - 32px); }
+      body.destination-detail-page header { min-height: 64px; height: auto; }
+      body.destination-detail-page .hero,
+      body.destination-detail-page #app > .hero { padding-top: 38px; }
+      body.destination-detail-page .hero h1,
+      body.destination-detail-page #app .hero h1,
+      body.destination-detail-page main h1 { font-size: clamp(34px, 9.5vw, 48px) !important; letter-spacing: -.04em !important; }
+      body.destination-detail-page .hero p,
+      body.destination-detail-page #app .hero p { font-size: 16px !important; }
+      body.destination-detail-page .actions { display: flex; margin: 22px 0 28px !important; }
+      body.destination-detail-page .btn,
+      body.destination-detail-page .cta { flex: 0 1 auto; min-height: 44px !important; }
+      body.destination-detail-page .photo { aspect-ratio: 1.35 / 1; border-radius: 16px; }
+      body.destination-detail-page .facts { margin: 22px 0 !important; gap: 8px !important; }
+      body.destination-detail-page .fact { padding: 13px !important; }
+      body.destination-detail-page .content > .box { padding: 19px !important; }
+      body.destination-detail-page .blr-hero { min-height: 390px; border-radius: 18px; }
+      body.destination-detail-page .blr-hero-copy { padding: 22px !important; }
+      body.destination-detail-page .blr-hero h1 { font-size: clamp(34px, 9vw, 48px) !important; }
+      body.destination-detail-page .blr-stats { gap: 8px; }
+      body.destination-detail-page .blr-panel { padding: 18px; }
+    }
+  `;
+  document.head.appendChild(detailPolish);
 
   const setup = () => {
     const header = document.querySelector("header");
