@@ -1,0 +1,25 @@
+name: Discover page audit
+
+on:
+  push:
+    paths:
+      - "discover.html"
+      - "ride.html"
+      - "scripts/audit-discover.mjs"
+      - ".github/workflows/discover-audit.yml"
+  pull_request:
+    paths:
+      - "discover.html"
+      - "ride.html"
+      - "scripts/audit-discover.mjs"
+      - ".github/workflows/discover-audit.yml"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/audit-discover.mjs
