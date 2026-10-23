@@ -34,7 +34,7 @@ for (const card of cards) {
   }
 }
 
-assert.ok(discover.includes("km===null"), "Unknown distances must remain visible when distance filtering");
+assert.ok(discover.includes("unverifiedDistance"), "Distance filters must disclose destinations excluded for missing distance data");
 assert.ok(!discover.includes('data-duration="unknown"'), "Cards must not retain unknown duration values");
 console.log(JSON.stringify({
   status: "PASS",
