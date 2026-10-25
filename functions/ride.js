@@ -18,7 +18,8 @@ const STATIC_RIDE_SLUGS = new Set([
   "kaylana",
   "khejarli",
   "osian",
-  "sohna"
+  "sohna",
+  "badli-bheruji"
 ]);
 
 /**
