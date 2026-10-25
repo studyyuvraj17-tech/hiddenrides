@@ -96,9 +96,9 @@ const seenTitles = new Map();
 for (const file of canonicalPages) {
   if (!(await exists(file))) continue;
   const html = await read(file);
-  const title = html.match(/<title>([\\s\\S]*?)<\\/title>/i)?.[1]?.trim();
-  const description = html.match(/<meta\\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i)?.[1]?.trim();
-  const canonicalTags = (html.match(/<link\\b[^>]*rel=["']canonical["'][^>]*>/gi) || []);
+  const title = html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim();
+  const description = html.match(/<meta\b[^>]*name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i)?.[1]?.trim();
+  const canonicalTags = (html.match(/<link\b[^>]*rel=["']canonical["'][^>]*>/gi) || []);
   assert.ok(title, "indexable page is missing a title: " + file);
   assert.ok(description, "indexable page is missing a meta description: " + file);
   assert.equal(canonicalTags.length, 1, "page must have exactly one canonical tag: " + file);
