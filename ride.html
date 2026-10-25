@@ -104,7 +104,6 @@ img{max-width:100%}
 @media(max-width:380px){.wrap{width:calc(100% - 32px)}.logo{font-size:16px}.back{font-size:12px;padding:10px}.actions{grid-template-columns:1fr}.btn{min-height:60px}}
 </style>
 <link rel="stylesheet" href="/footer.css">
-<script src="/assets/supabase-config.js"></script>
 </head>
 <body><div class="wrap"><header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="">HIDDEN<b>RIDES</b></a><a class="back" id="backCity" href="city?city=Jodhpur">← Jodhpur rides</a></header>
 <main id="app"></main><div class="sources">HiddenRides is building each listing from publicly available tourism and destination information. Distances and route times are indicative until GPS routes are verified.</div></div>
@@ -353,55 +352,6 @@ if(d.image){
   script.src="/bengaluru-ride.js?v=20261016";
   script.async=false;
   document.head.appendChild(script);
-})();
-</script>
-<script>
-(function(){
- const actions=document.querySelector(".hero .actions");
- if(!actions)return;
- const params=new URLSearchParams(location.search);
- const slug=params.get("place");
- if(!slug)return;
- const titleNode=document.querySelector(".hero h1");
- const title=(titleNode?titleNode.textContent:"Scenic ride").trim();
- const moreCity=document.getElementById("moreCity");
- const city=(moreCity&&moreCity.textContent.replace(/^More\s+/i,"").replace(/\s+rides?$/i,"").trim())||"India";
- const btn=document.createElement("button");
- btn.type="button";btn.className="btn";btn.id="saveRideBtn";btn.textContent="♡ Save ride";
- btn.style.cssText="cursor:pointer;background:#fff;color:#111315;border-color:#dfe3e5";
- actions.appendChild(btn);
- const configured=!!window.HIDDENRIDES_SUPABASE_URL&&!!window.HIDDENRIDES_SUPABASE_ANON_KEY&&!window.HIDDENRIDES_SUPABASE_URL.includes("YOUR_PROJECT_REF")&&!window.HIDDENRIDES_SUPABASE_ANON_KEY.includes("YOUR_SUPABASE");
- if(!configured||!window.supabase){btn.title="Sign-in setup is not complete yet";btn.addEventListener("click",()=>alert("HiddenRides sign-in is not configured yet. Follow AUTH_SETUP.md and run supabase/saved_rides.sql."));return}
- const db=window.supabase.createClient(window.HIDDENRIDES_SUPABASE_URL,window.HIDDENRIDES_SUPABASE_ANON_KEY,{auth:{flowType:"pkce",persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
- async function refresh(){
-   const {data:{session}}=await db.auth.getSession();
-   if(!session){btn.textContent="♡ Save ride";btn.title="Sign in to save this ride";return}
-   const {data,error}=await db.from("saved_rides").select("id").eq("user_id",session.user.id).eq("ride_slug",slug).maybeSingle();
-   if(error){btn.title="Run the saved rides SQL setup in Supabase";return}
-   btn.textContent=data?"♥ Saved — view profile":"♡ Save ride";
-   btn.title=data?"Already saved to your profile":"Save this ride to your profile";
-   btn.dataset.saved=data?"yes":"no";
- }
- btn.addEventListener("click",async()=>{
-   btn.disabled=true;
-   try{
-     const {data:{session},error:sessionError}=await db.auth.getSession();
-     if(sessionError)throw sessionError;
-     if(!session){
-       const next=location.pathname+location.search;
-       location.href="/auth.html?next="+encodeURIComponent(next);
-       return;
-     }
-     if(btn.dataset.saved==="yes"){location.href="/profile.html";return}
-     btn.textContent="Saving…";
-     const {error}=await db.from("saved_rides").upsert({user_id:session.user.id,ride_slug:slug,title,city,ride_url:location.pathname+location.search},{onConflict:"user_id,ride_slug",ignoreDuplicates:true});
-     if(error)throw error;
-     btn.textContent="♥ Saved — view profile";btn.dataset.saved="yes";btn.title="Saved to your profile"; 
-   }catch(e){btn.textContent="Couldn't save";btn.title="Check Supabase saved rides setup and try again";console.error("HiddenRides save ride error",e)}
-   finally{btn.disabled=false}
- });
- db.auth.onAuthStateChange(()=>{refresh()});
- refresh();
 })();
 </script>
 <footer class="legal-footer"><div><strong>HIDDENRIDES</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about">About</a><a href="contact">Contact</a><a href="privacy">Privacy Policy</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer>
