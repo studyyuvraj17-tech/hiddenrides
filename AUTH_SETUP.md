@@ -12,8 +12,8 @@ The repository now includes a Google-only sign-in page at `/auth.html`. It uses 
 3. In Supabase, open **Authentication → Sign In / Providers → Google** and enable Google.
 4. In Google Cloud Console, create/select a project, configure the OAuth consent screen, and create an OAuth Client ID of type **Web application**. Add the Supabase callback URL shown in the Supabase Google provider setup (usually `https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback`) under **Authorized redirect URIs**. Copy the Google Client ID and Client Secret into Supabase's Google provider settings only; do not put the Google client secret in this repository.
 5. In Supabase **Authentication → URL Configuration**, set the Site URL to `https://hiddenrides.com` and add these Redirect URLs:
-   - `https://hiddenrides.com/auth.html`
-   - `https://www.hiddenrides.com/auth.html` (only if you use the www hostname)
+   - `https://hiddenrides.com/**` (covers the profile page and returning to a ride page after Google sign-in)
+   - `https://www.hiddenrides.com/**` (only if you use the www hostname)
    Also add your local development URL if needed.
 6. Save settings and deploy the GitHub changes to Cloudflare Pages. Open `https://hiddenrides.com/auth.html` and test Google sign-in and sign-out.
 
