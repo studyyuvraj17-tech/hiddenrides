@@ -5,7 +5,7 @@ The repository now includes a Google-only sign-in page at `/auth.html`. It uses 
 ## Required one-time setup
 
 1. Create or open a project at https://supabase.com/dashboard.
-2. In **Project Settings → API** (or **Connect**), copy the project URL and the **publishable/anon** browser key. In `auth.html`, replace:
+2. In **Project Settings → API** (or **Connect**), copy the project URL and the **publishable/anon** browser key. In `assets/supabase-config.js`, replace:
    - `https://YOUR_PROJECT_REF.supabase.co` with the project URL.
    - `YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY` with the publishable/anon key.
    Never use or expose a `service_role` or secret key in browser code.
@@ -24,10 +24,13 @@ The repository now includes a Google-only sign-in page at `/auth.html`. It uses 
 - Sign-out.
 - A homepage **Sign in** link.
 - A clear setup message until the Supabase project values are configured.
+- A profile page at `/profile.html` that shows the Google account name, email, avatar (when provided), membership date, and saved rides.
+- A **Save ride** action on ride guides; saved items are stored in Supabase and are visible to that user on their profile.
+- A per-user saved-rides table protected by Row Level Security (RLS).
 
 ## Security notes and current scope
 
 - The Supabase publishable/anon key is designed to be public. Never commit a service-role key or Google OAuth client secret.
-- If you later store favourite rides, profiles, or other user data in Supabase, enable Row Level Security (RLS) on every relevant table and add policies that restrict records to `auth.uid() = user_id`.
-- This change signs users in but does not yet make the existing public ride listings private or add a favourites feature.
+- Run the SQL in `supabase/saved_rides.sql` in the Supabase SQL Editor. It creates the `saved_rides` table, enables Row Level Security (RLS), and limits each authenticated user to their own records. Do not disable RLS. The profile and Save ride features will not work until this SQL is applied.
+- Ride guides remain public. Saving a ride requires a signed-in Google account. The feature stores a ride slug, title, city, URL and timestamp for the signed-in user.
 - The Google OAuth consent screen may need to be published/verified for public availability, depending on the scopes and audience you configure.
