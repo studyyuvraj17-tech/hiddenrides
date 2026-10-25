@@ -22,7 +22,7 @@ h1{font-size:32px;letter-spacing:-1.3px;margin:0 0 10px}p{color:var(--muted);lin
 .back{display:block;text-align:center;margin-top:24px;font-size:13px;color:var(--muted);text-decoration:none}.back:hover{color:var(--ink)}
 .note{font-size:11px;color:#7a8288;margin-top:25px;line-height:1.55;text-align:center}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="/assets/supabase-config.js"></script>
 </head>
 <body>
 <a class="top" href="/">Hidden<b>Rides</b></a>
@@ -32,7 +32,7 @@ h1{font-size:32px;letter-spacing:-1.3px;margin:0 0 10px}p{color:var(--muted);lin
 <p id="intro">Sign in securely with Google to get started with HiddenRides.</p>
 <button class="google" id="googleBtn" type="button"><span class="g" aria-hidden="true">G</span><span>Continue with Google</span></button>
 <div id="status" role="status" aria-live="polite"></div>
-<div class="profile" id="profile"><div class="email" id="email"></div><button class="secondary" id="signOut" type="button">Sign out</button></div>
+<div class="profile" id="profile"><div class="email" id="email"></div><a class="secondary" id="profileLink" href="/profile.html" style="display:inline-block;text-decoration:none;margin-right:8px">View my profile & saved rides</a><button class="secondary" id="signOut" type="button">Sign out</button></div>
 <a class="back" href="/">← Back to HiddenRides</a>
 <div class="note">Your sign-in is handled by Supabase and Google. HiddenRides never receives your Google password.</div>
 </main>
@@ -40,8 +40,8 @@ h1{font-size:32px;letter-spacing:-1.3px;margin:0 0 10px}p{color:var(--muted);lin
 (() => {
   // Replace these two public project values after creating your Supabase project.
   // The anon/publishable key is intended for browser use; never put a service-role key here.
-  const SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
-  const SUPABASE_ANON_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+  const SUPABASE_URL = window.HIDDENRIDES_SUPABASE_URL || "";
+  const SUPABASE_ANON_KEY = window.HIDDENRIDES_SUPABASE_ANON_KEY || "";
   const btn = document.getElementById("googleBtn");
   const status = document.getElementById("status");
   const profile = document.getElementById("profile");
@@ -49,7 +49,7 @@ h1{font-size:32px;letter-spacing:-1.3px;margin:0 0 10px}p{color:var(--muted);lin
   const heading = document.getElementById("heading");
   const intro = document.getElementById("intro");
   const signOut = document.getElementById("signOut");
-  const configured = !SUPABASE_URL.includes("YOUR_PROJECT_REF") && !SUPABASE_ANON_KEY.includes("YOUR_SUPABASE");
+  const configured = !!SUPABASE_URL && !!SUPABASE_ANON_KEY && !SUPABASE_URL.includes("YOUR_PROJECT_REF") && !SUPABASE_ANON_KEY.includes("YOUR_SUPABASE");
   let client = null;
 
   function message(text, type) {
@@ -91,7 +91,7 @@ h1{font-size:32px;letter-spacing:-1.3px;margin:0 0 10px}p{color:var(--muted);lin
       message("Connecting to Google…");
       const {error} = await client.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: window.location.origin + "/auth.html" }
+        options: { redirectTo: window.location.origin + (new URLSearchParams(window.location.search).get("next") || "/profile.html") }
       });
       if (error) {
         message(error.message || "Google sign-in failed. Please try again.", "error");
