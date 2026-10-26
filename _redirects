@@ -1,2 +1,11 @@
-# Cloudflare Pages automatically redirects existing .html URLs to their clean URLs.
-# Keep this file free of duplicate .html -> extensionless rules to avoid conflicting redirect handling.
+# Canonicalize legacy .html URLs to the clean URLs used by the sitemap and canonical tags.
+# Use explicit permanent redirects to avoid ambiguous platform-level redirect behavior.
+/chandigarh.html /chandigarh 301
+/ahmedabad.html /ahmedabad 301
+/jaipur.html /jaipur 301
+/pune.html /pune 301
+/discover.html /discover 301
+/jodhpur.html /jodhpur 301
+/bengaluru.html /bengaluru 301
+/delhi-ncr.html /delhi-ncr 301
+/mumbai.html /mumbai 301
