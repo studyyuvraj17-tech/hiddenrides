@@ -417,7 +417,7 @@
 
     // Keep Events available in the shared navigation on every page, including mobile.
     const hasEventsLink = Array.from(nav.querySelectorAll("a")).some(link => {
-      try { return new URL(link.getAttribute("href"), window.location.href).pathname.replace(/\\/$/, "") === "/events"; }
+      try { return ["/events", "/events/"].includes(new URL(link.getAttribute("href"), window.location.href).pathname); }
       catch { return false; }
     });
     if (!hasEventsLink) {
