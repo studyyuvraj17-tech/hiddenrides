@@ -233,7 +233,7 @@ header nav a{white-space:nowrap;flex-shrink:0}
 @media(max-width:620px){
   header{height:64px;gap:10px;padding-left:0;padding-right:0}
   header nav{display:flex;align-items:center;justify-content:flex-end;gap:0;margin-left:auto}
-  header nav a:not([href="discover"]){display:none}
+  header nav a:not([href="discover"]):not(.feedback-link){display:none}
   header nav a[href="discover"]{padding:12px 16px;font-size:13px;white-space:nowrap}
   header .logo{font-size:19px;letter-spacing:-1px}
 }
@@ -253,11 +253,27 @@ header nav a[href="discover"]:focus-visible{
 }
 @media(max-width:850px){header nav a[href="discover"]{padding:13px 20px}}
 </style>
+<style id="feedback-tab-style">
+header nav a.feedback-link{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 19px;border:1px solid #b7df00;border-radius:999px;
+  background:#b7df00;color:#111315!important;font-weight:850;
+  text-shadow:none;line-height:1;white-space:nowrap;
+  transition:filter .2s ease,transform .2s ease;
+}
+header nav a.feedback-link:hover,header nav a.feedback-link:focus-visible{
+  filter:brightness(.94);transform:translateY(-1px);outline:2px solid #b7df00;outline-offset:3px;
+}
+@media(max-width:620px){
+  header nav a.feedback-link{display:inline-flex!important;padding:12px 13px;margin-left:8px;font-size:12px}
+  header nav a[href="discover"]{padding:12px 13px;font-size:12px}
+}
+</style>
 <link rel="stylesheet" href="/footer.css">
 </head>
 <body>
 <div class="wrap">
-<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover">Find a ride</a></nav></header>
+<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover">Find a ride</a><a class="feedback-link" href="contact">Feedback</a></nav></header>
 <main>
 <section class="hero">
 <div>
