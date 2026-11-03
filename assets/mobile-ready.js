@@ -415,6 +415,20 @@
     if (!nav || nav.querySelector("[aria-label='Legal']")) return;
     if (header.querySelector(".mobile-menu-toggle")) return;
 
+    // Keep Events available in the shared navigation on every page, including mobile.
+    const hasEventsLink = Array.from(nav.querySelectorAll("a")).some(link => {
+      try { return new URL(link.getAttribute("href"), window.location.href).pathname.replace(/\\/$/, "") === "/events"; }
+      catch { return false; }
+    });
+    if (!hasEventsLink) {
+      const eventsLink = document.createElement("a");
+      eventsLink.href = "/events";
+      eventsLink.textContent = "Events";
+      const ideaLink = Array.from(nav.querySelectorAll("a")).find(link => /our idea/i.test(link.textContent));
+      if (ideaLink) nav.insertBefore(eventsLink, ideaLink);
+      else nav.appendChild(eventsLink);
+    }
+
     nav.classList.add("mobile-nav-panel");
     if (!nav.id) nav.id = "mobile-site-navigation";
 
