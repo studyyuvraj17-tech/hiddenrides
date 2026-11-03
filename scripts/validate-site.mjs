@@ -87,7 +87,7 @@ assert.match(rideTemplate, /staticSeoSlugs=new Set\(\[/, "legacy static ride ali
 
 const sitemapSet = new Set(locs);
 const canonicalPages = [
-  "index.html", "discover.html", "jodhpur.html", "jaipur.html", "bengaluru.html",
+  "index.html", "events.html", "discover.html", "jodhpur.html", "jaipur.html", "bengaluru.html",
   "delhi-ncr.html", "ahmedabad.html", "ladakh.html", "mumbai.html", "pune.html",
   "hyderabad.html", "kolkata.html", "chandigarh.html",
   ...[...cleanRideSlugs].map((slug) => "rides/" + slug + ".html")
