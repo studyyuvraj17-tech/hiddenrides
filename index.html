@@ -233,8 +233,8 @@ header nav a{white-space:nowrap;flex-shrink:0}
 @media(max-width:620px){
   header{height:64px;gap:10px;padding-left:0;padding-right:0}
   header nav{display:flex;align-items:center;justify-content:flex-end;gap:0;margin-left:auto}
-  header nav a:not([href="discover"]){display:none}
-  header nav a[href="discover"]{padding:12px 16px;font-size:13px;white-space:nowrap}
+  header nav a:not([href="discover"]):not([href="/events"]){display:none}
+  header nav a[href="discover"]{padding:12px 16px;font-size:13px;white-space:nowrap}header nav a[href="/events"]{display:inline-flex;padding:12px 14px;font-size:13px;white-space:nowrap;border:1px solid rgba(255,255,255,.55);border-radius:999px;margin-left:8px;color:#fff!important}
   header .logo{font-size:19px;letter-spacing:-1px}
 }
 header nav a[href="discover"]{
@@ -257,7 +257,7 @@ header nav a[href="discover"]:focus-visible{
 </head>
 <body>
 <div class="wrap">
-<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover">Find a ride</a></nav></header>
+<header><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><nav><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="discover">Find a ride</a><a href="/events">Events</a></nav></header>
 <main>
 <section class="hero">
 <div>
