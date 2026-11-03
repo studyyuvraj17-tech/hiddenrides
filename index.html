@@ -310,10 +310,20 @@ header nav a[href="discover"]:focus-visible{
  .site-header .nav-dropdown-toggle,.site-header .find-ride-button{padding:0 10px;font-size:11px}
 }
 </style>
+<style>
+.faq-section{padding:58px 0 70px}
+.faq-list{max-width:900px;display:grid;gap:10px}
+.faq-item{border:1px solid var(--line,#e2e5e7);border-radius:13px;background:rgba(255,255,255,.04);padding:0 18px}
+.faq-item summary{cursor:pointer;list-style:none;padding:17px 28px 17px 0;font-weight:750;position:relative}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:"+";position:absolute;right:2px;top:13px;font-size:22px;font-weight:500;color:var(--lime,#b7df00)}
+.faq-item[open] summary:after{content:"−"}
+.faq-item p{margin:0;padding:0 0 18px;color:var(--muted,#606970);font-size:14px;max-width:780px}
+</style>
 </head>
 <body>
 <div class="wrap">
-<header class="site-header"><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><div class="header-actions"><div class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu <span class="menu-chevron">⌄</span></button><nav id="site-menu" class="nav-dropdown-panel" aria-label="Main navigation"><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="/motorcycle-rides-near-me">Rides near me</a><a href="/best-bike-rides-in-india">Best rides in India</a><a href="/events">Events</a><a href="/faq">FAQs</a></nav></div><a class="find-ride-button" href="/discover">Find a ride</a></div></header>
+<header class="site-header"><a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a><div class="header-actions"><div class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu <span class="menu-chevron">⌄</span></button><nav id="site-menu" class="nav-dropdown-panel" aria-label="Main navigation"><a href="#explore">Explore</a><a href="#why">Our idea</a><a href="#how">How it works</a><a href="/motorcycle-rides-near-me">Rides near me</a><a href="/best-bike-rides-in-india">Best rides in India</a><a href="/events">Events</a><a href="#faq">FAQs</a></nav></div><a class="find-ride-button" href="/discover">Find a ride</a></div></header>
 <main>
 <section class="hero">
 <div>
@@ -352,6 +362,21 @@ header nav a[href="discover"]:focus-visible{
 <section id="seo-guides"><div class="section-head"><h2>Find your next motorcycle ride</h2><p>Explore city-wise routes and bike ride guides across India.</p></div><div class="grid"><a class="card" href="/motorcycle-rides-near-me"><div class="icon">📍</div><h3>Motorcycle rides near me</h3><p>Choose your starting city and discover nearby motorcycle routes, scenic stops and weekend rides.</p></a><a class="card" href="/best-bike-rides-in-india"><div class="icon">🏍️</div><h3>Best bike rides in India</h3><p>Explore motorcycle destinations across mountains, deserts, coasts and countryside.</p></a><a class="card" href="/discover"><div class="icon">🧭</div><h3>Explore all rides</h3><p>Browse HiddenRides destinations and find a ride that suits your next outing.</p></a></div></section>\n<section id="why"><div class="manifesto"><div><h2>Not every great ride is on a tourist map.</h2><p>HiddenRides is being built around a simple idea: help riders find beautiful places close enough for a ride, but far enough from the obvious.</p></div><div class="points"><div class="point"><div class="check">✓</div><div><strong>Discover hidden gems</strong><span>Focus on scenic, lesser-known destinations.</span></div></div><div class="point"><div class="check">✓</div><div><strong>Ride-first discovery</strong><span>The journey and the destination both matter.</span></div></div><div class="point"><div class="check">✓</div><div><strong>Built around cities</strong><span>Start where you are and find where to go.</span></div></div></div></div></section>
 
 <section id="how"><div class="section-head"><h2>How it works</h2><p>Three clicks between you and your next ride.</p></div><div class="steps"><div class="step"><div class="num">01 — SEARCH</div><h3>Enter your city</h3><p>Tell HiddenRides where you're starting from.</p></div><div class="step"><div class="num">02 — DISCOVER</div><h3>Find a hidden place</h3><p>Browse scenic destinations and routes around you.</p></div><div class="step"><div class="num">03 — PLAN</div><h3>Check the ride</h3><p>See the useful details before you leave.</p></div><div class="step"><div class="num">04 — RIDE</div><h3>Take the long way 🏍️</h3><p>Save the route, start the bike and go.</p></div></div></section>
+
+<section id="faq" class="faq-section">
+  <div class="section-head"><h2>Frequently asked questions</h2><p>Quick answers to help you plan your next ride with HiddenRides.</p></div>
+  <div class="faq-list">
+    <details class="faq-item"><summary>What is HiddenRides?</summary><p>HiddenRides helps motorcycle riders discover scenic destinations, lesser-known roads and ride ideas across India.</p></details>
+    <details class="faq-item"><summary>How do I find motorcycle rides near me?</summary><p>Open Find a ride, enter your starting city and explore the destinations and ride ideas available for that area.</p></details>
+    <details class="faq-item"><summary>Are these routes suitable for every motorcycle?</summary><p>Not necessarily. Road surface, gradients, distance and access conditions can vary. Check the details and choose a ride that suits your motorcycle and experience.</p></details>
+    <details class="faq-item"><summary>Are the ride suggestions and destinations free?</summary><p>Browsing HiddenRides is free. Individual destinations may have their own entry fees, parking charges or other local costs, so check before you travel.</p></details>
+    <details class="faq-item"><summary>Are road conditions and routes updated live?</summary><p>Road, weather and access conditions can change. Always verify current local conditions before departure; do not rely on a listing as a live road-status update.</p></details>
+    <details class="faq-item"><summary>Can I suggest a hidden place or motorcycle route?</summary><p>Yes. Use the Contact link to share a destination or route suggestion with the HiddenRides team.</p></details>
+    <details class="faq-item"><summary>Does HiddenRides organise group rides and events?</summary><p>HiddenRides lists selected motorcycle ride events and event information. Check each event page and the organiser's official channels for confirmed dates, routes and participation requirements.</p></details>
+    <details class="faq-item"><summary>What should I carry before a ride?</summary><p>Wear certified protective gear and carry your driving licence, vehicle documents, water, a charged phone and basic first-aid supplies. Check weather and fuel stops before leaving.</p></details>
+  </div>
+</section>
+
 </main>
 <footer class="footer legal-footer"><div><strong>HIDDENRIDES</strong><span>Discover roads worth getting lost on.</span></div><nav aria-label="Legal"><a href="about">About</a><a href="contact">Contact</a><a href="privacy">Privacy Policy</a><a href="terms">Terms</a><a href="disclaimer">Disclaimer</a></nav><small>© 2026 HiddenRides. All rights reserved.</small></footer>
 </div>
