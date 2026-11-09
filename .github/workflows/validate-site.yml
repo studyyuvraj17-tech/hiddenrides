@@ -20,3 +20,5 @@ jobs:
           node-version: 20
       - name: Validate routes, sitemap and destination links
         run: node scripts/validate-site.mjs
+      - name: Audit possible unused assets (advisory)
+        run: node scripts/audit-assets.mjs

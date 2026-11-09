@@ -29,7 +29,7 @@ const STATIC_RIDE_SLUGS = new Set([
  */
 export async function onRequest(context) {
   const request = context.request;
-  if (request.method !== "GET" && request.method !== "HEAD") {
+  if (!["GET", "HEAD"].includes(request.method)) {
     return context.next();
   }
 
