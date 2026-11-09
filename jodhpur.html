@@ -187,7 +187,7 @@ const params=new URLSearchParams(location.search), incoming=params.get('city');i
 document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.ride').forEach(card=>card.style.display=f==='all'||card.dataset.type.includes(f)?'block':'none')});
 const rideImages={
 "beri-ganga-waterfall":"https://img.youtube.com/vi/OPeSzO93HWA/hqdefault.jpg",
-"indroka-windmills":"https://commons.wikimedia.org/wiki/Special:FilePath/Thar_Desert,_India,_Wind_turbines_in_the_desert.jpg?width=1200",
+"indroka-windmills":"https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Thar_Desert%2C_India%2C_Wind_turbines_in_the_desert.jpg/960px-Thar_Desert%2C_India%2C_Wind_turbines_in_the_desert.jpg",
 "guda-bishnoi":"https://airial.travel/_next/image?q=75&url=https%3A%2F%2Fcoinventmediastorage.blob.core.windows.net%2Fmedia-storage-container%2Fgphoto_ChIJW3oVQ2uFQTkRM97af9fYyPc_0.jpg&w=1200",
 "khejarli":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Khejarli_Massacre_Temple.JPG&width=1200",
 "osian":"https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Osian_Monuments.JPG&width=1200",
