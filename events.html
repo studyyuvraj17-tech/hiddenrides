@@ -3,41 +3,155 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Naked Bike Ride Events | HiddenRides</title>
-<meta name="description" content="Explore community-led naked bike ride events in Portland, Philadelphia, Chicago and London.">
+<title>Motorcycle & Cycling Events | HiddenRides</title>
+<meta name="description" content="Discover community rides and cycling events worth travelling for. Explore event details, locations and organiser information with HiddenRides.">
 <link rel="canonical" href="https://hiddenrides.com/events">
+<meta name="theme-color" content="#f5f5f0">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hiddenrides.com/events">
+<meta property="og:title" content="Events worth riding for | HiddenRides">
+<meta property="og:description" content="Discover community rides and cycling events worth travelling for.">
 <style>
-:root{--bg:#fff;--panel:#f7f7f5;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00;--max:1180px}
-*{box-sizing:border-box}html{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),92%);margin:auto}
-header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.logo{font-size:23px;font-weight:950;letter-spacing:-1.5px}.logo b{color:#769100}nav{display:flex;gap:24px;font-size:13px;color:#5f676d}nav a:hover{color:#526900}
-.hero{padding:62px 0 30px}.eyebrow{color:#627b00;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(45px,7vw,78px);line-height:.95;letter-spacing:-4px;margin:16px 0}.hero h1 span{color:#737b82}.hero p{max-width:700px;color:var(--muted);font-size:16px;line-height:1.65}
-.section{padding:34px 0 65px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.sectionhead h2{margin:0;font-size:29px;letter-spacing:-1.2px}.sectionhead p{margin:0;color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.ride{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--panel);transition:.2s;min-width:0}.ride:hover{transform:translateY(-4px);border-color:#bfc5c9;box-shadow:0 8px 22px rgba(15,25,30,.07)}
-.visual{height:190px;position:relative;overflow:hidden;background:#dfe4e7}.visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.56),rgba(0,0,0,.04) 62%,transparent);pointer-events:none}.badge{position:absolute;z-index:2;top:14px;right:14px;background:rgba(255,255,255,.94);border:1px solid #c9ced2;color:#202427;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:850;text-transform:uppercase}.location{position:absolute;z-index:2;left:16px;bottom:14px;color:#fff;font-size:12px;font-weight:850;text-shadow:0 2px 8px rgba(0,0,0,.75)}
-.body{padding:19px}.body h3{margin:0 0 7px;font-size:18px;letter-spacing:-.3px}.body p{margin:0;color:#59646c;font-size:12.5px;line-height:1.55}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.meta span{border:1px solid #c9ced2;background:#fff;border-radius:999px;padding:5px 8px;color:#4a535a;font-size:9px;font-weight:600}.route{margin-top:15px;color:#607900;font-size:11px;font-weight:800}.route a:hover{text-decoration:underline}.credit{padding:0 19px 15px;color:#7a8288;font-size:10px}.credit a{text-decoration:underline}.note{border:1px solid var(--line);border-radius:20px;padding:23px;background:var(--panel);color:var(--muted);font-size:12px;line-height:1.65;margin-top:20px}.note strong{color:#111315}
-footer{border-top:1px solid var(--line);padding:30px 0 45px;color:#7a8288;font-size:11px;display:flex;justify-content:space-between;gap:20px}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){header{height:68px}.logo{font-size:21px}nav{gap:12px;font-size:12px}.hero{padding:48px 0 25px}.hero h1{letter-spacing:-2.5px}.grid{grid-template-columns:1fr}.sectionhead{display:block}.sectionhead p{margin-top:6px}.visual{height:205px}.footer{display:block}footer{display:block}footer span{display:block;margin-top:8px}}
+:root{--action:#D1FF00;--ink:#111;--muted-ink:#555;--canvas:#F5F5F0;--surface:#1A1A1A;--border:#333;--max:1240px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:"Mona Sans","Helvetica Neue",Arial,sans-serif;font-weight:300;line-height:1.5}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--action);outline-offset:4px}
+.wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}
+.site-header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(17,17,17,.16)}
+.logo{font-size:22px;font-weight:900;letter-spacing:-1.4px}
+.logo b{font-weight:900}
+.logo-mark{display:inline-block;width:9px;height:9px;background:var(--action);margin:0 8px 1px 0;transform:rotate(45deg)}
+.primary-nav{display:flex;align-items:center;gap:30px;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.primary-nav a{transition:opacity .2s}
+.primary-nav a:hover{opacity:.58}
+.nav-cta{background:var(--ink);color:var(--canvas);padding:12px 17px;border-radius:9px}
+.nav-cta:hover{background:var(--action);color:var(--ink);opacity:1!important}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:7%;align-items:center;padding:78px 0 88px;min-height:590px}
+.hero-media{position:relative;min-height:440px;background:#d8d8d0;overflow:hidden}
+.hero-media img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}
+.hero-media:after{content:"";position:absolute;inset:auto 0 0;height:6px;background:var(--action)}
+.hero-copy{padding:20px 0}
+.kicker,.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:500}
+.kicker{display:flex;align-items:center;gap:10px}
+.kicker:before{content:"";width:28px;height:2px;background:var(--action)}
+h1,h2,h3{font-family:"Brier",Georgia,serif;font-weight:700}
+h1{font-size:clamp(56px,7.2vw,100px);line-height:.91;letter-spacing:-.055em;margin:25px 0 23px;max-width:720px}
+h1 em{font-style:normal;text-decoration:underline;text-decoration-color:var(--action);text-decoration-thickness:7px;text-underline-offset:7px}
+.hero-copy p{max-width:540px;color:var(--muted-ink);font-size:16px;line-height:1.75;margin:0 0 28px}
+.actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 20px;border-radius:10px;background:var(--action);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:transform .2s}
+.button:hover{transform:translateY(-2px)}
+.text-link{font-size:12px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--ink);padding:8px 0}
+.hero-note{margin-top:22px;font-size:11px;color:#73736d;letter-spacing:.03em}
+.rule{height:1px;background:rgba(17,17,17,.18)}
+.events-section{padding:82px 0 96px}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}
+.section-top .eyebrow{color:#666}
+.section-top h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.045em;line-height:.95;margin:12px 0 0}
+.section-top p{max-width:340px;color:var(--muted-ink);font-size:13px;line-height:1.65;margin:0}
+.event-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.event-card{background:var(--surface);color:#f5f5f0;border:1px solid var(--border);border-radius:15px;overflow:hidden;min-width:0;display:flex;flex-direction:column;transition:transform .22s,border-color .22s}
+.event-card:hover{transform:translateY(-5px);border-color:var(--action)}
+.event-image{height:220px;position:relative;background:#303030;overflow:hidden}
+.event-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.event-card:hover .event-image img{transform:scale(1.035)}
+.event-image:after{content:"";position:absolute;inset:auto 0 0;height:4px;background:var(--action)}
+.event-tag{position:absolute;top:15px;left:15px;z-index:1;background:var(--action);color:var(--ink);padding:7px 10px;border-radius:5px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.event-content{padding:21px 21px 18px;display:flex;flex-direction:column;flex:1}
+.event-location{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--action);margin-bottom:10px}
+.event-content h3{font-size:27px;line-height:1.02;letter-spacing:-.025em;margin:0 0 12px}
+.event-content p{font-size:12.5px;line-height:1.7;color:#c2c2ba;margin:0 0 18px}
+.event-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:4px}
+.event-meta span{border:1px solid #494949;border-radius:5px;padding:5px 8px;font-size:9px;letter-spacing:.04em;color:#ddd}
+.event-link{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #383838;margin-top:19px;padding-top:15px;color:var(--action);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.event-link span:last-child{font-size:17px;line-height:1}
+.source{font-size:10px;color:#92928a;padding:0 21px 18px}
+.source a{text-decoration:underline;text-underline-offset:3px}
+.notice{display:grid;grid-template-columns:150px 1fr;gap:25px;border:1px solid #bdbdb4;border-radius:12px;padding:24px 27px;margin-top:24px}
+.notice strong{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.notice p{margin:0;color:var(--muted-ink);font-size:12px;line-height:1.75}
+.footer-frame{padding:7px;border:1px solid var(--action);border-radius:22px;margin:0 0 28px;background:var(--action)}
+.footer-panel{background:var(--surface);color:#f5f5f0;border-radius:15px;padding:38px 40px 25px}
+.footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px;padding-bottom:34px}
+.footer-brand{font-size:25px;font-weight:900;letter-spacing:-1.4px}
+.footer-brand span{color:var(--action)}
+.footer-copy{font-size:12px;color:#aaa;max-width:260px;margin-top:10px}
+.footer-col h2{font:500 10px/1.2 "Mona Sans","Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--action);margin:4px 0 14px}
+.footer-col a{display:block;color:#e0e0d9;font-size:11px;margin:9px 0}
+.footer-col a:hover{color:var(--action)}
+.footer-bottom{border-top:1px solid #414141;padding-top:18px;display:flex;justify-content:space-between;gap:20px;color:#999;font-size:10px}
+@media(max-width:900px){.wrap{width:min(var(--max),calc(100% - 42px))}.hero{gap:5%;grid-template-columns:1fr 1fr}.hero-media{min-height:390px}.event-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-main{grid-template-columns:1.2fr 1fr 1fr}}
+@media(max-width:640px){.wrap{width:calc(100% - 36px)}.site-header{height:70px}.primary-nav{gap:12px;font-size:10px}.primary-nav a:not(.nav-cta){display:none}.nav-cta{padding:10px 13px}.hero{display:flex;flex-direction:column;align-items:stretch;gap:27px;padding:38px 0 56px;min-height:0}.hero-media{order:0;min-height:280px;height:280px}.hero-copy{order:1;padding:0}.hero-copy h1{font-size:clamp(56px,15vw,78px);margin:18px 0}.hero-copy p{font-size:14px}.events-section{padding:58px 0 66px}.section-top{display:block}.section-top p{margin-top:14px}.event-grid{grid-template-columns:1fr;gap:14px}.event-image{height:230px}.event-content h3{font-size:29px}.notice{grid-template-columns:1fr;gap:9px;padding:19px}.footer-frame{margin-bottom:18px}.footer-panel{padding:28px 22px 20px}.footer-main{grid-template-columns:1fr 1fr;gap:24px}.footer-main>div:first-child{grid-column:1/-1}.footer-bottom{display:block;line-height:1.8}.footer-bottom span{display:block}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header><a class="logo" href="/">HIDDEN<b>RIDES</b></a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/discover">Find a ride</a><a href="/jodhpur">Cities</a><a href="/events" aria-current="page">Events</a></nav></header>
+<header class="site-header">
+<a class="logo" href="/" aria-label="HiddenRides home"><span class="logo-mark" aria-hidden="true"></span>HIDDEN<b>RIDES</b></a>
+<nav class="primary-nav" aria-label="Main navigation">
+<a href="/">Home</a><a href="/discover">Find a ride</a><a href="/jodhpur">Cities</a><a href="/events" aria-current="page">Events</a><a class="nav-cta" href="/discover">Explore rides ↗</a>
+</nav>
+</header>
 <main>
-<section class="hero"><div class="eyebrow">COMMUNITY RIDES · UNITED STATES & UNITED KINGDOM</div><h1>Events worth<br>riding for<span>.</span></h1><p>Find community-led naked bike rides that use cycling, body positivity and public visibility to call for safer streets and less dependence on fossil fuels. Participation is clothing-optional at these events; check each organiser’s latest guidance before attending.</p></section>
-<section class="section">
-<div class="sectionhead"><h2>Explore events</h2><p>Community-led rides · Event details may change</p></div>
-<div class="grid">
-<article class="ride"><a href="/portland-naked-bike-ride" aria-label="Explore Portland Naked Bike Ride"><div class="visual"><img src="https://katu.com/resources/media/64f51c73-5232-4de6-b017-40de53131150-WorldNakedBikeRidePortland41.jpg" alt="Cyclists riding during the World Naked Bike Ride in Portland" loading="lazy"><span class="badge">Annual ride</span><span class="location">📍 Portland, Oregon</span></div></a><div class="body"><h3>Portland Naked Bike Ride</h3><p>The long-running PDX World Naked Bike Ride brings thousands of riders together around cyclist safety, oil dependence and body freedom.</p><div class="meta"><span>Oregon</span><span>World Naked Bike Ride</span><span>Clothing-optional</span></div><div class="route"><a href="/portland-naked-bike-ride">Explore Portland event →</a></div></div><div class="credit">Photo: KATU · <a href="https://katu.com/news/local/photos-bicyclists-bare-all-for-2019-world-naked-bike-ride-in-portland-oregon-wnbr" target="_blank" rel="noopener">2019 event photo source</a></div></article>
-<article class="ride"><a href="/philly-naked-bike-ride" aria-label="Explore Philly Naked Bike Ride"><div class="visual"><img src="https://www.inquirer.com/resizer/v2/LNONSU6FAZC3RGKIUQQD2FG5UM.jpg?auth=361e1b4ae51bd5f097bf4eaf883f47e8eb7658a2b1af5fdd39d9d8fed4107f71&height=507&smart=true&width=760" alt="Body-painted cyclists at the Philly Naked Bike Ride" loading="lazy"><span class="badge">Annual ride</span><span class="location">📍 Philadelphia, Pennsylvania</span></div></a><div class="body"><h3>Philly Naked Bike Ride</h3><p>A yearly community ride promoting cycling advocacy, body positivity and fuel-conscious living through a city-wide group ride.</p><div class="meta"><span>Pennsylvania</span><span>Community ride</span><span>Clothing-optional</span></div><div class="route"><a href="/philly-naked-bike-ride">Explore Philly event →</a></div></div><div class="credit">Photo: The Philadelphia Inquirer · <a href="https://www.inquirer.com/news/philadelphia/philly-naked-bike-ride-2024-time-date-location-route-20240823.html" target="_blank" rel="noopener">2024 event photo source</a></div></article>
-<article class="ride"><a href="/chicago-naked-bike-ride" aria-label="Explore Chicago World Naked Bike Ride"><div class="visual"><img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/16078156/bx015_3207_9.jpg" alt="Cyclists taking part in the World Naked Bike Ride in Chicago" loading="lazy"><span class="badge">Annual ride</span><span class="location">📍 Chicago, Illinois</span></div></a><div class="body"><h3>Chicago World Naked Bike Ride</h3><p>A Chicago edition of the global ride movement celebrating people-powered transport, personal freedom and body positivity.</p><div class="meta"><span>Illinois</span><span>World Naked Bike Ride</span><span>Clothing-optional</span></div><div class="route"><a href="/chicago-naked-bike-ride">Explore Chicago event →</a></div></div><div class="credit">Photo: Chicago Sun-Times · <a href="https://chicago.suntimes.com/2018/6/10/18355031/photos-stripped-down-chicagoans-take-to-the-street-for-world-naked-bike-ride" target="_blank" rel="noopener">2018 event photo source</a></div></article>
-<article class="ride"><a href="/london-naked-bike-ride" aria-label="Explore London World Naked Bike Ride"><div class="visual"><img src="https://wnbrlondon.uk/wp-content/uploads/2023/08/cropped-P1180486ce-1.jpg" alt="World Naked Bike Ride participants cycling along The Mall in London" loading="lazy"><span class="badge">Annual ride</span><span class="location">📍 London, United Kingdom</span></div></a><div class="body"><h3>World Naked Bike Ride London</h3><p>London’s annual public cycling demonstration calls for safer streets, less oil dependence and greater freedom for cyclists and their bodies.</p><div class="meta"><span>United Kingdom</span><span>Since 2004</span><span>Clothing-optional</span></div><div class="route"><a href="/london-naked-bike-ride">Explore London event →</a></div></div><div class="credit">Photo: Julian Newton · <a href="https://wnbrlondon.uk/" target="_blank" rel="noopener">Official WNBR London source</a></div></article>
-
-<article class="ride"><a href="/london-to-brighton-bike-ride" aria-label="Explore London to Brighton Bike Ride"><div class="visual"><img src="https://www.londonbrightoncycle.co.uk/wp-content/themes/Avada-Child-Theme/landing-2/assets/images/pricing.png" alt="Cyclist taking part in the London to Brighton Cycle Ride" loading="lazy"><span class="badge">Annual challenge</span><span class="location">📍 London → Brighton, UK</span></div></a><div class="body"><h3>London to Brighton Bike Ride</h3><p>The iconic 55-mile supported road ride from Clapham Common to Brighton, with countryside views and the Ditchling Beacon climb.</p><div class="meta"><span>55 miles</span><span>12 Sep 2027</span><span>All abilities</span></div><div class="route"><a href="/london-to-brighton-bike-ride">Explore the ride →</a></div></div><div class="credit">Photo: Official London to Brighton Cycle Ride website · <a href="https://www.londonbrightoncycle.co.uk/london-to-brighton-cycle-ride/" target="_blank" rel="noopener">Official event source</a></div></article>
+<section class="hero" aria-labelledby="page-title">
+<div class="hero-media">
+<img src="https://wnbrlondon.uk/wp-content/uploads/2023/08/cropped-P1180486ce-1.jpg" alt="Participants cycling together during the World Naked Bike Ride in London" fetchpriority="high">
 </div>
-<div class="note"><strong>Before you go</strong><br>These listings include community demonstrations and organised cycling challenges. Follow each organiser’s instructions, respect other participants and photography boundaries where applicable, bring suitable safety equipment, and check current event rules. Dates, routes and meeting points can change from year to year.</div>
+<div class="hero-copy">
+<div class="kicker">THE HIDDENRIDES EVENT JOURNAL</div>
+<h1 id="page-title">Events worth <em>riding</em> for.</h1>
+<p>From community-led city rides to iconic long-distance cycling challenges, discover gatherings that bring people together on two wheels. Find the event, check the organiser’s latest guidance and make the journey part of the story.</p>
+<div class="actions"><a class="button" href="#events">Explore events <span aria-hidden="true">↘</span></a><a class="text-link" href="/discover">Find a ride instead</a></div>
+<div class="hero-note">Independent event listings · Always confirm details with organisers</div>
+</div>
+</section>
+<div class="rule" aria-hidden="true"></div>
+<section class="events-section" id="events" aria-labelledby="events-title">
+<div class="section-top">
+<div><div class="eyebrow">ON THE CALENDAR</div><h2 id="events-title">Find your next<br>ride gathering.</h2></div>
+<p>Explore selected community rides and cycling events. Dates, routes and participation requirements can change, so use the official organiser link before making plans.</p>
+</div>
+<div class="event-grid">
+<article class="event-card">
+<a href="/portland-naked-bike-ride" aria-label="Explore Portland Naked Bike Ride"><div class="event-image"><img src="https://katu.com/resources/media/64f51c73-5232-4de6-b017-40de53131150-WorldNakedBikeRidePortland41.jpg" alt="Cyclists riding during the World Naked Bike Ride in Portland" loading="lazy"><span class="event-tag">Annual ride</span></div></a>
+<div class="event-content"><div class="event-location">Portland · Oregon, USA</div><h3>Portland Naked Bike Ride</h3><p>The long-running PDX World Naked Bike Ride brings riders together around cyclist safety, oil dependence and body freedom.</p><div class="event-meta"><span>Oregon</span><span>World Naked Bike Ride</span><span>Clothing-optional</span></div><a class="event-link" href="/portland-naked-bike-ride"><span>Explore event</span><span aria-hidden="true">↗</span></a></div>
+<div class="source">Photo: KATU · <a href="https://katu.com/news/local/photos-bicyclists-bare-all-for-2019-world-naked-bike-ride-in-portland-oregon-wnbr" target="_blank" rel="noopener noreferrer">2019 event photo source</a></div>
+</article>
+<article class="event-card">
+<a href="/philly-naked-bike-ride" aria-label="Explore Philly Naked Bike Ride"><div class="event-image"><img src="https://www.inquirer.com/resizer/v2/LNONSU6FAZC3RGKIUQQD2FG5UM.jpg?auth=361e1b4ae51bd5f097bf4eaf883f47e8eb7658a2b1af5fdd39d9d8fed4107f71&height=507&smart=true&width=760" alt="Body-painted cyclists at the Philly Naked Bike Ride" loading="lazy"><span class="event-tag">Annual ride</span></div></a>
+<div class="event-content"><div class="event-location">Philadelphia · Pennsylvania, USA</div><h3>Philly Naked Bike Ride</h3><p>A yearly community ride promoting cycling advocacy, body positivity and fuel-conscious living through a city-wide group ride.</p><div class="event-meta"><span>Pennsylvania</span><span>Community ride</span><span>Clothing-optional</span></div><a class="event-link" href="/philly-naked-bike-ride"><span>Explore event</span><span aria-hidden="true">↗</span></a></div>
+<div class="source">Photo: The Philadelphia Inquirer · <a href="https://www.inquirer.com/news/philadelphia/philly-naked-bike-ride-2024-time-date-location-route-20240823.html" target="_blank" rel="noopener noreferrer">2024 event photo source</a></div>
+</article>
+<article class="event-card">
+<a href="/chicago-naked-bike-ride" aria-label="Explore Chicago World Naked Bike Ride"><div class="event-image"><img src="https://cdn.vox-cdn.com/uploads/chorus_asset/file/16078156/bx015_3207_9.jpg" alt="Cyclists taking part in the World Naked Bike Ride in Chicago" loading="lazy"><span class="event-tag">Annual ride</span></div></a>
+<div class="event-content"><div class="event-location">Chicago · Illinois, USA</div><h3>Chicago World Naked Bike Ride</h3><p>A Chicago edition of the global ride movement celebrating people-powered transport, personal freedom and body positivity.</p><div class="event-meta"><span>Illinois</span><span>World Naked Bike Ride</span><span>Clothing-optional</span></div><a class="event-link" href="/chicago-naked-bike-ride"><span>Explore event</span><span aria-hidden="true">↗</span></a></div>
+<div class="source">Photo: Chicago Sun-Times · <a href="https://chicago.suntimes.com/2018/6/10/18355031/photos-stripped-down-chicagoans-take-to-the-street-for-world-naked-bike-ride" target="_blank" rel="noopener noreferrer">2018 event photo source</a></div>
+</article>
+<article class="event-card">
+<a href="/london-naked-bike-ride" aria-label="Explore London World Naked Bike Ride"><div class="event-image"><img src="https://wnbrlondon.uk/wp-content/uploads/2023/08/cropped-P1180486ce-1.jpg" alt="World Naked Bike Ride participants cycling along The Mall in London" loading="lazy"><span class="event-tag">Annual ride</span></div></a>
+<div class="event-content"><div class="event-location">London · United Kingdom</div><h3>World Naked Bike Ride London</h3><p>London’s annual public cycling demonstration calls for safer streets, less oil dependence and greater freedom for cyclists and their bodies.</p><div class="event-meta"><span>United Kingdom</span><span>Since 2004</span><span>Clothing-optional</span></div><a class="event-link" href="/london-naked-bike-ride"><span>Explore event</span><span aria-hidden="true">↗</span></a></div>
+<div class="source">Photo: Julian Newton · <a href="https://wnbrlondon.uk/" target="_blank" rel="noopener noreferrer">Official WNBR London source</a></div>
+</article>
+<article class="event-card">
+<a href="/london-to-brighton-bike-ride" aria-label="Explore London to Brighton Bike Ride"><div class="event-image"><img src="https://www.londonbrightoncycle.co.uk/wp-content/themes/Avada-Child-Theme/landing-2/assets/images/pricing.png" alt="Cyclist taking part in the London to Brighton Cycle Ride" loading="lazy"><span class="event-tag">Annual challenge</span></div></a>
+<div class="event-content"><div class="event-location">London → Brighton · United Kingdom</div><h3>London to Brighton Bike Ride</h3><p>The iconic 55-mile supported road ride from Clapham Common to Brighton, with countryside views and the Ditchling Beacon climb.</p><div class="event-meta"><span>55 miles</span><span>12 Sep 2027</span><span>All abilities</span></div><a class="event-link" href="/london-to-brighton-bike-ride"><span>Explore the ride</span><span aria-hidden="true">↗</span></a></div>
+<div class="source">Photo: Official London to Brighton Cycle Ride website · <a href="https://www.londonbrightoncycle.co.uk/london-to-brighton-cycle-ride/" target="_blank" rel="noopener noreferrer">Official event source</a></div>
+</article>
+</div>
+<aside class="notice"><strong>Before you go</strong><p>These listings include community demonstrations and organised cycling challenges. Follow each organiser’s instructions, respect other participants and photography boundaries where applicable, bring suitable safety equipment, and check current event rules. Dates, routes and meeting points can change from year to year.</p></aside>
 </section>
 </main>
-<footer><strong>HIDDENRIDES</strong><span>Event details can change. Always confirm with local organisers before travelling.</span></footer>
+<div class="footer-frame"><footer class="footer-panel">
+<div class="footer-main">
+<div><a class="footer-brand" href="/">HIDDEN<span>RIDES</span></a><p class="footer-copy">Discover roads worth getting lost on. Find the places, people and journeys that make every ride memorable.</p></div>
+<div class="footer-col"><h2>Explore</h2><a href="/">Home</a><a href="/discover">Find a ride</a><a href="/events">Events</a><a href="/motorcycle-rides-near-me">Rides near me</a></div>
+<div class="footer-col"><h2>HiddenRides</h2><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy">Privacy policy</a><a href="/terms">Terms</a></div>
+</div>
+<div class="footer-bottom"><span>© 2026 HiddenRides. All rights reserved.</span><span>Event details can change. Confirm with organisers before travelling.</span></div>
+</footer></div>
 </div>
 </body>
 </html>
