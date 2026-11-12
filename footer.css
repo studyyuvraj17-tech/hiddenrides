@@ -1,58 +1,65 @@
-/* Universal HiddenRides footer — shared across every page. */
+/* Universal HiddenRides footer — compact shared layout. */
 body footer.site-footer {
   box-sizing: border-box !important;
   display: grid !important;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
   align-items: start;
-  gap: 64px 8%;
+  gap: 28px 6%;
   width: min(1180px, 92%);
-  margin: 42px auto 48px !important;
-  padding: clamp(42px, 7vw, 88px) clamp(28px, 6vw, 72px) 48px !important;
-  border: 10px solid #bfff00 !important;
-  border-radius: 54px !important;
+  margin: 36px auto 32px !important;
+  padding: 32px 40px 24px !important;
+  border: 4px solid #bfff00 !important;
+  border-radius: 28px !important;
   background: #1a1a1a !important;
   color: #f4f4f1 !important;
   box-shadow: none !important;
   font: inherit;
-  font-size: 16px !important;
+  font-size: 14px !important;
   line-height: 1.5;
 }
-body footer.site-footer::before, body footer.site-footer::after { content: none !important; display: none !important; }
-body footer.site-footer .site-footer-brand { max-width: 760px; }
+body footer.site-footer::before,
+body footer.site-footer::after {
+  content: none !important;
+  display: none !important;
+}
+body footer.site-footer .site-footer-brand { max-width: 520px; }
 body footer.site-footer .site-footer-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 9px;
   color: #f4f4f1 !important;
-  font-size: clamp(34px, 5.4vw, 58px);
-  font-weight: 950;
-  letter-spacing: -2.8px;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
   line-height: 1;
   text-decoration: none !important;
   opacity: 1 !important;
 }
 body footer.site-footer .site-footer-logo img {
   display: block;
-  width: clamp(34px, 4.8vw, 52px);
-  height: clamp(34px, 4.8vw, 52px);
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
-body footer.site-footer .site-footer-logo strong { color: #bfff00 !important; font-weight: inherit; }
+body footer.site-footer .site-footer-logo strong {
+  color: #bfff00 !important;
+  font-weight: inherit;
+}
 body footer.site-footer .site-footer-brand p {
-  max-width: 760px;
-  margin: 38px 0 0;
+  max-width: 440px;
+  margin: 16px 0 0;
   color: #b8b8b8 !important;
-  font-size: clamp(18px, 2.6vw, 28px);
-  font-weight: 350;
-  line-height: 1.55;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
 }
 body footer.site-footer .site-footer-links {
-  grid-column: 1 / -1;
+  grid-column: auto;
   display: grid !important;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 8px;
+  gap: 24px;
+  margin-top: 2px;
   padding: 0;
   border: 0;
   background: transparent !important;
@@ -61,7 +68,7 @@ body footer.site-footer .site-footer-column {
   display: flex !important;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px !important;
+  gap: 10px !important;
   min-width: 0;
   padding: 0;
   border: 0;
@@ -69,12 +76,12 @@ body footer.site-footer .site-footer-column {
   color: #dededb !important;
 }
 body footer.site-footer .site-footer-column h2 {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   color: #bfff00 !important;
-  font-size: 17px;
-  font-weight: 850;
-  letter-spacing: .13em;
-  line-height: 1.2;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1.3;
   text-transform: uppercase;
 }
 body footer.site-footer .site-footer-column a {
@@ -86,45 +93,69 @@ body footer.site-footer .site-footer-column a {
   border-radius: 0;
   background: transparent !important;
   color: #dededb !important;
-  font-size: clamp(16px, 2vw, 21px);
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 1.4;
   opacity: 1 !important;
   text-decoration: none !important;
   transform: none !important;
 }
 body footer.site-footer .site-footer-column a:hover,
-body footer.site-footer .site-footer-column a:focus-visible { color: #bfff00 !important; }
+body footer.site-footer .site-footer-column a:focus-visible {
+  color: #bfff00 !important;
+}
 body footer.site-footer .site-footer-bottom {
   grid-column: 1 / -1;
   display: grid;
-  gap: 10px;
-  margin-top: 8px;
-  padding-top: 30px;
+  gap: 5px;
+  margin-top: 4px;
+  padding-top: 16px;
   border-top: 1px solid #505050;
   background: transparent !important;
 }
 body footer.site-footer .site-footer-bottom p {
   margin: 0;
   color: #a4a4a4 !important;
-  font-size: clamp(14px, 1.9vw, 20px);
+  font-size: 12px;
   line-height: 1.5;
 }
 @media (max-width: 620px) {
   body footer.site-footer {
     grid-template-columns: 1fr;
-    gap: 38px;
+    gap: 24px;
     width: calc(100% - 28px);
-    margin: 28px auto 32px !important;
-    padding: 38px 25px 30px !important;
-    border-width: 7px !important;
-    border-radius: 34px !important;
+    margin: 24px auto 24px !important;
+    padding: 26px 22px 20px !important;
+    border-width: 3px !important;
+    border-radius: 22px !important;
   }
-  body footer.site-footer .site-footer-brand p { margin-top: 25px; }
-  body footer.site-footer .site-footer-links { gap: 24px 16px; margin-top: 0; }
-  body footer.site-footer .site-footer-column { gap: 15px !important; }
-  body footer.site-footer .site-footer-column h2 { font-size: 13px; letter-spacing: .1em; }
-  body footer.site-footer .site-footer-column a { font-size: 15px; }
-  body footer.site-footer .site-footer-bottom { margin-top: 0; padding-top: 22px; }
+  body footer.site-footer .site-footer-logo { font-size: 27px; }
+  body footer.site-footer .site-footer-logo img {
+    width: 27px;
+    height: 27px;
+  }
+  body footer.site-footer .site-footer-brand p {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  body footer.site-footer .site-footer-links {
+    grid-column: auto;
+    gap: 20px;
+    margin-top: 0;
+  }
+  body footer.site-footer .site-footer-column { gap: 9px !important; }
+  body footer.site-footer .site-footer-column h2 {
+    font-size: 11px;
+    letter-spacing: .09em;
+  }
+  body footer.site-footer .site-footer-column a { font-size: 13px; }
+  body footer.site-footer .site-footer-bottom {
+    grid-column: auto;
+    margin-top: 0;
+    padding-top: 14px;
+  }
+  body footer.site-footer .site-footer-bottom p { font-size: 11px; }
 }
-@media (prefers-reduced-motion: reduce) { body footer.site-footer * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  body footer.site-footer * { transition: none !important; }
+}
