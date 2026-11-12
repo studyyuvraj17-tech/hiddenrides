@@ -1,5 +1,12 @@
 (() => {
   const installFooter = () => {
+    if (!document.querySelector('link[data-universal-footer-css]')) {
+      const stylesheet = document.createElement("link");
+      stylesheet.rel = "stylesheet";
+      stylesheet.href = "/footer.css";
+      stylesheet.dataset.universalFooterCss = "true";
+      document.head.appendChild(stylesheet);
+    }
     const current = document.querySelector("body > footer, main + footer, footer");
     if (!current || current.dataset.universalFooter === "true") return;
     const footer = document.createElement("footer");
