@@ -1,108 +1,28 @@
-/* HiddenRides footer: retain the site's light, minimal visual language. */
-body footer {
-  box-sizing: border-box;
-  margin: 36px 0 0 !important;
-  padding: 28px 0 40px !important;
-  border: 0 !important;
-  border-top: 1px solid var(--line, #e2e5e7) !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  color: var(--muted, #626b72) !important;
-  box-shadow: none !important;
-  font-size: 12px !important;
-  line-height: 1.6;
-}
-body footer::before { content: none !important; }
-body footer strong {
-  color: var(--text, #111315) !important;
-  font-size: inherit;
-  font-weight: 900;
-  letter-spacing: .02em;
-}
-body footer span {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted, #626b72) !important;
-  font-size: inherit;
-}
-body footer nav {
-  display: flex !important;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 14px !important;
-  min-width: 0;
-  color: var(--muted, #626b72) !important;
-  font-size: 12px !important;
-}
-body footer nav a {
-  display: inline;
-  min-height: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent !important;
-  color: inherit !important;
-  font-size: inherit;
-  font-weight: 500;
-  line-height: inherit;
-  text-decoration: none !important;
-  opacity: .82 !important;
-  transition: color .18s ease, opacity .18s ease;
-}
-body footer nav a:hover,
-body footer nav a:focus-visible {
-  color: #719000 !important;
-  opacity: 1 !important;
-  transform: none;
-  outline-offset: 3px;
-}
-body footer small,
-body footer > div:last-child {
-  color: var(--muted, #626b72) !important;
-  font-size: 11px !important;
-  letter-spacing: 0;
-}
-body footer small {
-  width: 100% !important;
-  opacity: .75 !important;
-}
-@media (max-width: 700px) {
-  body footer {
-    margin-top: 28px !important;
-    padding: 24px 0 32px !important;
-  }
-  body footer nav {
-    justify-content: flex-start;
-    gap: 10px 14px !important;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  body footer nav a { transition: none; }
-}
-
-
-/* Homepage footer — dark panel with the electric-lime frame from the supplied reference. */
-body footer.home-footer {
+/* Universal HiddenRides footer — shared across every page. */
+body footer.site-footer {
+  box-sizing: border-box !important;
   display: grid !important;
   grid-template-columns: 1fr 1fr;
   align-items: start;
   gap: 64px 8%;
-  width: 100%;
-  margin: 42px 0 48px !important;
+  width: min(1180px, 92%);
+  margin: 42px auto 48px !important;
   padding: clamp(42px, 7vw, 88px) clamp(28px, 6vw, 72px) 48px !important;
   border: 10px solid #bfff00 !important;
   border-radius: 54px !important;
   background: #1a1a1a !important;
   color: #f4f4f1 !important;
   box-shadow: none !important;
-  font-family: inherit;
+  font: inherit;
   font-size: 16px !important;
   line-height: 1.5;
 }
-body footer.home-footer .home-footer-brand { max-width: 760px; }
-body footer.home-footer .home-footer-logo {
-  display: inline-block;
+body footer.site-footer::before, body footer.site-footer::after { content: none !important; display: none !important; }
+body footer.site-footer .site-footer-brand { max-width: 760px; }
+body footer.site-footer .site-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   color: #f4f4f1 !important;
   font-size: clamp(34px, 5.4vw, 58px);
   font-weight: 950;
@@ -111,8 +31,15 @@ body footer.home-footer .home-footer-logo {
   text-decoration: none !important;
   opacity: 1 !important;
 }
-body footer.home-footer .home-footer-logo span { display: inline; margin: 0; color: #bfff00 !important; font-size: inherit; }
-body footer.home-footer .home-footer-brand p {
+body footer.site-footer .site-footer-logo img {
+  display: block;
+  width: clamp(34px, 4.8vw, 52px);
+  height: clamp(34px, 4.8vw, 52px);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+body footer.site-footer .site-footer-logo strong { color: #bfff00 !important; font-weight: inherit; }
+body footer.site-footer .site-footer-brand p {
   max-width: 760px;
   margin: 38px 0 0;
   color: #b8b8b8 !important;
@@ -120,20 +47,28 @@ body footer.home-footer .home-footer-brand p {
   font-weight: 350;
   line-height: 1.55;
 }
-body footer.home-footer .home-footer-links {
+body footer.site-footer .site-footer-links {
   grid-column: 1 / -1;
-  display: grid;
+  display: grid !important;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
 }
-body footer.home-footer .home-footer-column {
-  display: flex;
+body footer.site-footer .site-footer-column {
+  display: flex !important;
   flex-direction: column;
   align-items: flex-start;
-  gap: 18px;
+  gap: 18px !important;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  color: #dededb !important;
 }
-body footer.home-footer .home-footer-column h2 {
+body footer.site-footer .site-footer-column h2 {
   margin: 0 0 8px;
   color: #bfff00 !important;
   font-size: 17px;
@@ -142,8 +77,10 @@ body footer.home-footer .home-footer-column h2 {
   line-height: 1.2;
   text-transform: uppercase;
 }
-body footer.home-footer .home-footer-column a {
+body footer.site-footer .site-footer-column a {
   display: inline-block;
+  min-height: 0;
+  margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -154,54 +91,40 @@ body footer.home-footer .home-footer-column a {
   line-height: 1.35;
   opacity: 1 !important;
   text-decoration: none !important;
+  transform: none !important;
 }
-body footer.home-footer .home-footer-column a:hover,
-body footer.home-footer .home-footer-column a:focus-visible {
-  color: #bfff00 !important;
-  text-decoration: none !important;
-}
-body footer.home-footer .home-footer-bottom {
+body footer.site-footer .site-footer-column a:hover,
+body footer.site-footer .site-footer-column a:focus-visible { color: #bfff00 !important; }
+body footer.site-footer .site-footer-bottom {
   grid-column: 1 / -1;
   display: grid;
   gap: 10px;
   margin-top: 8px;
   padding-top: 30px;
   border-top: 1px solid #505050;
+  background: transparent !important;
 }
-body footer.home-footer .home-footer-bottom p {
+body footer.site-footer .site-footer-bottom p {
   margin: 0;
   color: #a4a4a4 !important;
   font-size: clamp(14px, 1.9vw, 20px);
   line-height: 1.5;
 }
 @media (max-width: 620px) {
-  body footer.home-footer {
+  body footer.site-footer {
     grid-template-columns: 1fr;
     gap: 38px;
-    margin: 28px 0 32px !important;
+    width: calc(100% - 28px);
+    margin: 28px auto 32px !important;
     padding: 38px 25px 30px !important;
     border-width: 7px !important;
     border-radius: 34px !important;
   }
-  body footer.home-footer .home-footer-brand p { margin-top: 25px; }
-  body footer.home-footer .home-footer-links { gap: 24px 16px; margin-top: 0; }
-  body footer.home-footer .home-footer-column { gap: 15px; }
-  body footer.home-footer .home-footer-column h2 { font-size: 13px; letter-spacing: .1em; }
-  body footer.home-footer .home-footer-column a { font-size: 15px; }
-  body footer.home-footer .home-footer-bottom { margin-top: 0; padding-top: 22px; }
+  body footer.site-footer .site-footer-brand p { margin-top: 25px; }
+  body footer.site-footer .site-footer-links { gap: 24px 16px; margin-top: 0; }
+  body footer.site-footer .site-footer-column { gap: 15px !important; }
+  body footer.site-footer .site-footer-column h2 { font-size: 13px; letter-spacing: .1em; }
+  body footer.site-footer .site-footer-column a { font-size: 15px; }
+  body footer.site-footer .site-footer-bottom { margin-top: 0; padding-top: 22px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  body footer.home-footer .home-footer-column a { transition: none; }
-}
-
-
-/* Keep the site favicon visible beside the homepage footer wordmark. */
-body footer.home-footer .home-footer-icon {
-  display: inline-block;
-  width: clamp(34px, 4.8vw, 52px);
-  height: clamp(34px, 4.8vw, 52px);
-  object-fit: contain;
-  margin: 0 12px 0 0;
-  vertical-align: -0.08em;
-  filter: brightness(0) invert(1);
-}
+@media (prefers-reduced-motion: reduce) { body footer.site-footer * { transition: none !important; } }
