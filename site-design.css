@@ -48,3 +48,14 @@ body footer nav a{font-size:inherit}
   :where(nav,.primary-nav,.main-nav){gap:10px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Higher-specificity compatibility layer for pages with older inline themes */
+body h1,body h2,body h3,body .hero h1,body .page-hero h1,body .hero-section h1{font-family:"Brier",Georgia,serif!important;font-weight:700!important;letter-spacing:-.045em}
+body .card,body .ride-card,body .destination-card,body .route-card,body .experience-card,body .event-card,body .guide-card,body .place-card,body .spot-card,body .tile{background:#1A1A1A!important;color:#F5F5F0!important;border:1px solid #333!important;border-radius:14px!important;box-shadow:none!important}
+body .card p,body .ride-card p,body .destination-card p,body .route-card p,body .experience-card p,body .event-card p,body .guide-card p,body .place-card p,body .spot-card p,body .tile p{color:#C5C5BD!important}
+body .card h2,body .card h3,body .ride-card h2,body .ride-card h3,body .destination-card h2,body .destination-card h3,body .route-card h2,body .route-card h3,body .experience-card h2,body .experience-card h3,body .event-card h2,body .event-card h3{color:#F5F5F0!important}
+body .tag,body .badge,body .pill-accent,body .chip-accent{background:#D1FF00!important;color:#111!important}
+body .hero,body .page-hero,body .hero-section{background:transparent!important;color:#111!important}
+body .hero p,body .page-hero p,body .hero-section p,body .lead,body .intro{color:#555!important}
+body header{background:transparent!important}
+body .btn-primary,body .primary-btn,body .button-primary,body .cta-primary,body .nav-cta{background:#D1FF00!important;color:#111!important;border-color:#D1FF00!important}
