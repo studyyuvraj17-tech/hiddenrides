@@ -23,7 +23,7 @@ label.field{display:block;margin-bottom:13px;color:var(--muted);font-size:11px;f
 <div class="hero-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tawang_Monastery%2C_Arunachal_Pradesh.jpg" alt="Tawang Monastery in the Eastern Himalaya" fetchpriority="high"><div class="hero-caption">Tawang Monastery · Photo: RASUNIYADUT / Wikimedia Commons (CC BY-SA 4.0)</div></div>
 <div class="quickfacts"><div class="quickfact"><small>Best riding window</small><strong>March–June · Sep–Nov</strong></div><div class="quickfact"><small>Plan for</small><strong>6–8 days from Guwahati</strong></div><div class="quickfact"><small>High point</small><strong>Sela Pass · ~4,170 m</strong></div><div class="quickfact"><small>Ride style</small><strong>Mountain highways & high passes</strong></div></div></section>
 <section class="section" id="routes"><div class="section-head"><div><div class="eyebrow">Explore the route</div><h2>Your Tawang ride, on the map</h2></div><p>Switch route direction and tap stops for riding notes.</p></div><p class="intro">The standard approach runs from Guwahati through Bhalukpong, Bomdila and Dirang before crossing the Sela corridor to Tawang. The map shows an indicative road corridor, not turn-by-turn navigation. Check live road conditions before departure.</p>
-<div class="panel map-panel"><div class="map-toolbar"><div class="route-tabs" id="routeTabs"></div><div class="map-actions"><button class="map-action" id="fitMap" type="button">⌖ Fit route</button><button class="map-action" id="fullMap" type="button">⛶ Full screen</button></div></div><div class="map-layout"><div class="map-stage"><div id="interactiveMap" aria-label="Interactive map of Tawang motorcycle routes"></div><div class="map-legend"><span><i class="legend-line"></i> Selected route</span><span><i class="legend-dot"></i> Route stop</span></div></div><aside class="map-side"><div class="map-side-kicker">SELECTED ROUTE</div><h3 id="mapRouteName">Guwahati to Tawang</h3><p id="mapRouteNote"></p><div class="map-side-stats" id="stats"></div><div class="map-stop-card" id="routeDetail" aria-live="polite"></div><div class="map-hint"><b>Map tip</b><br>Tap a numbered marker or itinerary day to focus that stop. Switch to terrain view for mountain context.</div></aside></div><div class="map-attribution-note">Map data © OpenStreetMap contributors · Terrain layer © OpenTopoMap contributors. Route lines are illustrative.</div></div></section>
+<div class="panel map-panel"><div class="map-toolbar"><div class="route-tabs" id="routeTabs"></div><div class="map-actions"><button class="map-action" id="fitMap" type="button">⌖ Fit route</button><button class="map-action" id="fullMap" type="button">⛶ Full screen</button></div></div><div class="map-layout"><div class="map-stage"><div id="interactiveMap" aria-label="Interactive map of Tawang motorcycle routes"></div><div class="map-legend"><span><i class="legend-line"></i> Selected route</span><span><i class="legend-dot"></i> Route stop</span></div></div><aside class="map-side"><div class="map-side-kicker">SELECTED ROUTE</div><h3 id="mapRouteName">Guwahati to Tawang</h3><p id="mapRouteNote"></p><div class="map-side-stats" id="stats"></div><div class="map-stop-card" id="routeDetail" aria-live="polite"></div><div id="roadRouteStatus" class="map-hint" role="status" aria-live="polite">Loading road-following route from OpenStreetMap…</div><div class="map-hint"><b>Map tip</b><br>Tap a numbered marker or itinerary day to focus that stop. Switch to terrain view for mountain context.</div></aside></div><div class="map-attribution-note">Map data © OpenStreetMap contributors · Terrain layer © OpenTopoMap contributors. Route lines are illustrative.</div></div></section>
 <section class="section" id="itinerary"><div class="section-head"><div><div class="eyebrow">Plan each riding day</div><h2>Day-by-day itinerary</h2></div><p>Tap a day to locate its final stop.</p></div><p class="intro">A practical 8-day outline from Guwahati and back. It deliberately includes an acclimatisation halt and a buffer day. Add time if you want to visit Bum La and Sangetsar Tso (Madhuri Lake).</p><div class="dayrow" id="days"></div><div class="panel day-detail" id="dayDetail" aria-live="polite"></div></section>
 <section class="section" id="budget"><div class="section-head"><div><div class="eyebrow">Make the numbers work</div><h2>Tawang bike trip budget</h2></div><p>Adjust estimates for your group.</p></div><div class="grid2"><div class="panel"><label class="field">Trip length (days)<input id="bDays" type="number" min="1" max="30" value="8"></label><label class="field">Number of riders<input id="bRiders" type="number" min="1" max="20" value="2"></label><label class="field">Bike rental per day (₹, enter 0 for own bike)<input id="bBike" type="number" min="0" value="1800"></label><label class="field">Stay per person per night (₹)<input id="bStay" type="number" min="0" value="1400"></label><label class="field">Food per person per day (₹)<input id="bFood" type="number" min="0" value="800"></label><label class="field">Fuel price per litre (₹)<input id="bFuel" type="number" min="0" value="100"></label><label class="field">Fuel per bike (litres)<input id="bLitres" type="number" min="0" value="45"></label></div><div class="panel"><div class="eyebrow">Estimated group total</div><div class="budget-total" id="bTotal">₹0</div><p id="bPer" style="color:var(--muted);font-size:12px"></p><table class="budget-table"><tbody id="bTable"></tbody></table><p style="font-size:10px;color:var(--muted);line-height:1.6">Planning estimate only. Excludes travel to Guwahati, permits/fees, major repairs and emergency evacuation. Prices vary by season and availability.</p></div></div></section>
 <section class="section" id="packing"><div class="section-head"><div><div class="eyebrow">Prepare before departure</div><h2>Tawang riding checklist</h2></div><p id="packCount">0 items packed</p></div><div class="progress"><span id="packBar"></span></div><div class="pack-grid" id="pack"></div></section>
@@ -74,14 +74,55 @@ const ROUTES={
 {n:"Guwahati",d:"Day 2",t:"Finish the trip. Inspect the motorcycle after the mountain journey.",w:false,c:[26.1445,91.7362]}
 ]}
 };
-let current="outbound",selected=0,mapInstance=null,routeLayer=null,markerLayer=null,activeMarkers=[];
+let current="outbound",selected=0,mapInstance=null,routeLayer=null,markerLayer=null,activeMarkers=[],routeRequestId=0;const roadRouteCache={};
 const $=id=>document.getElementById(id),money=n=>"₹"+Math.round(n).toLocaleString("en-IN");
 function groups(){const out=[];ROUTES[current].stops.forEach((p,i)=>{let x=out[out.length-1];if(x&&x.day===p.d)x.ix.push(i);else out.push({day:p.d,ix:[i]})});return out}
 function drawTabs(){$("routeTabs").innerHTML=Object.keys(ROUTES).map(k=>'<button class="pill" data-route="'+k+'" aria-pressed="'+(k===current)+'">'+ROUTES[k].name+'</button>').join("");$("routeTabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{current=b.dataset.route;selected=0;renderRoute()})}
 function drawStats(){const r=ROUTES[current];$("mapRouteName").textContent=r.name;$("mapRouteNote").textContent=r.note;$("stats").innerHTML='<div class="map-side-stat"><b>~'+r.km+' km</b><small>Indicative corridor</small></div><div class="map-side-stat"><b>'+r.stops.length+'</b><small>Key stops</small></div>'}
 function drawDetail(){const p=ROUTES[current].stops[selected];$("routeDetail").innerHTML='<h4>'+(selected+1)+'. '+p.n+'</h4><p>'+p.t+(p.w?'<br><b style="color:#9a6200">High-altitude or controlled-access section. Confirm local status before riding.</b>':'')+'</p>'}
 function drawDays(){const s=ROUTES[current].stops,g=groups();$("days").innerHTML=g.map((x,i)=>'<button class="daycard" data-group="'+i+'" aria-pressed="'+x.ix.includes(selected)+'"><b>'+x.day+'</b><strong>'+x.ix.map(j=>s[j].n).join(" → ")+'</strong><small>Tap to focus this stage</small></button>').join("");$("days").querySelectorAll("button").forEach(b=>b.onclick=()=>setSelected(g[+b.dataset.group].ix.slice(-1)[0],true));const x=g.find(v=>v.ix.includes(selected));$("dayDetail").innerHTML='<h3>'+x.day+'</h3>'+x.ix.map(i=>'<p><b>'+s[i].n+'</b><br>'+s[i].t+'</p>').join("")}
-function drawMap(fit=true){if(!mapInstance)return;if(routeLayer)mapInstance.removeLayer(routeLayer);if(markerLayer)mapInstance.removeLayer(markerLayer);const stops=ROUTES[current].stops,color={outbound:"#9bb900",return:"#2586b8"}[current];routeLayer=L.polyline(stops.map(x=>x.c),{color,weight:5,opacity:.92,lineCap:"round"}).addTo(mapInstance);markerLayer=L.featureGroup().addTo(mapInstance);activeMarkers=[];stops.forEach((p,i)=>{const icon=L.divIcon({className:"",html:'<span class="stop-number '+(i===selected?'active':'')+'">'+(i+1)+'</span>',iconSize:[34,34],iconAnchor:[17,17]});const m=L.marker(p.c,{icon}).addTo(markerLayer);m.bindPopup('<b>'+p.n+'</b><br><small>'+p.t+'</small>');m.on("click",()=>{setSelected(i,false);m.openPopup()});if(i===selected)m.bindTooltip(p.n,{permanent:true,direction:"top",offset:[0,-13],className:"stop-label"});activeMarkers.push(m)});if(fit){const b=L.featureGroup([routeLayer,markerLayer]).getBounds();if(b.isValid())mapInstance.fitBounds(b,{padding:[35,35],maxZoom:9})}}
+async function drawMap(fit=true){
+if(!mapInstance)return;
+if(routeLayer)mapInstance.removeLayer(routeLayer);
+if(markerLayer)mapInstance.removeLayer(markerLayer);
+const requestId=++routeRequestId,stops=ROUTES[current].stops,color={outbound:"#9bb900",return:"#2586b8"}[current];
+routeLayer=L.featureGroup().addTo(mapInstance);
+markerLayer=L.featureGroup().addTo(mapInstance);activeMarkers=[];
+stops.forEach((p,i)=>{
+const icon=L.divIcon({className:"",html:'<span class="stop-number '+(i===selected?'active':'')+'">'+(i+1)+'</span>',iconSize:[34,34],iconAnchor:[17,17]});
+const m=L.marker(p.c,{icon}).addTo(markerLayer);
+m.bindPopup('<b>'+p.n+'</b><br><small>'+p.t+'</small>');
+m.on("click",()=>{setSelected(i,false);m.openPopup()});
+if(i===selected)m.bindTooltip(p.n,{permanent:true,direction:"top",offset:[0,-13],className:"stop-label"});
+activeMarkers.push(m)
+});
+const routeStops=current==="outbound"?stops.slice(0,9):stops;
+const coordinates=routeStops.map(p=>p.c[1]+","+p.c[0]).join(";");
+const cacheKey=current;
+const status=$("roadRouteStatus");
+status.textContent="Calculating road-following route from OpenStreetMap…";
+try{
+let route=roadRouteCache[cacheKey];
+if(!route){
+const url="https://router.project-osrm.org/route/v1/driving/"+coordinates+"?overview=full&geometries=geojson&steps=false";
+const response=await fetch(url,{headers:{Accept:"application/json"}});
+if(!response.ok)throw new Error("Routing service returned "+response.status);
+const data=await response.json();
+if(data.code!=="Ok"||!data.routes||!data.routes[0])throw new Error(data.code||"No road route found");
+route={geometry:data.routes[0].geometry,distance:data.routes[0].distance};
+roadRouteCache[cacheKey]=route
+}
+if(requestId!==routeRequestId)return;
+L.geoJSON(route.geometry,{style:{color,weight:5,opacity:.95,lineCap:"round",lineJoin:"round"}}).addTo(routeLayer);
+$("stats").querySelector(".map-side-stat b").textContent="~"+Math.round(route.distance/1000)+" km";
+status.textContent="Road-following line: routed along mapped roads using OpenStreetMap data. "+(current==="outbound"?"Tawang local excursions are marked separately and are not joined by a guessed straight line.":"");
+}catch(error){
+if(requestId!==routeRequestId)return;
+status.textContent="Road route could not load right now. No straight-line substitute is shown; reload the page or try again later.";
+console.warn("Tawang road routing unavailable:",error)
+}
+if(fit){const b=L.featureGroup([routeLayer,markerLayer]).getBounds();if(b.isValid())mapInstance.fitBounds(b,{padding:[35,35],maxZoom:9})}
+}
 function initMap(){if(!window.L||mapInstance)return;mapInstance=L.map("interactiveMap",{scrollWheelZoom:false}).setView([27.3,92.2],7);const road=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}),terrain=L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",{maxZoom:17,attribution:'Map data &copy; OpenStreetMap contributors, SRTM | &copy; <a href="https://opentopomap.org">OpenTopoMap</a>'});road.addTo(mapInstance);L.control.layers({"Road map":road,"Terrain":terrain},null,{collapsed:true}).addTo(mapInstance);mapInstance.on("click",()=>mapInstance.scrollWheelZoom.enable());drawMap()}
 function setSelected(i,pan=true){selected=i;drawDetail();drawDays();drawMap(false);if(pan&&mapInstance){mapInstance.flyTo(ROUTES[current].stops[i].c,Math.max(8,mapInstance.getZoom()),{duration:.6});activeMarkers[i]?.openPopup()}}
 function renderRoute(){drawTabs();drawStats();drawDetail();drawDays();if(!mapInstance)initMap();else drawMap(true)}
