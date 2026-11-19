@@ -53,6 +53,18 @@ section.content-section{padding:48px 0;border-top:1px solid var(--line)}.section
 @media(max-width:620px){.hero{padding:105px 0 38px}.hero h1{letter-spacing:-2.6px}.hero p{font-size:14px}.hero-stats{gap:6px}.hero-stats span{font-size:10px}.section-head{display:block}.section-head p{margin-top:6px}.form-grid,.checklist,.tips-grid,.itinerary-layout{grid-template-columns:1fr}.route-presets{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr 1fr}.panel{padding:16px}.home-footer{grid-template-columns:1fr}.home-footer-bottom{display:block}.home-footer-bottom p+p{margin-top:7px}}
 @media(max-width:390px){.steps-grid{grid-template-columns:1fr}}
 
+
+/* My Trips: simple vertical list, using the site's light palette */
+.my-trips-list{display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
+.my-trip-item{display:flex;align-items:center;gap:16px;padding:17px 19px;border:1px solid #e2e5e7;border-radius:15px;background:#f7f7f5;color:#111315;transition:border-color .18s ease,transform .18s ease,background .18s ease}
+.my-trip-item:hover{border-color:#b7df00;background:#fbfcf7;transform:translateX(3px)}
+.my-trip-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:12px;background:#eef1e5;font-size:24px}
+.my-trip-copy{display:grid;gap:3px;min-width:0}
+.my-trip-copy strong{font-size:15px;color:#111315}
+.my-trip-copy small{font-size:12px;line-height:1.5;color:#626b72}
+.my-trip-arrow{margin-left:auto;font-size:20px;color:#718d00}
+@media(max-width:620px){.my-trip-item{gap:11px;padding:14px}.my-trip-icon{flex-basis:40px;width:40px;height:40px;font-size:21px}.my-trip-copy strong{font-size:13px}.my-trip-copy small{font-size:11px}}
+
 /* Match the live HiddenRides light theme */
 :root{--bg:#fff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
 html,body{background:#fff!important;color:#111315!important}
@@ -95,7 +107,7 @@ body{background:#fff!important;color:#111315!important}
 <body>
 <div class="wrap">
 <header class="site-header">
-<a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:brightness(0) invert(1)">HIDDEN<b>RIDES</b></a>
+<a class="logo" href="/"><img class="brand-bike" src="/assets/favicon.svg" alt="" style="filter:none">HIDDEN<b>RIDES</b></a>
 <div class="header-actions"><div class="nav-dropdown"><button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu <span class="menu-chevron">⌄</span></button>
 <nav id="site-menu" class="nav-dropdown-panel" aria-label="Main navigation">
 <a href="/#explore">Explore</a><a href="/#why">Our idea</a><a href="/#how">How it works</a><a href="/motorcycle-rides-near-me">Rides near me</a><a href="/best-bike-rides-in-india">Best rides in India</a><a href="/how-to-plan-a-road-trip" aria-current="page">How to plan a road trip</a><a href="/events">Events</a><a href="/#faq">FAQs</a>
@@ -108,6 +120,31 @@ body{background:#fff!important;color:#111315!important}
 <p>Build a realistic route, work out what the trip may cost, choose places worth stopping for and get your essentials sorted before the engine starts. Use the planner below, then explore real destinations and trips already listed on HiddenRides.</p>
 <div class="hero-actions"><a class="btn" href="#trip-planner">Plan my trip ↓</a><a class="btn secondary" href="#route-ideas">Explore road trip ideas</a></div>
 <div class="hero-stats"><span>Interactive budget estimator</span><span>Day-by-day itinerary builder</span><span>Travel-ready checklist</span></div>
+
+</section>
+
+<section class="content-section my-trips-section" id="my-trips">
+  <div class="section-head">
+    <h2>My Trips</h2>
+    <p>Explore the road trips featured on HiddenRides.</p>
+  </div>
+  <div class="my-trips-list">
+    <a class="my-trip-item" href="/leh-ladakh-bike-trip">
+      <span class="my-trip-icon" aria-hidden="true">🏔️</span>
+      <span class="my-trip-copy"><strong>Leh–Ladakh Bike Trip</strong><small>High mountain roads, dramatic landscapes and a classic Himalayan journey.</small></span>
+      <span class="my-trip-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="my-trip-item" href="/spiti-valley-bike-trip">
+      <span class="my-trip-icon" aria-hidden="true">⛰️</span>
+      <span class="my-trip-copy"><strong>Spiti Valley Bike Trip</strong><small>Remote villages, rugged valleys and unforgettable high-altitude routes.</small></span>
+      <span class="my-trip-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="my-trip-item" href="/tawang-bike-trip">
+      <span class="my-trip-icon" aria-hidden="true">🌲</span>
+      <span class="my-trip-copy"><strong>Tawang Bike Trip</strong><small>Mountain passes, forest roads and the landscapes of Arunachal Pradesh.</small></span>
+      <span class="my-trip-arrow" aria-hidden="true">↗</span>
+    </a>
+  </div>
 </section>
 
 <section class="content-section" id="trip-planner">
