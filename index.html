@@ -330,6 +330,24 @@ header nav a[href="discover"]:focus-visible{
  .site-header .nav-dropdown.is-open .nav-dropdown-panel{display:flex!important;visibility:visible;opacity:1;pointer-events:auto}
 }
 </style>
+
+<style id="explore-trips-section">
+#explore-trips{padding:54px 0 62px}
+#explore-trips .trip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#explore-trips .trip-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#f7f7f5;color:#111315;text-decoration:none;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+#explore-trips .trip-card:hover{transform:translateY(-4px);border-color:#c8d0c7;box-shadow:0 14px 32px rgba(17,19,21,.08)}
+#explore-trips .trip-photo{width:100%;aspect-ratio:16/8.5;object-fit:cover;display:block;background:#e9ece8}
+#explore-trips .trip-copy{padding:18px 20px 20px}
+#explore-trips .trip-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;background:#eff6c9;color:#303a0a;font-size:11px;font-weight:800;letter-spacing:.25px}
+#explore-trips .trip-copy h3{margin:12px 0 7px;font-size:19px;letter-spacing:-.35px}
+#explore-trips .trip-copy p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+#explore-trips .trip-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:#111315;font-size:13px;font-weight:800}
+#explore-trips .trip-link span{color:#9bc400;font-size:20px;transition:transform .2s}
+#explore-trips .trip-card:hover .trip-link span{transform:translateX(4px)}
+@media(max-width:850px){#explore-trips .trip-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){#explore-trips{padding:42px 0}#explore-trips .trip-grid{grid-template-columns:1fr;gap:13px}#explore-trips .trip-photo{aspect-ratio:16/9}#explore-trips .trip-copy{padding:16px}}
+</style>
+
 </head>
 <body>
 <div class="wrap">
@@ -351,6 +369,25 @@ header nav a[href="discover"]:focus-visible{
 <a href="#experience-forest">Forests</a>
 <a href="#experience-coastal">Coastal roads</a>
 </div>
+</section>
+
+
+<section id="explore-trips" aria-labelledby="explore-trips-title">
+  <div class="section-head"><h2 id="explore-trips-title">Explore trips</h2><p>Handpicked routes for your next escape.</p></div>
+  <div class="trip-grid">
+    <a class="trip-card" href="/rides/osian">
+      <img class="trip-photo" src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Osian_Monuments.JPG&width=1200" alt="Historic temples and desert landscape at Osian near Jodhpur" loading="lazy">
+      <div class="trip-copy"><span class="trip-tag">🏜️ Desert routes</span><h3>Osian Desert Ride</h3><p>Ride out from Jodhpur through open desert country, ancient temples and wide, quiet roads.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+    </a>
+    <a class="trip-card" href="/rides/ghoda-ghati-hills">
+      <img class="trip-photo" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SZGI5XbS4k0nTh5N-KPd6mzFsBbbxwtjUdeut5RAk01xOBFvQwXEQhMTziNu6avLcMzjDPqjtebdoEQ6osvFVK95iFb7HbOhw6N8jx8yTpHxwxcpCoMiChGFPZg4xAmEmwGYiVXinA1JGt=w900-h600-n-k-no-nu" alt="Rocky hills and scenic viewpoint at Ghoda Ghati near Jodhpur" loading="lazy">
+      <div class="trip-copy"><span class="trip-tag">⛰️ Hidden viewpoints</span><h3>Ghoda Ghati Hills</h3><p>Take the road towards rugged sandstone hills and a quieter viewpoint near Balsamand.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+    </a>
+    <a class="trip-card" href="/rides/kaylana">
+      <img class="trip-photo" src="https://s7ap1.scene7.com/is/image/incredibleindia/kaylana-lake-jodhpur-rajasthan-1-attr-hero?qlt=82&ts=1726660797645" alt="Kaylana Lake near Jodhpur" loading="lazy">
+      <div class="trip-copy"><span class="trip-tag">🌅 Lake escapes</span><h3>Kaylana Lake</h3><p>A relaxed ride west of the city for open skies, water views and a memorable sunset.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+    </a>
+  </div>
 </section>
 
 <section id="explore">
