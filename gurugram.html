@@ -86,17 +86,17 @@ document.querySelectorAll('.filter').forEach(btn=>btn.onclick=()=>{document.quer
 
 const commonsFile=(name)=>"https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(name)+"?width=1200";
 const rideImages={
-  "damdama-lake":commonsFile("Damdama Lake Haryana.jpg"),
-  "sultanpur-national-park":commonsFile("Sultanpur National Park Haryana.jpg"),
-  "sohna-aravalli":commonsFile("Aravalli hills Haryana.jpg"),
-  "farrukhnagar-fort":commonsFile("Farrukhnagar Fort Haryana.jpg"),
-  "manesar-countryside":commonsFile("Manesar Haryana countryside.jpg"),
-  "pataudi":commonsFile("Pataudi Palace Haryana.jpg"),
-  "aravalli-biodiversity-park":commonsFile("Aravalli Biodiversity Park Gurugram.jpg"),
-  "nh48-morning-ride":commonsFile("National Highway 48 India.jpg"),
-  "neemrana-fort":commonsFile("Neemrana Fort Palace.jpg")
+  "damdama-lake":"https://commons.wikimedia.org/wiki/Special:FilePath/Lakedamd.jpg?width=1200",
+  "sultanpur-national-park":"https://commons.wikimedia.org/wiki/Special:FilePath/Sultanpur_Bird_Sanctuary%2C_Haryana..JPG?width=1200",
+  "sohna-aravalli":"https://commons.wikimedia.org/wiki/Special:FilePath/A_bench_near_Damdama_Lake.jpg?width=1200",
+  "farrukhnagar-fort":"https://commons.wikimedia.org/wiki/Special:FilePath/Baoli_Ghaus_Ali_Shah%2C_Farrukhnagar.jpg?width=1200",
+  "manesar-countryside":"https://commons.wikimedia.org/wiki/Special:FilePath/Aravalli_Hills_near_Gurgaon.jpg?width=1200",
+  "pataudi":"https://commons.wikimedia.org/wiki/Special:FilePath/Pataudi_Palace.jpg?width=1200",
+  "aravalli-biodiversity-park":"https://commons.wikimedia.org/wiki/Special:FilePath/Aravalli_BDPark_ph1.jpg?width=1200",
+  "nh48-morning-ride":"https://commons.wikimedia.org/wiki/Special:FilePath/Aravalli_Hills_near_Gurgaon.jpg?width=1200",
+  "neemrana-fort":"https://commons.wikimedia.org/wiki/Special:FilePath/Neemrana_fort.jpg?width=1200"
 };
-document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.style.display="none";};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script>
+document.querySelectorAll(".ride[data-slug]").forEach((card,index)=>{const u=rideImages[card.dataset.slug];if(!u)return;const v=card.querySelector(".visual");const img=document.createElement("img");img.src=u;img.alt=(card.querySelector(".location")?.textContent||card.querySelector("h3")?.textContent||"Scenic motorcycle destination").replace(/^📍\s*/,"")+" — scenic motorcycle ride";img.onerror=function(){this.onerror=null;this.remove();};img.decoding="async";img.loading=index<3?"eager":"lazy";img.fetchPriority=index<3?"high":"auto";v.insertBefore(img,v.firstChild);});</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where can I go for a short bike ride near Gurugram?","acceptedAnswer":{"@type":"Answer","text":"Damdama Lake, Sultanpur National Park, Sohna and Farrukhnagar are options for shorter rides. Check current visitor access and traffic before leaving."}},{"@type":"Question","name":"What are good longer motorcycle trips from Gurugram?","acceptedAnswer":{"@type":"Answer","text":"Neemrana and Pataudi are options for a longer outing. Plan the route and return timing, and check opening hours or access restrictions in advance."}},{"@type":"Question","name":"Is Damdama Lake suitable for a weekend ride?","acceptedAnswer":{"@type":"Answer","text":"It can work as a short ride or part of a wider Sohna-Aravalli loop. Confirm current lake access and activity availability before travelling."}},{"@type":"Question","name":"When is the best time to ride around Gurugram?","acceptedAnswer":{"@type":"Answer","text":"Cooler months and early mornings are generally more comfortable. In summer, avoid the hottest part of the day and check air quality and weather conditions."}},{"@type":"Question","name":"What should I check before starting a ride?","acceptedAnswer":{"@type":"Answer","text":"Check your tyres, brakes, lights, fuel, helmet and weather forecast. Confirm destination access and keep a charged phone with offline maps."}}]}</script>
 <script src="/footer.js" defer></script>
