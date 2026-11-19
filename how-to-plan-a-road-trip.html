@@ -54,16 +54,23 @@ section.content-section{padding:48px 0;border-top:1px solid var(--line)}.section
 @media(max-width:390px){.steps-grid{grid-template-columns:1fr}}
 
 
-/* My Trips: simple vertical list, using the site's light palette */
-.my-trips-list{display:grid;grid-template-columns:1fr;gap:10px;max-width:900px}
-.my-trip-item{display:flex;align-items:center;gap:16px;padding:17px 19px;border:1px solid #e2e5e7;border-radius:15px;background:#f7f7f5;color:#111315;transition:border-color .18s ease,transform .18s ease,background .18s ease}
-.my-trip-item:hover{border-color:#b7df00;background:#fbfcf7;transform:translateX(3px)}
-.my-trip-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:12px;background:#eef1e5;font-size:24px}
-.my-trip-copy{display:grid;gap:3px;min-width:0}
-.my-trip-copy strong{font-size:15px;color:#111315}
-.my-trip-copy small{font-size:12px;line-height:1.5;color:#626b72}
-.my-trip-arrow{margin-left:auto;font-size:20px;color:#718d00}
-@media(max-width:620px){.my-trip-item{gap:11px;padding:14px}.my-trip-icon{flex-basis:40px;width:40px;height:40px;font-size:21px}.my-trip-copy strong{font-size:13px}.my-trip-copy small{font-size:11px}}
+
+/* Home-page Explore Trips tiles, arranged as a vertical planner sidebar */
+.planner-layout{grid-template-columns:minmax(0,1.12fr) minmax(230px,.78fr) minmax(245px,.78fr);gap:14px}
+.my-trips-sidebar{min-width:0;display:grid;align-content:start;gap:12px}
+.my-trips-heading h2{font-size:19px;letter-spacing:-.45px;margin:0 0 5px;color:#111315}
+.my-trips-heading p{font-size:11px;color:#626b72;margin:0 0 2px;line-height:1.45}
+.my-trips-sidebar .trip-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #e2e5e7;border-radius:16px;background:#f7f7f5;color:#111315;text-decoration:none;transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.my-trips-sidebar .trip-card:hover{transform:translateY(-3px);border-color:#c8d0c7;box-shadow:0 10px 24px rgba(17,19,21,.08)}
+.my-trips-sidebar .trip-photo{width:100%;aspect-ratio:16/8.5;object-fit:cover;display:block;background:#e9ece8}
+.my-trips-sidebar .trip-copy{padding:12px 13px 14px}
+.my-trips-sidebar .trip-tag{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:999px;background:#eff6c9;color:#303a0a;font-size:9px;font-weight:800;letter-spacing:.2px}
+.my-trips-sidebar .trip-copy h3{margin:9px 0 5px;font-size:14px;letter-spacing:-.25px;color:#111315}
+.my-trips-sidebar .trip-copy p{margin:0;color:#626b72;font-size:10px;line-height:1.45}
+.my-trips-sidebar .trip-link{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:#111315;font-size:11px;font-weight:800}
+.my-trips-sidebar .trip-link span{color:#9bc400;font-size:17px}
+@media(max-width:1100px){.planner-layout{grid-template-columns:minmax(0,1.1fr) minmax(230px,.9fr)}.my-trips-sidebar{grid-column:1/-1;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}.my-trips-heading{grid-column:1/-1}}
+@media(max-width:700px){.planner-layout{grid-template-columns:1fr}.my-trips-sidebar{grid-column:auto;grid-template-columns:1fr}.my-trips-heading{grid-column:auto}}
 
 /* Match the live HiddenRides light theme */
 :root{--bg:#fff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
@@ -123,30 +130,6 @@ body{background:#fff!important;color:#111315!important}
 
 </section>
 
-<section class="content-section my-trips-section" id="my-trips">
-  <div class="section-head">
-    <h2>My Trips</h2>
-    <p>Explore the road trips featured on HiddenRides.</p>
-  </div>
-  <div class="my-trips-list">
-    <a class="my-trip-item" href="/leh-ladakh-bike-trip">
-      <span class="my-trip-icon" aria-hidden="true">🏔️</span>
-      <span class="my-trip-copy"><strong>Leh–Ladakh Bike Trip</strong><small>High mountain roads, dramatic landscapes and a classic Himalayan journey.</small></span>
-      <span class="my-trip-arrow" aria-hidden="true">↗</span>
-    </a>
-    <a class="my-trip-item" href="/spiti-valley-bike-trip">
-      <span class="my-trip-icon" aria-hidden="true">⛰️</span>
-      <span class="my-trip-copy"><strong>Spiti Valley Bike Trip</strong><small>Remote villages, rugged valleys and unforgettable high-altitude routes.</small></span>
-      <span class="my-trip-arrow" aria-hidden="true">↗</span>
-    </a>
-    <a class="my-trip-item" href="/tawang-bike-trip">
-      <span class="my-trip-icon" aria-hidden="true">🌲</span>
-      <span class="my-trip-copy"><strong>Tawang Bike Trip</strong><small>Mountain passes, forest roads and the landscapes of Arunachal Pradesh.</small></span>
-      <span class="my-trip-arrow" aria-hidden="true">↗</span>
-    </a>
-  </div>
-</section>
-
 <section class="content-section" id="trip-planner">
 <div class="section-head"><h2>Build your road trip</h2><p>Enter your own numbers or load one of the HiddenRides route ideas below. Estimates are editable, not live quotes.</p></div>
 <div class="planner-layout">
@@ -177,6 +160,21 @@ body{background:#fff!important;color:#111315!important}
 </div>
 <p class="budget-note">Planning estimate only. It excludes unexpected repairs, medical emergencies and any costs you have not entered. Actual fuel use and prices vary by vehicle, route and conditions.</p>
 <div class="hero-actions"><button class="btn" type="button" id="print-plan">Print / save plan</button><button class="btn secondary" type="button" id="copy-plan">Copy summary</button></div>
+</aside>
+<aside class="my-trips-sidebar" id="my-trips" aria-label="My Trips">
+<div class="my-trips-heading"><h2>My Trips</h2><p>Handpicked routes for your next escape.</p></div>
+<a class="trip-card" href="/leh-ladakh-bike-trip">
+<img class="trip-photo" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/LEH_LADAKH_%28NORTHERN_RANGE_TREK_N_TOUR%29%2C_Ladakh%2C_India_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Pangong Tso lake and Himalayan mountains in Ladakh" loading="lazy">
+<div class="trip-copy"><span class="trip-tag">🏔️ Himalayan adventure</span><h3>Leh Ladakh Bike Trip</h3><p>Plan the legendary Himalayan ride with route comparisons, altitude profiles, itinerary, budget and packing tools.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+</a>
+<a class="trip-card" href="/spiti-valley-bike-trip">
+<img class="trip-photo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Spiti_River_Kaza_Himachal_Jun18_D72_7232.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Spiti Valley high-altitude cold desert landscape" loading="lazy">
+<div class="trip-copy"><span class="trip-tag">🏔️ Himalayan adventure</span><h3>Spiti Valley Bike Trip</h3><p>Explore the Shimla–Kinnaur route, Kunzum Pass crossing, interactive map, itinerary and trip budget.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+</a>
+<a class="trip-card" href="/tawang-bike-trip">
+<img class="trip-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tawang_Monastery%2C_Arunachal_Pradesh.jpg" alt="Tawang Monastery in Arunachal Pradesh" loading="lazy">
+<div class="trip-copy"><span class="trip-tag">🏔️ Eastern Himalayan adventure</span><h3>Tawang Bike Trip</h3><p>Plan the ride through Bhalukpong, Dirang and Sela, with an interactive route map, permit guidance, itinerary and budget tools.</p><span class="trip-link">Explore trip <span>→</span></span></div>
+</a>
 </aside>
 </div>
 </section>
