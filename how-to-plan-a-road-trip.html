@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080a0c">
+<meta name="theme-color" content="#ffffff">
 <title>How to Plan a Road Trip: Interactive Trip Planner & Checklist | HiddenRides</title>
 <meta name="description" content="Learn how to plan a road trip with HiddenRides. Build an itinerary, estimate fuel and trip costs, explore Indian road trip ideas and use an interactive travel checklist.">
 <link rel="canonical" href="https://hiddenrides.com/how-to-plan-a-road-trip">
@@ -56,20 +56,6 @@ section.content-section{padding:48px 0;border-top:1px solid var(--line)}.section
 
 
 
-/* Slightly larger My Trips tiles while preserving the compact right rail */
-.hero-with-trips{grid-template-columns:minmax(0,1fr) 250px;gap:24px}
-.hero-with-trips .my-trips-sidebar{gap:11px}
-.hero-with-trips .my-trips-heading h2{font-size:17px}
-.hero-with-trips .my-trips-heading p{font-size:10.5px}
-.hero-with-trips .my-trips-sidebar .trip-card{grid-template-columns:88px minmax(0,1fr);min-height:96px;border-radius:12px}
-.hero-with-trips .my-trips-sidebar .trip-photo{width:88px;min-height:96px}
-.hero-with-trips .my-trips-sidebar .trip-copy{padding:9px 10px}
-.hero-with-trips .my-trips-sidebar .trip-tag{font-size:8px;padding:3px 6px}
-.hero-with-trips .my-trips-sidebar .trip-copy h3{font-size:11px;line-height:1.3;margin:6px 0 3px}
-.hero-with-trips .my-trips-sidebar .trip-link{font-size:10px;margin-top:3px}
-@media(max-width:760px){.hero-with-trips{grid-template-columns:1fr;gap:18px}.hero-with-trips .my-trips-sidebar .trip-card{min-height:0}.hero-with-trips .my-trips-sidebar .trip-photo{width:100%;min-height:0}}
-@media(max-width:480px){.hero-with-trips .my-trips-sidebar .trip-card{grid-template-columns:88px minmax(0,1fr)}.hero-with-trips .my-trips-sidebar .trip-photo{width:88px;min-height:82px}}
-
 /* Match the live HiddenRides light theme */
 :root{--bg:#fff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
 html,body{background:#fff!important;color:#111315!important}
@@ -119,7 +105,7 @@ body{background:#fff!important;color:#111315!important}
 </nav></div><a class="find-ride-button" href="/discover">Find a ride</a></div>
 </header>
 <main>
-<section class="hero hero-with-trips">
+<section class="hero">
 <div class="hero-copy">
 <div class="eyebrow">THE HIDDENRIDES ROAD TRIP GUIDE</div>
 <h1>How to plan a road trip <span>without missing the good stuff.</span></h1>
@@ -127,21 +113,6 @@ body{background:#fff!important;color:#111315!important}
 <div class="hero-actions"><a class="btn" href="#trip-planner">Plan my trip ↓</a><a class="btn secondary" href="#route-ideas">Explore road trip ideas</a></div>
 <div class="hero-stats"><span>Interactive budget estimator</span><span>Day-by-day itinerary builder</span><span>Travel-ready checklist</span></div>
 </div>
-<aside class="my-trips-sidebar" id="my-trips" aria-label="My Trips">
-<div class="my-trips-heading"><h2>My Trips</h2><p>Handpicked routes for your next escape.</p></div>
-<a class="trip-card" href="/leh-ladakh-bike-trip">
-<img class="trip-photo" src="https://upload.wikimedia.org/wikipedia/commons/e/eb/LEH_LADAKH_%28NORTHERN_RANGE_TREK_N_TOUR%29%2C_Ladakh%2C_India_%28Unsplash%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" alt="Pangong Tso lake and Himalayan mountains in Ladakh" loading="lazy">
-<div class="trip-copy"><span class="trip-tag">🏔️ Himalayan adventure</span><h3>Leh Ladakh Bike Trip</h3><p>Plan the legendary Himalayan ride with route comparisons, altitude profiles, itinerary, budget and packing tools.</p><span class="trip-link">Explore trip <span>→</span></span></div>
-</a>
-<a class="trip-card" href="/spiti-valley-bike-trip">
-<img class="trip-photo" src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Spiti_River_Kaza_Himachal_Jun18_D72_7232.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="Spiti Valley high-altitude cold desert landscape" loading="lazy">
-<div class="trip-copy"><span class="trip-tag">🏔️ Himalayan adventure</span><h3>Spiti Valley Bike Trip</h3><p>Explore the Shimla–Kinnaur route, Kunzum Pass crossing, interactive map, itinerary and trip budget.</p><span class="trip-link">Explore trip <span>→</span></span></div>
-</a>
-<a class="trip-card" href="/tawang-bike-trip">
-<img class="trip-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tawang_Monastery%2C_Arunachal_Pradesh.jpg" alt="Tawang Monastery in Arunachal Pradesh" loading="lazy">
-<div class="trip-copy"><span class="trip-tag">🏔️ Eastern Himalayan adventure</span><h3>Tawang Bike Trip</h3><p>Plan the ride through Bhalukpong, Dirang and Sela, with an interactive route map, permit guidance, itinerary and budget tools.</p><span class="trip-link">Explore trip <span>→</span></span></div>
-</a>
-</aside>
 </section>
 
 <section class="content-section" id="trip-planner">
@@ -173,7 +144,7 @@ body{background:#fff!important;color:#111315!important}
 <div class="cost-row"><span>Estimated group total</span><strong id="group-cost">₹0</strong></div>
 </div>
 <p class="budget-note">Planning estimate only. It excludes unexpected repairs, medical emergencies and any costs you have not entered. Actual fuel use and prices vary by vehicle, route and conditions.</p>
-<div class="hero-actions"><button class="btn" type="button" id="print-plan">Print / save plan</button><button class="btn secondary" type="button" id="copy-plan">Copy summary</button></div>
+<div class="hero-actions"><button class="btn" type="button" id="print-plan">Print / save plan</button><button class="btn secondary" type="button" id="copy-plan">Copy summary</button><button class="btn secondary" type="button" id="save-plan">Save trip on this device</button></div>
 </aside>
 
 </div>
@@ -329,9 +300,30 @@ $("copy-plan").addEventListener("click",()=>{
  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(summary).then(()=>{$("copy-plan").textContent="Copied ✓";setTimeout(()=>$("copy-plan").textContent="Copy summary",1800)}).catch(()=>window.prompt("Copy your trip summary:",summary));}
  else{window.prompt("Copy your trip summary:",summary);}
 });
+
+// Save trip details and checklist progress locally on this device.
+const storageKey="hiddenrides-road-trip-planner-v1";
+function readSaved(){
+ try{return JSON.parse(localStorage.getItem(storageKey)||"{}");}catch(e){return {};}
+}
+function saveLocal(){
+ try{
+  const data={fields:{},checks:boxes.map(b=>b.checked)};
+  fields.forEach(id=>data.fields[id]=$(id).value);
+  localStorage.setItem(storageKey,JSON.stringify(data));
+  $("save-plan").textContent="Saved ✓";
+  setTimeout(()=>$("save-plan").textContent="Save trip on this device",1600);
+ }catch(e){$("save-plan").textContent="Save unavailable";}
+}
+const saved=readSaved();
+if(saved.fields){
+ fields.forEach(id=>{if(saved.fields[id]!==undefined)$(id).value=saved.fields[id];});
+}
+
 const boxes=[...document.querySelectorAll(".check-item input")];
 function updateProgress(){const done=boxes.filter(b=>b.checked).length;$("check-progress").textContent=done+" of "+boxes.length+" items complete";$("progress-bar").style.width=(done/boxes.length*100)+"%";}
-boxes.forEach(b=>b.addEventListener("change",updateProgress));
+boxes.forEach((b,i)=>{if(saved.checks&&saved.checks[i]!==undefined)b.checked=!!saved.checks[i];b.addEventListener("change",()=>{updateProgress();saveLocal();});});
+$("save-plan").addEventListener("click",saveLocal);
 $("map-link").href="https://www.google.com/maps/dir/?api=1&origin=Jaipur&destination=Rajasthan%20road%20trip";
 calculate();updateProgress();buildItinerary();
 })();
