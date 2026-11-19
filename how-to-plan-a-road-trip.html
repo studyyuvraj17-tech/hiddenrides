@@ -52,6 +52,41 @@ section.content-section{padding:48px 0;border-top:1px solid var(--line)}.section
 @media(max-width:900px){.planner-layout{grid-template-columns:1fr}.budget-result{position:static}.route-presets{grid-template-columns:repeat(2,minmax(0,1fr))}.steps-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.hero{padding:105px 0 38px}.hero h1{letter-spacing:-2.6px}.hero p{font-size:14px}.hero-stats{gap:6px}.hero-stats span{font-size:10px}.section-head{display:block}.section-head p{margin-top:6px}.form-grid,.checklist,.tips-grid,.itinerary-layout{grid-template-columns:1fr}.route-presets{grid-template-columns:1fr}.steps-grid{grid-template-columns:1fr 1fr}.panel{padding:16px}.home-footer{grid-template-columns:1fr}.home-footer-bottom{display:block}.home-footer-bottom p+p{margin-top:7px}}
 @media(max-width:390px){.steps-grid{grid-template-columns:1fr}}
+
+/* Match the live HiddenRides light theme */
+:root{--bg:#fff;--panel:#f7f7f5;--panel2:#f1f2ef;--text:#111315;--muted:#626b72;--line:#e2e5e7;--lime:#b7df00}
+html,body{background:#fff!important;color:#111315!important}
+body{background:#fff!important;color:#111315!important}
+.site-header{color:#111315;border-bottom-color:#e2e5e7}
+.site-header .logo{color:#111315}
+.site-header .logo b{color:#719000}
+.site-header .nav-dropdown-toggle,.site-header .find-ride-button{color:#111315!important;border-color:#cbd0d3;background:#f7f7f5}
+.site-header .nav-dropdown-toggle:hover,.site-header .find-ride-button:hover{background:#eef0eb}
+.site-header .nav-dropdown-panel{background:#fff;border-color:#e2e5e7;box-shadow:0 18px 45px rgba(0,0,0,.12)}
+.site-header .nav-dropdown-panel a{color:#111315!important}
+.site-header .nav-dropdown-panel a:hover,.site-header .nav-dropdown-panel a:focus-visible{background:#f1f2ef;color:#526b00!important}
+.hero:before{background:radial-gradient(circle,rgba(183,223,0,.12),transparent 70%)}
+.hero h1,.section-head h2,.panel h3,.route-card h3,.step-card h3,.itinerary-output h3,.faq-item summary,.callout strong{color:#111315}
+.hero h1 span{color:#737b82}
+.hero p,.section-head p,.panel-intro,.step-card p,.route-card p,.tip-card p,.faq-item p,.callout p{color:#626b72}
+.eyebrow,.step-number,.route-card button,.day-item b{color:#719000}
+.hero-stats span{background:#f7f7f5;border-color:#e2e5e7;color:#626b72}
+.btn.secondary{color:#111315;border-color:#cbd0d3}
+.panel,.route-card,.step-card,.itinerary-output,.day-item,.check-item,.tip-card,.faq-item{background:#f7f7f5;border-color:#e2e5e7;color:#111315}
+.field label{color:#454d52}
+.field input,.field select{background:#fff;border-color:#d9dde0;color:#111315}
+.field input::placeholder{color:#8a9298}
+.cost-row{color:#626b72;border-bottom-color:#e2e5e7}
+.cost-row strong{color:#111315}
+.budget-note,.budget-sub,.progress-label{color:#737b82}
+.route-meta span{color:#626b72;border-color:#d9dde0}
+.day-item{background:#fff}
+.check-item{color:#343b40}
+.progress-wrap{background:#e5e8e9}
+.callout{background:linear-gradient(120deg,rgba(183,223,0,.12),#f7f7f5);border-color:#dce5b5}
+.faq-item summary:after{color:#719000}
+@media(max-width:720px){.site-header .nav-dropdown-toggle,.site-header .find-ride-button{background:#f7f7f5;color:#111315!important;border-color:#cbd0d3}.site-header .nav-dropdown-panel{background:#fff}}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"How to Plan a Road Trip","description":"Interactive road trip planning guide with itinerary, budget estimator, route ideas and checklist.","url":"https://hiddenrides.com/how-to-plan-a-road-trip"}
@@ -269,5 +304,6 @@ calculate();updateProgress();buildItinerary();
 <script>
 (()=>{function initSiteMenu(){const dropdown=document.querySelector('.site-header .nav-dropdown');const toggle=document.querySelector('.site-header .nav-dropdown-toggle');const panel=document.querySelector('.site-header #site-menu');if(!dropdown||!toggle||!panel||toggle.dataset.menuReady)return;toggle.dataset.menuReady='1';const close=()=>{dropdown.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');};toggle.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const open=!dropdown.classList.contains('is-open');dropdown.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));});panel.addEventListener('click',e=>{if(e.target.closest('a'))close();});document.addEventListener('click',e=>{if(!dropdown.contains(e.target))close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){close();toggle.focus();}});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initSiteMenu);}else{initSiteMenu();}})();
 </script>
+<script src="/footer.js" defer></script>
 </body>
 </html>
