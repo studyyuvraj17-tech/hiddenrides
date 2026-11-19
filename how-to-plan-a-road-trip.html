@@ -90,6 +90,31 @@ body{background:#fff!important;color:#111315!important}
 .faq-item summary:after{color:#719000}
 @media(max-width:720px){.site-header .nav-dropdown-toggle,.site-header .find-ride-button{background:#f7f7f5;color:#111315!important;border-color:#cbd0d3}.site-header .nav-dropdown-panel{background:#fff}}
 
+
+/* Scenic visuals and embedded route map, keeping the existing page layout */
+.route-card{overflow:hidden;padding:0}
+.route-card .route-image{display:block;width:100%;height:148px;object-fit:cover}
+.route-card .route-card-content{padding:16px;display:flex;flex-direction:column;align-items:flex-start;flex:1}
+.route-card .route-icon{display:none}
+.route-card .route-card-content h3{margin:0 0 7px}
+.route-card .route-card-content p{margin-bottom:13px}
+.route-card .route-card-content .route-meta{margin-top:auto}
+.route-card .route-card-content button{margin-top:14px}
+.route-card .route-card-content>a{display:inline-flex}
+.route-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(17,19,21,.09);transition:transform .2s ease,box-shadow .2s ease}
+.map-panel{margin-top:16px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#f7f7f5}
+.map-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px}
+.map-panel-head strong{font-size:13px;color:#111315}
+.map-panel-head span{font-size:10px;color:var(--muted)}
+.route-map{display:block;width:100%;height:310px;border:0;background:#eef0eb}
+.scenic-strip{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:12px;margin:20px 0 4px}
+.scenic-tile{position:relative;min-height:160px;border-radius:16px;overflow:hidden;background:#e8ece8}
+.scenic-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.scenic-tile:hover img{transform:scale(1.04)}
+.scenic-tile:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.scenic-tile span{position:absolute;z-index:1;left:14px;bottom:12px;color:#fff;font-weight:850;font-size:13px;text-shadow:0 1px 5px #000}
+@media(max-width:620px){.route-card .route-image{height:170px}.scenic-strip{grid-template-columns:1fr 1fr}.scenic-tile:first-child{grid-column:1/-1}.route-map{height:250px}}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","name":"How to Plan a Road Trip","description":"Interactive road trip planning guide with itinerary, budget estimator, route ideas and checklist.","url":"https://hiddenrides.com/how-to-plan-a-road-trip"}
@@ -152,13 +177,18 @@ body{background:#fff!important;color:#111315!important}
 
 <section class="content-section" id="route-ideas">
 <div class="section-head"><h2>Start with a HiddenRides trip</h2><p>Load a suggested planning template or open the destination guide for more route details.</p></div>
+<div class="scenic-strip" aria-label="Road trip inspiration">
+<a class="scenic-tile" href="/leh-ladakh-bike-trip"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85" alt="Himalayan mountain scenery" loading="lazy"><span>Chase the Himalayas</span></a>
+<a class="scenic-tile" href="/jodhpur"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85" alt="Open road across a wide landscape" loading="lazy"><span>Explore Rajasthan</span></a>
+<a class="scenic-tile" href="/pune"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85" alt="Lake and green hills" loading="lazy"><span>Find a quiet escape</span></a>
+</div>
 <div class="route-presets">
-<article class="route-card"><div class="route-icon">🏔️</div><h3>Leh–Ladakh bike trip</h3><p>High-altitude roads, mountain passes and a multi-day Himalayan adventure. Allow time for acclimatisation and check seasonal access.</p><div class="route-meta"><span>8 days suggested</span><span>850 km planning template</span></div><button type="button" data-route="ladakh">Use this trip template →</button><a class="route-meta" href="/leh-ladakh-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Ladakh trip guide ↗</a></article>
-<article class="route-card"><div class="route-icon">🏜️</div><h3>Spiti Valley bike trip</h3><p>A mountain circuit with remote settlements and changing road conditions. Build in buffer days and verify route access before leaving.</p><div class="route-meta"><span>8 days suggested</span><span>700 km planning template</span></div><button type="button" data-route="spiti">Use this trip template →</button><a class="route-meta" href="/spiti-valley-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Spiti trip guide ↗</a></article>
-<article class="route-card"><div class="route-icon">🌄</div><h3>Tawang bike trip</h3><p>Plan for winding mountain roads, weather changes, permits where applicable and a slower pace through the Northeast.</p><div class="route-meta"><span>6 days suggested</span><span>600 km planning template</span></div><button type="button" data-route="tawang">Use this trip template →</button><a class="route-meta" href="/tawang-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Tawang trip guide ↗</a></article>
-<article class="route-card"><div class="route-icon">🐪</div><h3>Jodhpur to Osian</h3><p>A shorter Rajasthan outing for desert landscapes and heritage. Check opening hours, local access and return timing.</p><div class="route-meta"><span>1 day suggested</span><span>130 km planning template</span></div><button type="button" data-route="osian">Use this trip template →</button><a class="route-meta" href="/jodhpur" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Jodhpur rides ↗</a></article>
-<article class="route-card"><div class="route-icon">🏰</div><h3>Jaipur and the Aravallis</h3><p>Mix viewpoints, heritage stops and countryside roads around Jaipur. Start early and avoid rushing between stops.</p><div class="route-meta"><span>1 day suggested</span><span>180 km planning template</span></div><button type="button" data-route="jaipur">Use this trip template →</button><a class="route-meta" href="/jaipur" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Jaipur rides ↗</a></article>
-<article class="route-card"><div class="route-icon">🌿</div><h3>Pune and the Western Ghats</h3><p>Ghat roads, lakes and hill destinations make a flexible weekend ride. Recheck monsoon conditions and road closures.</p><div class="route-meta"><span>2 days suggested</span><span>300 km planning template</span></div><button type="button" data-route="pune">Use this trip template →</button><a class="route-meta" href="/pune" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Pune rides ↗</a></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85" alt="Snow-covered Himalayan mountain peaks" loading="lazy" decoding="async"><div class="route-card-content"><h3>Leh–Ladakh bike trip</h3><p>High-altitude roads, mountain passes and a multi-day Himalayan adventure. Allow time for acclimatisation and check seasonal access.</p><div class="route-meta"><span>8 days suggested</span><span>850 km planning template</span></div><button type="button" data-route="ladakh">Use this trip template →</button><a class="route-meta" href="/leh-ladakh-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Ladakh trip guide ↗</a></div></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85" alt="High mountain road through a dramatic landscape" loading="lazy" decoding="async"><div class="route-card-content"><h3>Spiti Valley bike trip</h3><p>A mountain circuit with remote settlements and changing road conditions. Build in buffer days and verify route access before leaving.</p><div class="route-meta"><span>8 days suggested</span><span>700 km planning template</span></div><button type="button" data-route="spiti">Use this trip template →</button><a class="route-meta" href="/spiti-valley-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Spiti trip guide ↗</a></div></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85" alt="Lake surrounded by forested hills" loading="lazy" decoding="async"><div class="route-card-content"><h3>Tawang bike trip</h3><p>Plan for winding mountain roads, weather changes, permits where applicable and a slower pace through the Northeast.</p><div class="route-meta"><span>6 days suggested</span><span>600 km planning template</span></div><button type="button" data-route="tawang">Use this trip template →</button><a class="route-meta" href="/tawang-bike-trip" style="color:var(--lime);font-size:11px;margin-top:10px">Open Tawang trip guide ↗</a></div></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85" alt="Desert road trip landscape" loading="lazy" decoding="async"><div class="route-card-content"><h3>Jodhpur to Osian</h3><p>A shorter Rajasthan outing for desert landscapes and heritage. Check opening hours, local access and return timing.</p><div class="route-meta"><span>1 day suggested</span><span>130 km planning template</span></div><button type="button" data-route="osian">Use this trip template →</button><a class="route-meta" href="/jodhpur" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Jodhpur rides ↗</a></div></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=85" alt="Mountain range under a starry sky" loading="lazy" decoding="async"><div class="route-card-content"><h3>Jaipur and the Aravallis</h3><p>Mix viewpoints, heritage stops and countryside roads around Jaipur. Start early and avoid rushing between stops.</p><div class="route-meta"><span>1 day suggested</span><span>180 km planning template</span></div><button type="button" data-route="jaipur">Use this trip template →</button><a class="route-meta" href="/jaipur" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Jaipur rides ↗</a></div></article>
+<article class="route-card"><img class="route-image" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1000&q=85" alt="Scenic forest and mountain landscape" loading="lazy" decoding="async"><div class="route-card-content"><h3>Pune and the Western Ghats</h3><p>Ghat roads, lakes and hill destinations make a flexible weekend ride. Recheck monsoon conditions and road closures.</p><div class="route-meta"><span>2 days suggested</span><span>300 km planning template</span></div><button type="button" data-route="pune">Use this trip template →</button><a class="route-meta" href="/pune" style="color:var(--lime);font-size:11px;margin-top:10px">Explore Pune rides ↗</a></div></article>
 </div>
 <p class="budget-note" style="margin-top:13px">Route distances above are illustrative planner starting points, not verified turn-by-turn distances. Confirm your actual route, permits, road status and total distance with current navigation and local authorities.</p>
 </section>
@@ -171,7 +201,11 @@ body{background:#fff!important;color:#111315!important}
 <button class="btn" type="button" id="build-itinerary">Build my itinerary</button>
 <a class="btn secondary" id="map-link" href="https://www.google.com/maps" target="_blank" rel="noopener">Open route in Google Maps ↗</a>
 </div>
-<div class="itinerary-output" aria-live="polite"><h3 id="itinerary-title">Your road trip outline</h3><div class="day-list" id="day-list"><div class="day-item"><b>DAY 1</b><div><strong>Start with a sensible first leg</strong><p>Build in fuel, food, rest and time to explore. Your personalised outline will appear here.</p></div></div></div></div>
+<div class="itinerary-output" aria-live="polite"><h3 id="itinerary-title">Your road trip outline</h3><div class="day-list" id="day-list"><div class="day-item"><b>DAY 1</b><div><strong>Start with a sensible first leg</strong><p>Build in fuel, food, rest and time to explore. Your personalised outline will appear here.</p></div></div>
+<div class="map-panel">
+<div class="map-panel-head"><strong>Route preview</strong><span>Map updates from your start and destination</span></div>
+<iframe id="route-map" class="route-map" title="Google Maps route preview" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?output=embed&q=Jaipur%20to%20Rajasthan"></iframe>
+</div>
 </div>
 </section>
 
@@ -199,22 +233,22 @@ body{background:#fff!important;color:#111315!important}
 <section class="content-section" id="planning-tips">
 <div class="section-head"><h2>What makes a road trip go well?</h2><p>A few decisions before departure prevent a lot of avoidable trouble on the road.</p></div>
 <div class="steps-grid">
-<article class="step-card"><div class="step-number">01 / ROUTE</div><h3>Plan the whole journey</h3><p>Calculate the return journey, local detours and rest stops. Check whether the road is suitable for your vehicle and experience.</p></article>
-<article class="step-card"><div class="step-number">02 / TIMING</div><h3>Keep the day realistic</h3><p>Estimate riding time separately from breaks and sightseeing. Avoid planning long unfamiliar stretches after dark.</p></article>
-<article class="step-card"><div class="step-number">03 / BUDGET</div><h3>Keep an emergency buffer</h3><p>Budget for fuel, tolls, stays, food, parking and repairs. Keep emergency funds separate from your planned spending.</p></article>
-<article class="step-card"><div class="step-number">04 / VEHICLE</div><h3>Check before you leave</h3><p>Inspect tyres, brakes, lights, chain, oil and coolant as applicable. Get unresolved mechanical issues checked by a qualified mechanic.</p></article>
+<article class="step-card"><div class="step-number">01 / ROUTE</div><h3>Plan the whole journey</h3><p>Calculate the return journey, local detours and rest stops. Check whether the road is suitable for your vehicle and experience.</p></div></article>
+<article class="step-card"><div class="step-number">02 / TIMING</div><h3>Keep the day realistic</h3><p>Estimate riding time separately from breaks and sightseeing. Avoid planning long unfamiliar stretches after dark.</p></div></article>
+<article class="step-card"><div class="step-number">03 / BUDGET</div><h3>Keep an emergency buffer</h3><p>Budget for fuel, tolls, stays, food, parking and repairs. Keep emergency funds separate from your planned spending.</p></div></article>
+<article class="step-card"><div class="step-number">04 / VEHICLE</div><h3>Check before you leave</h3><p>Inspect tyres, brakes, lights, chain, oil and coolant as applicable. Get unresolved mechanical issues checked by a qualified mechanic.</p></div></article>
 </div>
 </section>
 
 <section class="content-section">
 <div class="section-head"><h2>Useful places and ride ideas</h2><p>Use HiddenRides city guides to find stops and scenic places around your starting point.</p></div>
 <div class="tips-grid">
-<article class="tip-card"><strong>🏜️ Rajasthan routes</strong><p>Explore desert roads, lakes and heritage stops through <a href="/jodhpur" style="color:var(--lime)">Jodhpur</a> and <a href="/jaipur" style="color:var(--lime)">Jaipur</a> city guides.</p></article>
-<article class="tip-card"><strong>🏔️ Mountain journeys</strong><p>Read the dedicated <a href="/leh-ladakh-bike-trip" style="color:var(--lime)">Ladakh</a>, <a href="/spiti-valley-bike-trip" style="color:var(--lime)">Spiti</a> and <a href="/tawang-bike-trip" style="color:var(--lime)">Tawang</a> trip guides before planning a high-altitude journey.</p></article>
-<article class="tip-card"><strong>🌊 Coastal and hill routes</strong><p>Browse <a href="/mumbai" style="color:var(--lime)">Mumbai</a> and <a href="/pune" style="color:var(--lime)">Pune</a> for coastal escapes, ghats, lakes and weekend route ideas.</p></article>
-<article class="tip-card"><strong>🌄 More cities</strong><p>Find ride ideas around <a href="/bengaluru" style="color:var(--lime)">Bengaluru</a>, <a href="/delhi-ncr" style="color:var(--lime)">Delhi NCR</a> and <a href="/hyderabad" style="color:var(--lime)">Hyderabad</a>.</p></article>
-<article class="tip-card"><strong>🧭 Find your next stop</strong><p>Use <a href="/discover" style="color:var(--lime)">Find a ride</a> to browse destinations by starting city and discover places to add to your itinerary.</p></article>
-<article class="tip-card"><strong>🏕️ Make the journey count</strong><p>Explore experiences such as <a href="/experience-camping" style="color:var(--lime)">camping</a>, <a href="/experience-coastal-rides" style="color:var(--lime)">coastal rides</a> and <a href="/experience-waterfalls" style="color:var(--lime)">waterfall routes</a>.</p></article>
+<article class="tip-card"><strong>🏜️ Rajasthan routes</strong><p>Explore desert roads, lakes and heritage stops through <a href="/jodhpur" style="color:var(--lime)">Jodhpur</a> and <a href="/jaipur" style="color:var(--lime)">Jaipur</a> city guides.</p></div></article>
+<article class="tip-card"><strong>🏔️ Mountain journeys</strong><p>Read the dedicated <a href="/leh-ladakh-bike-trip" style="color:var(--lime)">Ladakh</a>, <a href="/spiti-valley-bike-trip" style="color:var(--lime)">Spiti</a> and <a href="/tawang-bike-trip" style="color:var(--lime)">Tawang</a> trip guides before planning a high-altitude journey.</p></div></article>
+<article class="tip-card"><strong>🌊 Coastal and hill routes</strong><p>Browse <a href="/mumbai" style="color:var(--lime)">Mumbai</a> and <a href="/pune" style="color:var(--lime)">Pune</a> for coastal escapes, ghats, lakes and weekend route ideas.</p></div></article>
+<article class="tip-card"><strong>🌄 More cities</strong><p>Find ride ideas around <a href="/bengaluru" style="color:var(--lime)">Bengaluru</a>, <a href="/delhi-ncr" style="color:var(--lime)">Delhi NCR</a> and <a href="/hyderabad" style="color:var(--lime)">Hyderabad</a>.</p></div></article>
+<article class="tip-card"><strong>🧭 Find your next stop</strong><p>Use <a href="/discover" style="color:var(--lime)">Find a ride</a> to browse destinations by starting city and discover places to add to your itinerary.</p></div></article>
+<article class="tip-card"><strong>🏕️ Make the journey count</strong><p>Explore experiences such as <a href="/experience-camping" style="color:var(--lime)">camping</a>, <a href="/experience-coastal-rides" style="color:var(--lime)">coastal rides</a> and <a href="/experience-waterfalls" style="color:var(--lime)">waterfall routes</a>.</p></div></article>
 </div>
 </section>
 
@@ -288,10 +322,12 @@ function buildItinerary(){
  }
  const query=encodeURIComponent(origin+" to "+destination);
  $("map-link").href="https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(origin)+"&destination="+encodeURIComponent(destination);
+ $("route-map").src="https://www.google.com/maps?output=embed&q="+encodeURIComponent(origin+" to "+destination);
 }
 $("build-itinerary").addEventListener("click",buildItinerary);
 ["origin","destination","distance","days"].forEach(id=>$(id).addEventListener("change",()=>{
  $("map-link").href="https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent($("origin").value)+"&destination="+encodeURIComponent($("destination").value);
+ $("route-map").src="https://www.google.com/maps?output=embed&q="+encodeURIComponent($("origin").value+" to "+$("destination").value);
 }));
 $("print-plan").addEventListener("click",()=>window.print());
 $("copy-plan").addEventListener("click",()=>{
