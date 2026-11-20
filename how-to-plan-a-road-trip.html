@@ -215,8 +215,8 @@ function routeUrl(){
 function buildItinerary(){
  const p=calculate(),origin=$("origin").value.trim()||"Your start",destination=$("destination").value.trim()||"your destination";
  const pace=$("pace").value,start=$("start-time").value;
- const factor=pace==="easy"?.72:pace==="long"?1.16:1;
  const average=p.distance/p.days;
+ const paceNote=pace==="easy"?"Keep this leg relaxed and add longer breaks.":pace==="long"?"Longer riding day selected; only continue if road, weather and rider condition allow.":"Keep a steady pace with planned fuel and rest stops.";
  const list=$("day-list");list.replaceChildren();
  $("itinerary-title").textContent=p.days+"-day ride · "+origin+" to "+destination;
  for(let i=1;i<=p.days;i++){
@@ -224,8 +224,8 @@ function buildItinerary(){
   const label=document.createElement("b");label.textContent="DAY "+String(i).padStart(2,"0");
   const body=document.createElement("div"),heading=document.createElement("strong"),note=document.createElement("p");
   heading.textContent=i===1?"Roll out from "+origin:i===p.days?"Reach "+destination+" / return leg":"Ride towards "+destination;
-  const km=Math.round(average*(i===p.days?Math.max(.55,1-(p.days-1)*(factor-1)):factor));
-  note.textContent="Planning allowance: about "+km+" km. Start around "+start+". Add fuel, food and rest breaks; choose an overnight stop after checking actual road time.";
+  const km=Math.round(average);
+  note.textContent="Planning allowance: about "+km+" km. "+paceNote+" Start around "+start+". Add fuel, food and rest breaks; choose an overnight stop after checking actual road time.";
   body.append(heading,note);day.append(label,body);list.append(day);
  }
  routeUrl();
